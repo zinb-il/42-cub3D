@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "cstring": "c",
+        "unistd.h": "c",
+        "sstream": "c"
+    }
+}
