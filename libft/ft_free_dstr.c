@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_free_dstr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/02 11:01:41 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/16 22:18:16 by ziloughm         ###   ########.fr       */
+/*   Created: 2022/11/16 20:02:17 by ziloughm          #+#    #+#             */
+/*   Updated: 2022/11/16 20:04:23 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(char *str)
+void	free_dstr(char	**str)
 {
 	int	i;
 
 	i = 0;
-	if (!str)
-		return (i);
-	while (str[i] != '\0')
+	while (str && str[i])
+	{
+		free(str[i]);
 		i++;
-	return (i);
+	}
+	free(str);
 }

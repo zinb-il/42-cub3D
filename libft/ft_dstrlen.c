@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_dstrlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/02 11:01:41 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/16 22:18:16 by ziloughm         ###   ########.fr       */
+/*   Created: 2022/11/16 18:35:32 by ziloughm          #+#    #+#             */
+/*   Updated: 2022/11/16 22:05:13 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(char *str)
+size_t	ft_dstrlen(char **str)
 {
 	int	i;
 
 	i = 0;
 	if (!str)
 		return (i);
-	while (str[i] != '\0')
+	while (str && str[i] != '\0')
 		i++;
 	return (i);
 }

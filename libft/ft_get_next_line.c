@@ -6,11 +6,32 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 17:50:28 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/15 18:00:54 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/11/16 22:29:39 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static void	add_buff(char c, char **buff)
+{
+	int		i;
+	int		j;
+	char	*buf;
+
+	i = (int)ft_strlen(*buff) + 1;
+	buf = (char *)malloc(sizeof(char ) * (i + 1));
+	j = 0;
+	while ((*buff) && (*buff)[j])
+	{
+		buf[j] = (*buff)[j];
+		j++;
+	}
+	if (*buff)
+		free(*buff);
+	buf[j] = c;
+	buf[j + 1] = 0;
+	(*buff) = buf;
+}
 
 char	*get_next_line(int fd)
 {
@@ -20,17 +41,17 @@ char	*get_next_line(int fd)
 	char	c;
 
 	i = 0;
-	buff = malloc(10000);
+	buff = 0;
 	rd = read(fd, &c, 1);
 	while (rd > 0)
 	{
-		buff[i] = c;
+		add_buff(c, &buff);
 		i++;
 		if (c == '\n')
 			break ;
 		rd = read(fd, &c, 1);
 	}
-	if ((!buff[i - 1] && !rd) || rd == -1)
+	if ((!buff && !rd) || rd == -1)
 	{
 		free(buff);
 		return (0);

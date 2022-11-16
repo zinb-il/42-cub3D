@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 23:08:36 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/15 22:45:20 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/11/16 22:08:52 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	main(int ac, char **av)
 	gm = (t_game *)malloc(sizeof(t_game));
 	if (!gm)
 		ft_print_errors(strerror(errno));
+	ft_init_game(&gm);
 	ft_valid_map_params(av[1], &gm);
 	return (0);
 }
