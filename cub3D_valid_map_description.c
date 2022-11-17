@@ -6,45 +6,11 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 21:46:05 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/17 00:13:36 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/11/18 00:55:43 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
-
-void	ft_check_colors(char **params, t_game **game)
-{
-	char	**colors;
-
-	colors = ft_split(params[1], ',');
-	if (ft_dstrlen(colors) != 3)
-	{
-		free_dstr(params);
-		free_dstr(colors);
-		ft_print_errors(ERROR_INVALID_PCOLORS);
-	}
-	if (!ft_strcmp(COLOR_F, params[0]))
-		(*game)->c_f = colors;
-	else
-		(*game)->c_c = colors;
-}
-
-void	ft_check_walls_files(char **params, t_game **game)
-{
-	int		w;
-	int		y;
-
-	w = 0;
-	y = 0;
-	if (!ft_strcmp(W_NO, params[0]))
-		(*game)->w_no = mlx_xpm_file_to_image((*game)->mlx, params[1], &w, &y);
-	else if (!ft_strcmp(W_SO, params[0]))
-		(*game)->w_so = mlx_xpm_file_to_image((*game)->mlx, params[1], &w, &y);
-	else if (!ft_strcmp(W_WE, params[0]))
-		(*game)->w_we = mlx_xpm_file_to_image((*game)->mlx, params[1], &w, &y);
-	else if (!ft_strcmp(W_EA, params[0]))
-		(*game)->w_ea = mlx_xpm_file_to_image((*game)->mlx, params[1], &w, &y);
-}
 
 void	ft_check_walls_files_colors(char *line, t_game **game)
 {

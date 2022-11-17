@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:58:53 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/17 00:15:15 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/11/18 00:52:12 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	ft_print_errors(char *msg)
 {
 	if (msg)
 		printf("ERROR\n: %s\n", msg);
+	system("leaks cub3D");
 	exit (EXIT_FAILURE);
 }
 
@@ -35,4 +36,6 @@ void	ft_init_game(t_game **game)
 {
 	(*game)->map = (void *)0;
 	(*game)->mlx = mlx_init();
+	(*game)->c_c[0] = -1;
+	(*game)->c_f[0] = -1;
 }

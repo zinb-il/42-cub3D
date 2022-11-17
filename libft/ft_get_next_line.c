@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 17:50:28 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/16 22:29:39 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/11/18 00:12:05 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,17 @@ char	*get_next_line(int fd)
 	char	c;
 
 	i = 0;
-	buff = 0;
+	buff = ft_calloc(2, sizeof(char));
 	rd = read(fd, &c, 1);
 	while (rd > 0)
 	{
-		add_buff(c, &buff);
-		i++;
 		if (c == '\n')
 			break ;
+		i++;
+		add_buff(c, &buff);
 		rd = read(fd, &c, 1);
 	}
-	if ((!buff && !rd) || rd == -1)
+	if ((!buff[i] && !rd) || rd == -1)
 	{
 		free(buff);
 		return (0);

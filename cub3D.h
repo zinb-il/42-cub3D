@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 23:06:09 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/17 00:11:49 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/11/18 00:47:41 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,19 @@
 //Map Extension
 # define EXTEN_MAP ".cub"
 
+//Image Extension
+# define EXTEN_IMG ".xpm"
+
 // Define Errors Messages
 # define ERROR_EMPTY_FILE "votre fichier est vide"
 # define ERROR_PARAMETERS "les paramètres passés sont incorrects"
-# define ERROR_EXTENTION "\'extension choisie est incorrecte"
-# define ERROR_INVALID_MAP "votre map est invalide"
-# define ERROR_INVALID_PARAMS "la description de votre map est invalide"
+# define ERROR_EXTENTION "l\'extension choisie est incorrecte"
+# define ERROR_EXTEN_IMG "l\'extension choisie pour les images est incorrecte"
+# define ERROR_INVALID_MAP "votre carte est invalide"
+# define ERROR_INVALID_PARAMS "la description de votre carte est invalide"
 # define ERROR_INVALID_PCOLORS "la description des couleurs est invalide"
-# define ERROR_INVALID_WALL "les mures de votre map sont invalides"
-# define ERROR_EXIT_MAP "la map doit contenir au moins une sortie"
-# define ERROR_COLLECT_MAP "la map doit contenir au moins une item"
-# define ERROR_PLAYER_MAP "la map doit contenir au maximum un joueur"
+# define ERROR_INCMP_PARAM "la description de votre carte est complète"
+# define ERROR_EMPTY_MAP "votre map est vide"
 
 //Key Code
 # define KEY_ESC 53
@@ -83,21 +85,15 @@ void	ft_valid_map_params(char *file_name, t_game **game);
 
 //Functions to parse wall files and colors
 void	ft_check_map(char *line, t_game **game);
-void	ft_check_colors(char **params, t_game **game);
-void	ft_check_walls_files(char **params, t_game **game);
 void	ft_check_walls_files_colors(char *line, t_game **game);
 void	ft_check_walls_files_colors_map(char *line, int i, t_game **game);
 
-void	ft_exit_failure1(t_game *g);
-void	ft_check_exit(t_game *g);
-void	ft_putstr_window(t_game *g);
-int		ft_destroy_window(t_game *g);
-int		ft_key_press(int key_code, t_game **g);
-char	**ft_valid_map(char *file_name);
-void	ft_check_map_elemnts(char **map);
-t_game	*ft_draw_map(t_game *game);
-t_game	*ft_move_up_down(t_game *g, int r, int u);
-t_game	*ft_update_map(t_game *g, int i, int j);
-void	ft_draw_image(t_game *g, char c, int i, int j);
+//Functions to validate walls images
+void	ft_valid_extention(char **params);
+void	ft_check_walls_files(char **params, t_game **game);
 
+//Functions to validate colors
+int		ft_get_color(char *color);
+void	ft_valid_colors(char **colors, char **params, t_game **game);
+void	ft_check_colors(char **params, t_game **game);
 #	endif
