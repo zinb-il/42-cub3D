@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 23:06:38 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/16 22:24:06 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/11/22 22:24:23 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ int		ft_strcmp(const char *str1, const char *str2);
 char	*ft_strrchr(const char *str, int c);
 char	*get_next_line(int fd);
 char	*ft_strdup(char *s);
+size_t	ft_strlcpy(void *dest, const void *src, size_t n);
 
 #	endif

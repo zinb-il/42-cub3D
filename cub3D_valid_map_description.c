@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 21:46:05 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/18 00:55:43 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/11/22 23:20:32 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,28 @@ void	ft_check_walls_files_colors(char *line, t_game **game)
 
 void	ft_check_map(char *line, t_game **game)
 {
-	int		i;
+	size_t	i;
 	int		j;
 	char	**map;
 
 	if (!line)
 		return ;
-	i = (int)ft_dstrlen((*game)->map) + 1;
-	map = (char **)malloc(sizeof(char *) * (i + 1));
+	map = (char **)malloc(sizeof(char *) * (ft_dstrlen((*game)->map) + 2));
 	j = 0;
+	if (!(*game)->map || \
+	((*game)->map && ft_strlen((*game)->map[0]) < ft_strlen(line)))
+		i = ft_strlen(line) + 1;
+	else
+		i = ft_strlen((*game)->map[0]) + 1;
 	while ((*game)->map && (*game)->map[j])
 	{
-		map[j] = ft_strdup((*game)->map[j]);
+		map[j] = (char *)malloc(sizeof(char) * i);
+		ft_strlcpy(map[j], (*game)->map[j], i);
 		j++;
 	}
+	map[j] = (char *)malloc(sizeof(char) * i);
+	ft_strlcpy(map[j], line, i);
 	free_dstr((*game)->map);
-	map[j] = line;
 	map[j + 1] = 0;
 	(*game)->map = map;
 }
