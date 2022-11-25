@@ -1,7 +1,7 @@
-NO ./../img_cub/black.xpm
-SO ./../img_cub/white.xpm
-WE ./../img_cub/blue.xpm
-EA ./path_to_the_east_texture
+NO ./img_cub/black.xpm
+SO ./img_cub/white.xpm
+WE ./img_cub/blue.xpm
+EA ./img_cub/blue.xpm
 
 F 220,100,0
 C 225,30,0

@@ -8,9 +8,10 @@ void	init_data(t_game *game, t_data *data, t_player *player)
 	data->player_y = -2;
 	data->pp_y = ((NB_COL / 2) * 64) + 32;
 	data->pp_x = ((NB_LINE / 2) * 64) + 32;
-	data->player->width = 20;
-	data->player->heght = 20;
-	data->retation = (PI / 2);
+	data->player->width = NB_COL * 64;
+	data->player->heght = NB_LINE * 64;
+	// data->retation = (RECTANGLE * (PI / 180) / 2);
+	data->retation = PI / 2;
 	data->mlx_win = mlx_new_window(data->game->mlx, WIDTH_MAP, HEIGHT_MAP, "test");
 }
 
@@ -35,23 +36,52 @@ int pth (int x,int y)
 }
 
 
-void	setup_line(t_data *data)
+void	ft_swap(int *n1, int *n2)
 {
-	int x;
-	int y;
+	int tmp;
 
-	x = data->pp_x;
-	while (x < (data->pp_x + (sin((data->retation)) * 40)))
-	{
-		y = data->pp_y;
-		while (y < (data->pp_y + (cos((data->retation)) * 40)))
-		{
-			mlx_pixel_put(data->game->mlx, data->mlx_win, y, x, 0x090060);
-			++y;
-		}
-		++x;
-	}
+	tmp = *n1;
+	*n1 = *n2;
+	*n2 = tmp;
 }
+int check(int x, int x1)
+{
+	return (x > x1);
+
+}
+
+void	draw_line(t_data *data ,int x1, int y1, int x2, int y2)
+{
+	float x,y,dx,dy,step;
+	int i;
+
+	
+	dx=abs(x2-x1);
+	dy=abs(y2-y1);
+	if(dx>=dy)
+		step=dx;
+	else
+		step=dy;
+	dx=dx/step;
+	dy=dy/step;
+	x=x1;
+	y=y1;
+	i=1;
+	while(i<=step)
+	{
+		mlx_pixel_put(data->game->mlx, data->mlx_win, x, y, 0);
+		printf("%f %f\n", x, y);
+		if (x1 < x2)
+			x += dx;
+		else
+			x -= dx;
+		if (y1 < y2)
+			y += dy;
+		else
+			y -= dy;
+		i=i+1;
+	}
+}  
 
 void	setup_player(t_data *data)
 {
@@ -75,25 +105,24 @@ void	setup_player(t_data *data)
         }
 		x -= 2;
 	}
-	setup_line( data);
 }
 
 int	key_hook(int keycode, t_data *data)
 {
 	
-	if (keycode == 53)
+	if (keycode == KEY_ESC)
 		mlx_destroy_window(data->game->mlx, data->mlx_win);
-	if (keycode == 123)
+	if (keycode == KEY_LEFT1)
 		ret_left(data);
-	if (keycode == 124)
+	if (keycode == KEY_RIGHT1)
 		ret_right(data);
-	if (keycode == 0)
-		walk_right(data);
-	if (keycode == 2)
+	if (keycode == KEY_LEFT)
 		walk_left(data);
-	if (keycode == 1)
+	if (keycode == KEY_RIGHT)
+		walk_right(data);
+	if (keycode == KEY_DOWN)
 		walk_down(data);
-	if (keycode == 13)
+	if (keycode == KEY_UP)
 		walk_up(data);
 	return (0);
 }
@@ -120,4 +149,5 @@ void	map_2d(t_data *data)
 		i++;
 	}
 	setup_player(data);
+	draw_line(data, data->pp_y, data->pp_x, data->pp_y + sin(data->retation) * 40,  data->pp_x + cos(data->retation) * 40);
 }
