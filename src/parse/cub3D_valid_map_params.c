@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D_valid_map_params.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:54:24 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/18 00:51:16 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/11/25 17:15:30 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "../../include/cub3D.h"
 
 void	ft_check_empty(t_game *gm)
 {

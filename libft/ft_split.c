@@ -3,92 +3,102 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 16:06:37 by ziloughm          #+#    #+#             */
-/*   Updated: 2021/12/06 11:06:30 by ziloughm         ###   ########.fr       */
+/*   Created: 2022/10/09 22:27:51 by iouazzan          #+#    #+#             */
+/*   Updated: 2022/10/09 22:27:54 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"libft.h"
+#include<stdio.h>
 
-static size_t	ft_total_word(char const *s1, char c1)
+static int	get_count(char const *s, char d)
 {
-	size_t	i;
-	size_t	j;
+	int	i;
+	int	count;
 
 	i = 0;
-	j = 0;
-	while (s1[i] != '\0')
-	{
-		if ((s1[i] != c1 && i == 0) \
-			|| ((!s1[i - 1] || s1[i - 1] == c1) && s1[i] != c1))
-			j++;
-		i++;
-	}
-	return (j);
-}
-
-static size_t	ft_word_len(char const *s1, char c1, int pos)
-{
-	size_t	i;
-	size_t	count;
-
 	count = 0;
-	i = 0;
-	while (s1[pos] != '\0' && s1[pos] == c1)
-		pos++;
-	while (s1[pos] != '\0' && s1[pos] != c1)
+	while (s[i])
 	{
-		count++;
-		pos++;
+		if (s[i] == d)
+			i++;
+		else
+		{
+			count++;
+			while (s[i] && s[i] != d)
+				i++;
+		}
 	}
 	return (count);
 }
 
-static size_t	ft_word(char *t, char const *s1, char c1, int pos)
+static char	*ft_word_cpy(char *word, char const *s, int j, int word_len)
 {
-	size_t	i;
-	size_t	count;
+	int	i;
 
-	count = 0;
 	i = 0;
-	while (s1[pos] != '\0' && s1[pos] == c1)
-		pos++;
-	while (s1[pos] != '\0' && s1[pos] != c1)
+	while (word_len > 0)
 	{
-		t[i] = s1[pos];
-		pos++;
+		word[i] = s[j - word_len];
+		word_len--;
 		i++;
 	}
-	t[i] = '\0';
-	return (pos);
+	word[i] = '\0';
+	return (word);
+}
+
+static char	**ft_split_free(char **str, int word_num)
+{
+	int	i;
+
+	i = 0;
+	while (i < word_num)
+		free(str[i++]);
+	free(str);
+	return (NULL);
+}
+
+static char	**ft_split2(char **str, char const *s, char c, int word_num)
+{
+	int	i;
+	int	j;
+	int	word_len;
+
+	i = 0;
+	j = 0;
+	while (s[j] && i < word_num)
+	{
+		word_len = 0;
+		while (s[j] && s[j] == c)
+			j++;
+		while (s[j] && s[j] != c)
+		{
+			word_len++;
+			j++;
+		}
+		str[i] = (char *)malloc(sizeof(char) * (word_len + 1));
+		if (!str[i])
+			return (ft_split_free(str, i));
+		ft_word_cpy(str[i], s, j, word_len);
+		i++;
+	}
+	str[i] = 0;
+	return (str);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	i;
-	size_t	position;
-	size_t	wordlen;
-	size_t	size;
-	char	**p;
+	char	**str;
+	int		word_num;
 
 	if (!s)
 		return (NULL);
-	i = 0;
-	position = 0;
-	wordlen = 0;
-	size = ft_total_word(s, c);
-	p = (char **)ft_calloc((size + 1), sizeof(char *));
-	if (!p)
+	word_num = get_count(s, c);
+	str = (char **)malloc(sizeof(char *) * (word_num + 1));
+	if (!str)
 		return (NULL);
-	while (i < size)
-	{
-		wordlen = ft_word_len(s, c, position);
-		p[i] = ft_calloc(wordlen + 1, sizeof(char));
-		position = ft_word(p[i], s, c, position);
-		i++;
-	}
-	p[i] = 0;
-	return (p);
+	ft_split2(str, s, c, word_num);
+	return (str);
 }

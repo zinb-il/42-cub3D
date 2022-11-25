@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omeslall <omeslall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 19:07:47 by omeslall          #+#    #+#             */
-/*   Updated: 2021/11/14 18:58:05 by omeslall         ###   ########.fr       */
+/*   Created: 2021/11/10 19:10:11 by omeslall          #+#    #+#             */
+/*   Updated: 2022/09/29 17:13:09 by omeslall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+int	ft_isalnum(int c)
 {
-	size_t	i;
-	void	*str;
-
-	i = count * size;
-	str = malloc(i);
-	if (!str)
-		return (NULL);
-	return (ft_bzero(str, i));
+	if (48 <= c && c <= 57)
+		return (1);
+	else if ((34 <= c && c <= 90) || (91 <= c && c <= 126 && c != 124)
+		|| c == 32 || c == '<' || c == '>' || c == '-' || c == 39 || c == '"'
+		|| c == '$')
+		return (1);
+	else
+		return (0);
 }

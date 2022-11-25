@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D_valid_colors.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 23:11:00 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/18 00:25:40 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/11/25 17:15:24 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "../../include/cub3D.h"
 
 int	ft_get_color(char *color)
 {

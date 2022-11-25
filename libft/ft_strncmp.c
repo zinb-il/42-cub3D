@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/13 22:10:49 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/18 16:34:23 by iouazzan         ###   ########.fr       */
+/*   Created: 2021/11/10 20:53:21 by omeslall          #+#    #+#             */
+/*   Updated: 2022/10/09 22:28:46 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"libft.h"
 
-int	ft_strcmp(const char *str1, const char *str2)
+int	ft_strncmp(const char *f, const char *s, size_t n)
 {
 	size_t			i;
-	unsigned char	*s1;
-	unsigned char	*s2;
+	unsigned char	*cf;
+	unsigned char	*cs;
 
+	cf = (unsigned char *)f;
+	cs = (unsigned char *)s;
 	i = 0;
-	s1 = (unsigned char *)str1;
-	s2 = (unsigned char *)str2;
-	while ((s1[i] || s2[i]))
+	while ((cf[i] || cs[i]) && i < n)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+		if (cf[i] != cs[i])
+			return (cf[i] - cs[i]);
 		i++;
 	}
 	return (0);

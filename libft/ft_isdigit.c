@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omeslall <omeslall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 19:07:47 by omeslall          #+#    #+#             */
-/*   Updated: 2021/11/14 18:58:05 by omeslall         ###   ########.fr       */
+/*   Created: 2021/11/10 19:34:43 by omeslall          #+#    #+#             */
+/*   Updated: 2021/11/10 19:35:20 by omeslall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+int	ft_isdigit(int c)
 {
-	size_t	i;
-	void	*str;
-
-	i = count * size;
-	str = malloc(i);
-	if (!str)
-		return (NULL);
-	return (ft_bzero(str, i));
+	if (48 <= c && c <= 57)
+		return (1);
+	else
+		return (0);
 }

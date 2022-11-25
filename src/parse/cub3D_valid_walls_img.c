@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D_valid_walls_img.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 23:28:36 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/18 00:03:57 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/11/25 17:15:33 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "../../include/cub3D.h"
 
 void	ft_valid_extention(char **params)
 {

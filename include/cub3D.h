@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 23:06:09 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/18 00:47:41 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/11/25 17:20:18 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@
 # include <string.h>
 # include <errno.h>
 # include <fcntl.h>
+#  include <math.h>
 # include "mlx.h"
-# include "libft/libft.h"
+# include "../libft/libft.h"
 
 //Map Extension
 # define EXTEN_MAP ".cub"
@@ -60,7 +61,7 @@
 # define COLOR_C "C"
 
 //Define Game Struct
-typedef struct cub3d
+typedef struct s_cub3d
 {
 	char	**map;
 	void	*mlx;
@@ -96,4 +97,56 @@ void	ft_check_walls_files(char **params, t_game **game);
 int		ft_get_color(char *color);
 void	ft_valid_colors(char **colors, char **params, t_game **game);
 void	ft_check_colors(char **params, t_game **game);
+
+/*********************************************************************************************/
+
+# define NB_LINE 14
+# define NB_COL 33
+# define SIZE_WIN 64
+# define WIDTH_MAP NB_COL * 64
+# define HEIGHT_MAP NB_LINE * 64
+# define NB_COL 33
+# define RECTANGLE 60
+# define PI 3.141592
+# define RETATION (PI / 2)
+// # define PP_Y ((NB_COL / 2) * 64) + 32
+// # define PP_X ((NB_LINE / 2) * 64) + 32
+// # define PLAYER_X WIDTh_MAP / 2
+// # define PLAYER_Y HEIGHT_MAP / 2
+
+typedef struct s_player
+{
+	int	width;
+	int	heght;
+	size_t	color;
+}	t_player;
+
+typedef struct s_data
+{
+	struct  s_cub3d *game;
+	struct	s_player *player;
+	void	*mlx_win;
+	float	player_x;
+	float	pp_x;
+	float	pp_y;
+	float	retation;
+	float	player_y;
+}	t_data;
+
+void	init_data(t_game *game, t_data *data, t_player *player);
+void	map_2d(t_data *game);
+void	setup_map(t_data *data, int i, int j);
+int		encode_rgb(int red, int green, int blue);
+void	setup_player(t_data *data);
+void	setup_line(t_data *data);
+void	ret_left(t_data *data);
+void	ret_right(t_data *data);
+void	walk_left(t_data *data);
+void	walk_down(t_data *data);
+void	walk_right(t_data *data);
+void	walk_up(t_data *data);
+void	mouve_player(t_data *data);
+int		check_player(t_data *data, int nb);
+
+
 #	endif

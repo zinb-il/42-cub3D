@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omeslall <omeslall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 19:07:47 by omeslall          #+#    #+#             */
-/*   Updated: 2021/11/14 18:58:05 by omeslall         ###   ########.fr       */
+/*   Created: 2021/11/15 00:25:57 by omeslall          #+#    #+#             */
+/*   Updated: 2021/12/20 18:30:40 by omeslall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	size_t	i;
-	void	*str;
+	t_list	**index;
+	t_list	*new;
+	t_list	*temp;
 
-	i = count * size;
-	str = malloc(i);
-	if (!str)
+	temp = lst;
+	if (!lst)
 		return (NULL);
-	return (ft_bzero(str, i));
+	index = &new;
+	while (temp)
+	{
+		new = ft_lstnew((f)(temp->content));
+		if (!new)
+		{
+			ft_lstclear(index, del);
+			return (NULL);
+		}
+		temp = temp->next;
+		ft_lstadd_back(index, new);
+	}
+	return (new);
 }

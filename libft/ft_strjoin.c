@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 20:50:32 by omeslall          #+#    #+#             */
-/*   Updated: 2022/10/09 22:28:33 by iouazzan         ###   ########.fr       */
+/*   Created: 2021/11/10 20:00:43 by omeslall          #+#    #+#             */
+/*   Updated: 2022/10/09 22:28:15 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t n)
+char	*ft_strjoin(char	*s1, char	*s2)
 {
-	size_t	j;
-	size_t	i;
+	char	*str;
+	int		i;
+	int		j;
 
-	i = 0;
-	while (src[i])
-		i++;
-	if (n == 0)
-		return (i);
-	j = 0;
-	while (src[j] != '\0' && j < n - 1)
+	if (!s1)
+		s1 = ft_calloc(1, sizeof(char));
+	if (!s2)
 	{
-		dest[j] = src[j];
-		j++;
+		str = ft_strdup(s1);
+		free(s1);
+		return (str);
 	}
-	dest[j] = '\0';
-	return (i);
+	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!str)
+		return (NULL);
+	i = -1;
+	while (s1[++i])
+		str[i] = s1[i];
+	j = -1;
+	while (s2[++j])
+		str[i + j] = s2[j];
+	str[i + j] = '\0';
+	free(s1);
+	return (str);
 }
