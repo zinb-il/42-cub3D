@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 23:06:09 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/26 00:43:22 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/11/26 22:49:29 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,20 +101,16 @@ void	ft_check_colors(char **params, t_game **game);
 /*********************************************************************************************/
 
 # define NB_LINE 14
-# define NB_COL 33
+# define NB_COL 34
 # define SIZE_WIN 64
 # define WIDTH_MAP NB_COL * 64
 # define HEIGHT_MAP NB_LINE * 64
-# define NB_COL 33
+// # define NB_COL 33
 # define RECTANGLE 60
 # define PI 3.141592
 # define RETATION (PI / 2)
 # define MOVE_SPEED 7
 # define ROTATION_SPEED .1
-// # define PP_Y ((NB_COL / 2) * 64) + 32
-// # define PP_X ((NB_LINE / 2) * 64) + 32
-// # define PLAYER_X WIDTh_MAP / 2
-// # define PLAYER_Y HEIGHT_MAP / 2
 
 typedef struct s_player
 {
@@ -148,7 +144,8 @@ void	walk_down(t_data *data);
 void	walk_right(t_data *data);
 void	walk_up(t_data *data);
 void	mouve_player(t_data *data);
-int		check_player(t_data *data, int x, int y);
-
+int		check_next_step(t_data *data, int x, int y, int x0, int y0);
+void	draw_line(t_data *data ,int x1, int y1, int x2, int y2);
+int		check_point(t_data *data ,int x1, int y1, int x2, int y2);
 
 #	endif

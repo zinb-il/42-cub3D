@@ -6,8 +6,8 @@ void	init_data(t_game *game, t_data *data, t_player *player)
 	data->player = player;
 	data->player_x = -2;
 	data->player_y = -2;
-	data->pp_y = ((NB_COL / 2) * 64) + 32;
-	data->pp_x = ((NB_LINE / 2) * 64) + 32;
+	data->pp_y = ((NB_COL + 3) / 2 * 64) + 32;
+	data->pp_x = ((NB_LINE + 3) / 2 * 64) + 32;
 	data->player->width = NB_COL * 64;
 	data->player->heght = NB_LINE * 64;
 	// data->retation = (RECTANGLE * (PI / 180) / 2);
@@ -44,10 +44,38 @@ void	ft_swap(int *n1, int *n2)
 	*n1 = *n2;
 	*n2 = tmp;
 }
-int check(int x, int x1)
-{
-	return (x > x1);
 
+int	check_point(t_data *data ,int x1, int y1, int x2, int y2)
+{
+	float dx,dy,step;
+	int x,y,i;
+
+	dx=abs(x2-x1);
+	dy=abs(y2-y1);
+	if(dx>=dy)
+		step=dx;
+	else
+		step=dy;
+	dx=dx/step;
+	dy=dy/step;
+	x=x1;
+	y=y1;
+	i=1;
+	while(i<=step)
+	{
+		if (data->game->map[x / 64][y / 64] == '1')
+			return 1;
+		if (x1 < x2)
+			x += dx;
+		else
+			x -= dx;
+		if (y1 < y2)
+			y += dy;
+		else
+			y -= dy;
+		i=i+1;
+	}
+	return 0;
 }
 
 void	draw_line(t_data *data ,int x1, int y1, int x2, int y2)
@@ -70,7 +98,6 @@ void	draw_line(t_data *data ,int x1, int y1, int x2, int y2)
 	while(i<=step)
 	{
 		mlx_pixel_put(data->game->mlx, data->mlx_win, x, y, 0);
-		printf("%f %f\n", x, y);
 		if (x1 < x2)
 			x += dx;
 		else
@@ -81,7 +108,7 @@ void	draw_line(t_data *data ,int x1, int y1, int x2, int y2)
 			y -= dy;
 		i=i+1;
 	}
-}  
+}
 
 void	setup_player(t_data *data)
 {
