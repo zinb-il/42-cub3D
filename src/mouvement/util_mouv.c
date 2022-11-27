@@ -14,10 +14,10 @@
 
 int		check_next_step(t_data *data, int x, int y, int x0, int y0)
 {	
-	x /= 64;
-	x0 /= 64;
-	y /= 64;
-	y0 /= 64;
+// 	x /= 64;
+// 	x0 /= 64;
+// 	y /= 64;
+// 	y0 /= 64;
 	if (check_point(data, x0, y0, x, y) == 1)
 		return (1);
 	return 0;

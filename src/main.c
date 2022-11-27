@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 23:08:36 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/25 17:17:41 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/11/27 21:20:38 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,15 @@ int	main(int ac, char **av)
 	gm = (t_game *)malloc(sizeof(t_game));
 	if (!gm)
 		ft_print_errors(strerror(errno));
+	ft_init_game(&gm);
+	ft_valid_map_params(av[1], &gm);
+	ft_print_game(gm);
 	player = malloc(sizeof(t_player));
 	if (!player)
 		ft_print_errors(strerror(errno));
 	data = (t_data *)malloc(sizeof(t_data));
 	if (!data)
 		ft_print_errors(strerror(errno));
-	ft_init_game(&gm);
-	ft_valid_map_params(av[1], &gm);
-	ft_print_game(gm);
 	init_data(gm, data, player);
 	map_2d(data);
 	mouve_player(data);

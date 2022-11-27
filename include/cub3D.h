@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 23:06:09 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/26 22:49:29 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/11/27 21:30:41 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,13 @@
 # include <string.h>
 # include <errno.h>
 # include <fcntl.h>
-#  include <math.h>
+# include <math.h>
 # include "mlx.h"
+# include "parsing.h"
 # include "../libft/libft.h"
+
+//Size window
+# define S_WIN 64
 
 //Map Extension
 # define EXTEN_MAP ".cub"
@@ -61,6 +65,10 @@
 # define COLOR_C "C"
 
 //Define Game Struct
+//Player North PI/2
+//Player South 3*PI/2
+//Player West   0
+//Player East   PI
 typedef struct s_cub3d
 {
 	char	**map;
@@ -72,9 +80,16 @@ typedef struct s_cub3d
 	void	*w_ea;
 	int		c_f[3];
 	int		c_c[3];
+	float	p_view;
+	int		p_x;
+	int		p_y;
+	int		p_width;
+	int		p_height;
+	int		map_h;
+	int		map_w;
 }t_game;
 
-// Function to initialize the struct game 
+// Function to initialize the struct game
 void	ft_init_game(t_game **game);
 
 //Functions to print errors message and exit

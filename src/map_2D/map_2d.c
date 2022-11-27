@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_2d.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/27 21:33:10 by iouazzan          #+#    #+#             */
+/*   Updated: 2022/11/27 21:33:12 by iouazzan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../include/cub3D.h"
 
 void	init_data(t_game *game, t_data *data, t_player *player)
@@ -6,8 +18,8 @@ void	init_data(t_game *game, t_data *data, t_player *player)
 	data->player = player;
 	data->player_x = -2;
 	data->player_y = -2;
-	data->pp_y = ((NB_COL + 3) / 2 * 64) + 32;
-	data->pp_x = ((NB_LINE + 3) / 2 * 64) + 32;
+	data->pp_y = (((NB_COL) / 2) * 64) + 32;
+	data->pp_x = (((NB_LINE) / 2 + 5) * 64) + 32;
 	data->player->width = NB_COL * 64;
 	data->player->heght = NB_LINE * 64;
 	// data->retation = (RECTANGLE * (PI / 180) / 2);
@@ -60,9 +72,10 @@ int	check_point(t_data *data ,int x1, int y1, int x2, int y2)
 	dy=dy/step;
 	x=x1;
 	y=y1;
-	i=1;
+	i=0;
 	while(i<=step)
 	{
+		printf("x : %d y : %d\n", x / 64, y / 64);
 		if (data->game->map[x / 64][y / 64] == '1')
 			return 1;
 		if (x1 < x2)
@@ -73,7 +86,7 @@ int	check_point(t_data *data ,int x1, int y1, int x2, int y2)
 			y += dy;
 		else
 			y -= dy;
-		i=i+1;
+		++i;
 	}
 	return 0;
 }
