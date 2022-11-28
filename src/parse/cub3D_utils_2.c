@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:52:08 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/28 16:56:05 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/11/28 20:10:52 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ t_game	*first_part_cub3d(int ac, char **av)
 	ft_init_game(&gm);
 	ft_valid_map_params(av[1], &gm);
 	ft_print_game(gm);
+	ft_valid_map_elem(&gm);
 	return (gm);
 }

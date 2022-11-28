@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:36:15 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/11/28 16:55:41 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/11/28 19:09:41 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 //Size window
 # define S_WIN 64
+
+//Map valid elements
+# define MAP_ELMN "10ESWN "
+
 //Map Extension
 # define EXTEN_MAP ".cub"
 
@@ -23,10 +27,12 @@
 
 // Define Errors Messages
 # define ERROR_PARAMETERS "les paramètres passés sont incorrects"
-# define ERROR_EXTENTION "l\'extension choisie est incorrecte"
+# define ERROR_EXTENTION "l\'extension du fichier choisie est incorrecte"
 # define ERROR_EXTEN_IMG "l\'extension choisie pour les images est incorrecte"
 # define ERROR_EMPTY_FILE "votre fichier est vide"
 # define ERROR_INVALID_MAP "votre carte est invalide"
+# define ERROR_INVALID_MAP_E "votre carte contient des éléments invalides"
+# define ERROR_INVALID_WALL "les mures de votre carte sont invalides"
 # define ERROR_INVALID_PARAMS "la description de votre carte est invalide"
 # define ERROR_INVALID_PCOLORS "la description des couleurs est invalide"
 # define ERROR_INCMP_PARAM "la description de votre carte est complète"
@@ -59,22 +65,22 @@
 //Player East   PI
 typedef struct s_cub3d
 {
-	char	**map;
-	void	*mlx;
-	void	*window;
-	void	*w_no;
-	void	*w_so;
-	void	*w_we;
-	void	*w_ea;
-	int		c_f[3];
-	int		c_c[3];
-	float	p_view;
-	int		p_x;
-	int		p_y;
-	int		p_width;
-	int		p_height;
-	int		map_h;
-	int		map_w;
+	char			**map;
+	void			*mlx;
+	void			*window;
+	void			*w_no;
+	void			*w_so;
+	void			*w_we;
+	void			*w_ea;
+	unsigned long	c_f;
+	unsigned long	c_c;
+	float			p_view;
+	int				p_x;
+	int				p_y;
+	int				p_width;
+	int				p_height;
+	int				map_h;
+	int				map_w;
 }t_game;
 
 //Function for print the game 
@@ -102,8 +108,12 @@ void	ft_check_walls_files(char **params, t_game **game);
 
 //Functions to validate colors
 int		ft_get_color(char *color);
-void	ft_valid_colors(char **colors, char **params, t_game **game);
 void	ft_check_colors(char **params, t_game **game);
+void	ft_valid_colors(char **colors, char **params, t_game **game);
+void	ft_convert_rgb_to_hexa(int	*colors, char **params, t_game **game);
+
+//Functions to validate the elements of the map
+void	ft_valid_map_elem(t_game **game);
 
 t_game	*first_part_cub3d(int ac, char **av);
 

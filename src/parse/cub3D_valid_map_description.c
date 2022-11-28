@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D_valid_map_description.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 21:46:05 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/25 17:15:27 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/11/28 19:12:50 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

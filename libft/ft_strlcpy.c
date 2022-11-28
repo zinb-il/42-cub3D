@@ -3,31 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 20:50:32 by omeslall          #+#    #+#             */
-/*   Updated: 2022/10/09 22:28:33 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/11/28 20:07:33 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t n)
+size_t	ft_strlcpy(void *dest, const void *src, size_t n)
 {
-	size_t	j;
 	size_t	i;
+	size_t	j;
+	char	*d;
+	char	*s;
 
+	s = (char *)src;
+	d = (char *)dest;
 	i = 0;
-	while (src[i])
-		i++;
-	if (n == 0)
-		return (i);
 	j = 0;
-	while (src[j] != '\0' && j < n - 1)
-	{
-		dest[j] = src[j];
+	while (s[j])
 		j++;
+	if ((!dest && n == 0) || n <= 0)
+		return (j);
+	while (i < n - 1 && s[i])
+	{
+		d[i] = s[i];
+		i++;
 	}
-	dest[j] = '\0';
-	return (i);
+	while (i < n - 1)
+	{
+		d[i] = ' ';
+		i++;
+	}
+	d[i] = 0;
+	return (j);
 }
