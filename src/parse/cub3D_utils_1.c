@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D_utils_1.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:58:53 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/25 17:15:21 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/11/28 16:51:33 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,27 @@ void	ft_init_game(t_game **game)
 	(*game)->mlx = mlx_init();
 	(*game)->c_c[0] = -1;
 	(*game)->c_f[0] = -1;
+}
+
+void	print_dstr(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str && str[i])
+	{
+		printf("'%s'\n", str[i]);
+		i++;
+	}
+}
+
+void	ft_print_game(t_game *gm)
+{
+	printf("/******************/\n");
+	printf("NO %s SO %s\n", gm->w_no, gm->w_so);
+	printf("WE %s EA %s\n", gm->w_we, gm->w_ea);
+	printf("C %d %d %d\n", gm->c_c[0], gm->c_c[1], gm->c_c[2]);
+	printf("F %d %d %d\n", gm->c_f[0], gm->c_f[1], gm->c_f[2]);
+	print_dstr(gm->map);
+	printf("/******************/\n");
 }

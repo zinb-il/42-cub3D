@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:36:15 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/11/28 16:36:37 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/11/28 16:55:41 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#	ifndef PARSING_H
+# define PARSING_H
+
 //Size window
 # define S_WIN 64
-
 //Map Extension
 # define EXTEN_MAP ".cub"
 
@@ -20,10 +22,10 @@
 # define EXTEN_IMG ".xpm"
 
 // Define Errors Messages
-# define ERROR_EMPTY_FILE "votre fichier est vide"
 # define ERROR_PARAMETERS "les paramètres passés sont incorrects"
 # define ERROR_EXTENTION "l\'extension choisie est incorrecte"
 # define ERROR_EXTEN_IMG "l\'extension choisie pour les images est incorrecte"
+# define ERROR_EMPTY_FILE "votre fichier est vide"
 # define ERROR_INVALID_MAP "votre carte est invalide"
 # define ERROR_INVALID_PARAMS "la description de votre carte est invalide"
 # define ERROR_INVALID_PCOLORS "la description des couleurs est invalide"
@@ -75,6 +77,10 @@ typedef struct s_cub3d
 	int		map_w;
 }t_game;
 
+//Function for print the game 
+void	print_dstr(char **str);
+void	ft_print_game(t_game *gm);
+
 // Function to initialize the struct game
 void	ft_init_game(t_game **game);
 
@@ -98,3 +104,7 @@ void	ft_check_walls_files(char **params, t_game **game);
 int		ft_get_color(char *color);
 void	ft_valid_colors(char **colors, char **params, t_game **game);
 void	ft_check_colors(char **params, t_game **game);
+
+t_game	*first_part_cub3d(int ac, char **av);
+
+#	endif

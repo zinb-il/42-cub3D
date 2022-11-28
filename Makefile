@@ -1,6 +1,6 @@
 VRLIBFT= libft/libft.a
 
-SRCS = src/main.c src/parse/cub3D_utils_1.c src/parse/cub3D_valid_map_params.c\
+SRCS = src/main.c src/parse/cub3D_utils_1.c src/parse/cub3D_utils_2.c src/parse/cub3D_valid_map_params.c\
 		src/parse/cub3D_valid_map_description.c src/map_2D/map_2d.c\
 		src/mouvement/mouvement.c src/mouvement/util_mouv.c\
 		src/parse/cub3D_valid_colors.c src/parse/cub3D_valid_walls_img.c $(VRLIBFT)\
