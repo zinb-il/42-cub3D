@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omeslall <omeslall@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 00:23:24 by omeslall          #+#    #+#             */
-/*   Updated: 2021/12/20 18:31:04 by omeslall         ###   ########.fr       */
+/*   Updated: 2022/11/28 22:28:17 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	t_list	*temp;
 
 	temp = lst;
-	while (temp != NULL)
+	while (temp != 0)
 	{
 		f(temp->content);
 		temp = temp->next;
