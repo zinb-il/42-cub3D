@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 21:33:10 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/11/27 21:33:12 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/11/28 16:32:28 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,7 +193,10 @@ int	key_hook(int keycode, t_data *data)
 {
 	
 	if (keycode == KEY_ESC)
+	{
 		mlx_destroy_window(data->game->mlx, data->mlx_win);
+		exit (0);
+	}
 	if (keycode == KEY_LEFT1)
 		ret_left(data);
 	if (keycode == KEY_RIGHT1)
@@ -203,9 +206,9 @@ int	key_hook(int keycode, t_data *data)
 	if (keycode == KEY_RIGHT)
 		walk_right(data);
 	if (keycode == KEY_DOWN)
-		walk_down(data);
+		walk_up_down(data, -1);
 	if (keycode == KEY_UP)
-		walk_up(data);
+		walk_up_down(data, 1);
 	return (0);
 }
 
