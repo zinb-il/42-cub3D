@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:38:27 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/11/28 16:36:51 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/11/28 20:00:49 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,9 @@ int		check_point(t_data *data ,int x1, int y1, int x2, int y2);
 int		aspects(t_data *data, int px, int py, int x, int y);
 void	walk_right(t_data *data);
 void	walk_left(t_data *data);
-// void	walk_down(t_data *data);
-void	walk_up_down(t_data *data, int nb);
+void	walk_down(t_data *data);
+void	walk_up(t_data *data);
 void	ret_right(t_data *data);
 void	ret_left(t_data *data);
 void	init_data(t_game *game, t_data *data, t_player *player);
+int		check_sides(t_data *data, int px, int py, int x, int y);

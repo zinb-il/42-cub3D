@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 21:33:10 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/11/28 16:32:28 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/11/28 20:12:53 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,80 +57,31 @@ void	ft_swap(int *n1, int *n2)
 	*n2 = tmp;
 }
 
-int	aspects(t_data *data, int px, int py, int x, int y)
+int	check_sides(t_data *data, int px, int py, int x, int y)
 {
-	int tmpx;
-	int tmpy;
-	int p1;
-	int	p2;
-
-	p1 = 0;
-	p2 = 0;
-	if ((x > px && y > py) || (px > x && py > y))
+	if (x > px)
 	{
-		tmpy = y + 1;
-		tmpx = x - 1;
-		tmpy /= SIZE_WIN;
-		tmpx /= SIZE_WIN;
-		if (data->game->map[tmpx][tmpy] == '1')
-			p1++;
-		tmpy = y - 1;
-		tmpx = x + 1;
-		tmpy /= SIZE_WIN;
-		tmpx /= SIZE_WIN;
-		if (data->game->map[tmpx][tmpy] == '1')
-			p2++;
-		return (p2 + p1);
+		if (y > py)
+		{
+			if (data->game->map[x][y - 1] == '1' && data->game->map[x - 1][y] == '1')
+				return (1);
+		}
+		else
+			if (data->game->map[x - 1][y] == '1' && data->game->map[x][y + 1] == '1')
+				return (1);
 	}
 	else
 	{
-		tmpy = y + 1;
-		tmpx = x + 1;
-		tmpy /= SIZE_WIN;
-		tmpx /= SIZE_WIN;
-		if (data->game->map[tmpx][tmpy] == '1')
-			p1++;
-		tmpy = y - 1;
-		tmpx = x - 1;
-		tmpy /= SIZE_WIN;
-		tmpx /= SIZE_WIN;
-		if (data->game->map[tmpx][tmpy] == '1')
-			p2++;
-		return (p2 + p1);
-	}
-}
-
-int	check_point(t_data *data ,int x1, int y1, int x2, int y2)
-{
-	float dx,dy,step;
-	int x,y,i;
-
-	dx=abs(x2-x1);
-	dy=abs(y2-y1);
-	if(dx>=dy)
-		step=dx;
-	else
-		step=dy;
-	dx=dx/step;
-	dy=dy/step;
-	x=x1;
-	y=y1;
-	i=0;
-	while(i<=step)
-	{
-		if (data->game->map[x / 64][y / 64] == '1' || aspects(data, x1, y1, x,y) == 2)
-			return 1;
-		if (x1 < x2)
-			x += dx;
+		if (y > py)
+		{
+			if (data->game->map[x][y - 1] == '1' && data->game->map[x + 1][y] == '1')
+					return (1);
+		}
 		else
-			x -= dx;
-		if (y1 < y2)
-			y += dy;
-		else
-			y -= dy;
-		++i;
+			if (data->game->map[x + 1][y] == '1' && data->game->map[x][y + 1] == '1')
+				return (1);
 	}
-	return 0;
+	return (0);
 }
 
 void	draw_line(t_data *data ,int x1, int y1, int x2, int y2)
@@ -178,7 +129,7 @@ void	setup_player(t_data *data)
 		y = -length;
         while (y <= length)
 		{
-            if (pth(x, y) <= width)
+            if (sqrt(pow(x,2)+pow(y,2)) <= width)
 				mlx_pixel_put(data->game->mlx, data->mlx_win,
 					(y + data->pp_y),
 					(x + data->pp_x),
@@ -206,9 +157,9 @@ int	key_hook(int keycode, t_data *data)
 	if (keycode == KEY_RIGHT)
 		walk_right(data);
 	if (keycode == KEY_DOWN)
-		walk_up_down(data, -1);
+		walk_down(data);
 	if (keycode == KEY_UP)
-		walk_up_down(data, 1);
+		walk_up(data);
 	return (0);
 }
 
@@ -236,3 +187,23 @@ void	map_2d(t_data *data)
 	setup_player(data);
 	draw_line(data, data->pp_y, data->pp_x, data->pp_y + sin(data->retation) * 40,  data->pp_x + cos(data->retation) * 40);
 }
+
+
+	// pseudo code with python
+
+	
+	// if x > px:
+	// 	if y > py:
+	// 		if t[x][y - 1] == '1' and t[x - 1][y] == '1':
+	// 			return (1)
+	// 	else:
+	// 		if t[x - 1][y] == '1' and t[x][y + 1] == '1':
+	// 			return (1)
+	// else:
+	// 	if y > py:
+	// 		if t[x][y - 1] == '1' and t[x + 1][y] == '1':
+	// 			return (1)
+	// 	else:
+	// 		if t[x + 1][y] == '1' and t[x][y + 1] == '1':
+	// 			return (1)
+	// return (0)
