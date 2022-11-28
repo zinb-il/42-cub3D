@@ -37,9 +37,9 @@ void	ft_print_game(t_game *gm)
 
 int	main(int ac, char **av)
 {
-	t_game	*gm;
-	t_data	*data;
-	t_player *player;
+	t_game		*gm;
+	t_data		*data;
+	t_player	*player;
 
 	if (ac != 2)
 		ft_print_errors(ERROR_PARAMETERS);
