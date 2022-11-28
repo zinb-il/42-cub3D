@@ -114,7 +114,7 @@ int		ft_get_color(char *color);
 void	ft_valid_colors(char **colors, char **params, t_game **game);
 void	ft_check_colors(char **params, t_game **game);
 
-/*********************************************************************************************/
+/************************************************************************/
 
 # define NB_LINE 14
 # define NB_COL 34

@@ -10,42 +10,42 @@
 #                                                                              #
 # **************************************************************************** #
 
-MANDATORY= ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
-	ft_isprint.c ft_itoa.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c \
-	ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_split.c ft_strchr.c \
-	ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c \
-	ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c\
-	ft_get_next_line.c ft_dstrlen.c ft_free_dstr.c ft_strcmp.c\
+MANDATORY = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
+			ft_isprint.c ft_itoa.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c \
+			ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_split.c ft_strchr.c \
+			ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c \
+			ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c\
+			ft_get_next_line.c ft_dstrlen.c ft_free_dstr.c ft_strcmp.c\
+			ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c \
+			ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c \
+			ft_lstnew_bonus.c ft_lstsize_bonus.c
 
-BONUS=  ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c \
-	ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c \
-	ft_lstnew_bonus.c ft_lstsize_bonus.c
+CC = cc
 
-CC=cc
-FLAGS=-Wall -Werror -Wextra -c
-NAME=libft.a
-DEBUG=-fsanitize=address -g
-O_MANDATORY=$(MANDATORY:%.c=%.o)
-O_BONUS=$(BONUS:%.c=%.o)
+FLAGS = -Wall -Werror -Wextra -c
+
+NAME = libft.a
+
+DEBUG = -fsanitize=address -g
+
+O_MANDATORY = $(MANDATORY:.c=.o)
+
 
 all: $(NAME)
 
 $(NAME): $(O_MANDATORY)
-
-bonus: $(O_MANDATORY) $(O_BONUS)
-	echo $(O_MANDATORY)
-	ar -rc $(NAME) $(O_MANDATORY) $(O_BONUS)
+	@ar -rc $(NAME) $(O_MANDATORY)
+	@echo "\033[0;32m the library of libft is perfectly constructed\033[0;37m"
 
 debug:
-	gcc $(FLAGS) $(DEBUG) $(MANDATORY) $(BONUS) -o $(NAME)
-
-%.o:%.c
-	$(CC) $(FLAGS) $<
+	@$(CC) $(FLAGS) $(DEBUG) $(MANDATORY) -o $(NAME)
+	@echo "\033[0;32m the library of libft is perfectly constructed\033[0;37m"
 
 clean:
-	rm -rf $(O_MANDATORY) $(O_BONUS)
+	@rm -rf $(O_MANDATORY)
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
+	@echo "\033[0;31m the library of libft is perfectly deconstructed\033[0;37m"
 
 re: fclean all
