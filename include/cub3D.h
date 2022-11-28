@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 23:06:09 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/28 15:38:54 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/11/28 16:12:43 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # include <math.h>
 # include "mlx.h"
 # include "parsing.h"
-# include "part.h"
 # include "../libft/libft.h"
 
 //Size window
