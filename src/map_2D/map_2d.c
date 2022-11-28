@@ -57,6 +57,49 @@ void	ft_swap(int *n1, int *n2)
 	*n2 = tmp;
 }
 
+int	aspects(t_data *data, int px, int py, int x, int y)
+{
+	int tmpx;
+	int tmpy;
+	int p1;
+	int	p2;
+
+	p1 = 0;
+	p2 = 0;
+	if ((x > px && y > py) || (px > x && py > y))
+	{
+		tmpy = y + 1;
+		tmpx = x - 1;
+		tmpy /= SIZE_WIN;
+		tmpx /= SIZE_WIN;
+		if (data->game->map[tmpx][tmpy] == '1')
+			p1++;
+		tmpy = y - 1;
+		tmpx = x + 1;
+		tmpy /= SIZE_WIN;
+		tmpx /= SIZE_WIN;
+		if (data->game->map[tmpx][tmpy] == '1')
+			p2++;
+		return (p2 + p1);
+	}
+	else
+	{
+		tmpy = y + 1;
+		tmpx = x + 1;
+		tmpy /= SIZE_WIN;
+		tmpx /= SIZE_WIN;
+		if (data->game->map[tmpx][tmpy] == '1')
+			p1++;
+		tmpy = y - 1;
+		tmpx = x - 1;
+		tmpy /= SIZE_WIN;
+		tmpx /= SIZE_WIN;
+		if (data->game->map[tmpx][tmpy] == '1')
+			p2++;
+		return (p2 + p1);
+	}
+}
+
 int	check_point(t_data *data ,int x1, int y1, int x2, int y2)
 {
 	float dx,dy,step;
@@ -75,8 +118,7 @@ int	check_point(t_data *data ,int x1, int y1, int x2, int y2)
 	i=0;
 	while(i<=step)
 	{
-		printf("x : %d y : %d\n", x / 64, y / 64);
-		if (data->game->map[x / 64][y / 64] == '1')
+		if (data->game->map[x / 64][y / 64] == '1' || aspects(data, x1, y1, x,y) == 2)
 			return 1;
 		if (x1 < x2)
 			x += dx;

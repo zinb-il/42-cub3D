@@ -1,20 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   util_mouv.c                                        :+:      :+:    :+:   */
+/*   part.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 13:49:40 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/11/26 22:47:22 by iouazzan         ###   ########.fr       */
+/*   Created: 2022/11/28 15:38:27 by iouazzan          #+#    #+#             */
+/*   Updated: 2022/11/28 15:40:17 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/cub3D.h"
+#include "cub3D.h"
 
-int		check_next_step(t_data *data, int x, int y, int x0, int y0)
-{	
-	if (check_point(data, x0, y0, x, y) == 1)
-		return (1);
-	return 0;
-}
+int	aspects(t_data *data, int px, int py, int x, int y);
