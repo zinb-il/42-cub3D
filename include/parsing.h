@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:36:15 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/11/29 17:17:00 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/11/30 19:15:26 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@
 
 //Image Extension
 # define EXTEN_IMG ".xpm"
+
+//MAP 2D Images
+# define IMG_WALL "./img_cub/black.xpm"
+# define IMG_SPAC "./img_cub/space.xpm"
+# define IMG_EMP "./img_cub/white.xpm"
 
 // Define Errors Messages
 # define ERROR_PARAMETERS "les paramètres passés sont incorrects"
@@ -74,6 +79,9 @@ typedef struct s_cub3d
 	void			*w_so;
 	void			*w_we;
 	void			*w_ea;
+	void			*space;
+	void			*wall;
+	void			*empty;
 	unsigned long	c_f;
 	unsigned long	c_c;
 	float			p_view;
@@ -83,6 +91,8 @@ typedef struct s_cub3d
 	int				p_height;
 	int				map_h;
 	int				map_w;
+	int				nb_col;
+	int				nb_row;
 }t_game;
 
 //Function for print the game 
@@ -124,6 +134,7 @@ void	ft_valid_map_elem(t_game **game);
 
 //Function for get info
 void	ft_get_info(t_game **game);
+void	ft_get_img_2d(t_game **game);
 
 t_game	*first_part_cub3d(int ac, char **av);
 

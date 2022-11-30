@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   util_mouv.c                                        :+:      :+:    :+:   */
+/*   map_2d_3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 13:49:40 by iouazzan          #+#    #+#             */
+/*   Created: 2022/11/30 18:34:28 by ziloughm          #+#    #+#             */
 /*   Updated: 2022/11/30 18:54:28 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3D.h"
 
-int		check_next_step(t_data *data, int x, int y, int x0, int y0)
+void	map_2d(t_data *data)
 {
-	x /= 64;
-	x0 /= 64;
-	y /= 64;
-	y0 /= 64;
-	if (data->gm->map[x][y] == '0')
+	int	i;
+	int	j;
+
+	i = 0;
+	while (data->gm->map[i])
 	{
-		if (x != x0 && y != y0)
-			return (check_sides(data, x0, y0, x, y));
-		return (0);
-	}	
-	return (1);
+		j = 0;
+		while (data->gm->map[i][j])
+		{
+			setup_map(data, i, j);
+			j++;
+		}
+		i++;
+	}
+	setup_player(data);
+	draw_line(data, data->pp_y, data->pp_x, data->pp_y + \
+	sin(data->retation) * 40, data->pp_x + cos(data->retation) * 40);
 }

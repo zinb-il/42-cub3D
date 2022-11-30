@@ -6,11 +6,35 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:52:08 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/29 18:46:03 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/11/30 19:22:05 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3D.h"
+
+void	ft_get_img_2d(t_game **game)
+{
+	int		w;
+	int		y;
+	void	*img1;
+	void	*img2;
+	void	*img3;
+
+	w = 0;
+	y = 0;
+	img1 = mlx_xpm_file_to_image((*game)->mlx, IMG_WALL, &w, &y);
+	if (!img1)
+		ft_print_errors(strerror(errno));
+	(*game)->wall = img1;
+	img2 = mlx_xpm_file_to_image((*game)->mlx, IMG_SPAC, &w, &y);
+	if (!img2)
+		ft_print_errors(strerror(errno));
+	(*game)->space = img2;
+	img3 = mlx_xpm_file_to_image((*game)->mlx, IMG_EMP, &w, &y);
+	if (!img3)
+		ft_print_errors(strerror(errno));
+	(*game)->empty = img3;
+}
 
 void	ft_get_pview(t_game **gm, char c)
 {
@@ -47,8 +71,10 @@ void	ft_get_info(t_game **gm)
 		}
 		i++;
 	}
-	(*gm)->map_w = (int) ft_strlen((*gm)->map[0]) * S_WIN;
-	(*gm)->map_h = (int) ft_dstrlen((*gm)->map) * S_WIN;
+	(*gm)->nb_col = (int) ft_strlen((*gm)->map[0]);
+	(*gm)->nb_row = (int) ft_dstrlen((*gm)->map);
+	(*gm)->map_w = (*gm)->nb_col * S_WIN;
+	(*gm)->map_h = (*gm)->nb_row * S_WIN;
 }
 
 t_game	*first_part_cub3d(int ac, char **av)
@@ -65,6 +91,7 @@ t_game	*first_part_cub3d(int ac, char **av)
 	ft_valid_map_params(av[1], &gm);
 	ft_valid_map_elem(&gm);
 	ft_get_info(&gm);
+	ft_get_img_2d(&gm);
 	ft_print_game(gm);
 	return (gm);
 }

@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:58:53 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/29 18:42:07 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/11/30 19:21:01 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_print_errors(char *msg)
 {
 	if (msg)
 		printf("ERROR\n: %s\n", msg);
-	system("leaks cub3D");
+	//system("leaks cub3D");
 	exit (EXIT_FAILURE);
 }
 
@@ -59,6 +59,7 @@ void	ft_print_game(t_game *gm)
 	printf("Player x %d player y %d\n", gm->p_x, gm->p_y);
 	printf("Player xw %d player yw %d\n", gm->p_width, gm->p_height);
 	printf("map width %d  map height %d\n", gm->map_w, gm->map_h);
+	printf("map cols %d  map rows %d\n", gm->nb_col, gm->nb_row);
 	print_dstr(gm->map);
 	printf("/******************/\n");
 }

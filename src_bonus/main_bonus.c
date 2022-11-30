@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 22:03:20 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/29 22:07:37 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/11/30 18:54:28 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int ac, char **av)
 	init_data(gm, data, player);
 	map_2d(data);
 	mouve_player(data);
-	mlx_loop(data->game->mlx);
+	mlx_loop(data->gm->mlx);
 	system("leaks cub3D");
 	return (0);
 }

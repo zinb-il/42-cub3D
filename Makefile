@@ -1,11 +1,9 @@
 VRLIBFT= libft/libft.a
 
-VRLIBFT_BONUS= libft/libft.a
-
-SRCS = src/main.c src/parse/cub3D_utils_1.c src/parse/cub3D_utils_2.c src/parse/cub3D_valid_map_params.c\
-		src/parse/cub3D_valid_map_description.c src/map_2D/map_2d.c src/parse/cub3D_valid_map_elemts_1.c\
-		src/parse/cub3D_valid_map_elemts_2.c src/mouvement/mouvement.c src/mouvement/util_mouv.c\
-		src/parse/cub3D_valid_colors.c src/parse/cub3D_valid_walls_img.c $(VRLIBFT)\
+SRCS = src/main.c src/parse/cub3D_utils_1.c src/parse/cub3D_utils_2.c src/parse/cub3D_valid_map_params.c src/parse/cub3D_valid_map_description.c \
+       src/map_2D/map_2d_1.c src/map_2D/map_2d_2.c src/map_2D/map_2d_3.c src/parse/cub3D_valid_map_elemts_1.c\
+	   src/parse/cub3D_valid_map_elemts_2.c src/mouvement/mouvement.c src/mouvement/util_mouv.c\
+       src/parse/cub3D_valid_colors.c src/parse/cub3D_valid_walls_img.c $(VRLIBFT)\
 
 SRCS_BONUS = src/main_bonus.c src/parse/cub3D_utils_1_bonus.c src/parse/cub3D_utils_2_bonus.c src/parse/cub3D_valid_map_params_bonus.c\
 		src/parse/cub3D_valid_map_description_bonus.c src/parse/cub3D_valid_map_elemts_1_bonus.c src/parse/cub3D_valid_map_elemts_2_bonus.c \
@@ -13,7 +11,7 @@ SRCS_BONUS = src/main_bonus.c src/parse/cub3D_utils_1_bonus.c src/parse/cub3D_ut
 
 CC = cc
 
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -fsanitize=address -g
 
 DEBUG = -fsanitize=address -g
 
@@ -31,7 +29,7 @@ $(VRLIBFT):
 
 $(VRLIBFT_BONUS):
 	@make -C libft
-	@cp $(VRLIBFT_BONUS) $(BONUS)
+	@cp $(VRLIBFT) $(BONUS)
 	@make -C libft clean
 
 INCLUDES =  src/mlx/
