@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 19:25:44 by omeslall          #+#    #+#             */
-/*   Updated: 2022/11/28 22:29:18 by ziloughm         ###   ########.fr       */
+/*   Created: 2021/11/10 19:25:44 by ziloughm          #+#    #+#             */
+/*   Updated: 2022/11/29 15:52:05 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,3 @@ int	ft_isalpha(int c)
 	else
 		return (0);
 }
-
-// int main()
-// {
-//     printf("%d\n",ft_isalpha(' '));
-// }

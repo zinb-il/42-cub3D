@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 19:03:25 by omeslall          #+#    #+#             */
-/*   Updated: 2022/11/28 22:29:18 by ziloughm         ###   ########.fr       */
+/*   Created: 2021/11/10 19:03:25 by ziloughm          #+#    #+#             */
+/*   Updated: 2022/11/29 15:51:30 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,3 @@ void	*ft_bzero(void *str, size_t n)
 	}
 	return (str);
 }
-// int main()
-// {
-// 	unsigned char b[] = "";
-// 	ft_bzero(b+5,5);
-// 	printf("%s",b);
-// }

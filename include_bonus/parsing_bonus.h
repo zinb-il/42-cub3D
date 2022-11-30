@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.h                                          :+:      :+:    :+:   */
+/*   parsing_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/28 16:36:15 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/11/29 17:17:00 by ziloughm         ###   ########.fr       */
+/*   Created: 2022/11/29 18:57:53 by ziloughm          #+#    #+#             */
+/*   Updated: 2022/11/29 21:48:07 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#	ifndef PARSING_H
-# define PARSING_H
+#	ifndef PARSING_BONUS_H
+# define PARSING_BONUS_H
 
 //Size window
 # define S_WIN 64
 
 //Map valid elements
-# define MAP_ELMN "10ESWN "
+# define MAP_ELMN "012ESWN "
 
 //Map Extension
 # define EXTEN_MAP ".cub"

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 19:07:47 by omeslall          #+#    #+#             */
-/*   Updated: 2022/11/28 22:29:18 by ziloughm         ###   ########.fr       */
+/*   Created: 2021/11/10 19:07:47 by ziloughm          #+#    #+#             */
+/*   Updated: 2022/11/29 15:51:36 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	*ft_calloc(size_t count, size_t size)
 	i = count * size;
 	str = malloc(i);
 	if (!str)
-		return (NULL);
+		return (0);
 	return (ft_bzero(str, i));
 }

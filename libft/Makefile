@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+         #
+#    By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/21 03:34:46 by iouazzan          #+#    #+#              #
-#    Updated: 2022/11/18 18:36:56 by iouazzan         ###   ########.fr        #
+#    Updated: 2022/11/29 16:45:41 by ziloughm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ MANDATORY = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isasci
 			ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_split.c ft_strchr.c \
 			ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c \
 			ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c\
-			ft_get_next_line.c ft_dstrlen.c ft_free_dstr.c ft_strcmp.c\
+			ft_get_next_line.c ft_dstrlen.c ft_free_dstr.c ft_strcmp.c ft_count_char.c\
 			ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c \
 			ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c \
 			ft_lstnew_bonus.c ft_lstsize_bonus.c

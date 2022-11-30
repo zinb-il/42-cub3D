@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3D_valid_map_elemts.c                           :+:      :+:    :+:   */
+/*   cub3D_valid_map_elemts_1.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 17:14:41 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/28 22:25:36 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/11/29 17:00:05 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,11 @@ void	ft_check_row(char	*map, int l)
 		ft_print_errors(ERROR_INVALID_WALL);
 }
 
-void	ft_valid_map_wall(char **map)
+void	ft_valid_map_wall(char **map, int r, int l)
 {
 	int	i;
 	int	j;
-	int	r;
-	int	l;
 
-	r = ft_dstrlen(map) - 1;
-	l = ft_strlen(map[0]) - 1;
 	ft_last_first_row(map, r, l);
 	i = 1;
 	while (i < r)
@@ -73,8 +69,10 @@ void	ft_valid_map_wall(char **map)
 		{
 			if (map[i][j] != '1' && map[i][j] != ' ')
 				if (map[i - 1][j] == ' ' || map[i + 1][j] == ' ' || \
-				map[i][j - 1] == ' ' || map[i][j + 1] == ' ')
-					ft_print_errors(ERROR_INVALID_WALL);
+				map[i][j - 1] == ' ' || map[i][j + 1] == ' ' || \
+				map[i - 1][j - 1] == ' ' || map[i - 1][j + 1] == ' '\
+				|| map[i + 1][j - 1] == ' ' || map[i + 1][j + 1] == ' ')
+					ft_print_errors(ERROR_INVALID_WALL1);
 			j++;
 		}
 		i++;
@@ -84,6 +82,8 @@ void	ft_valid_map_wall(char **map)
 void	ft_valid_map_elem(t_game **game)
 {
 	ft_check_map_elemnt((*game)->map);
-	ft_valid_map_wall((*game)->map);
+	ft_valid_map_wall((*game)->map, ft_dstrlen((*game)->map) - 1, \
+	ft_strlen((*game)->map[0]) - 1);
+	ft_check_nsew10((*game)->map);
 	return ;
 }

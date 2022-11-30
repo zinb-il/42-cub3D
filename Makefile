@@ -1,17 +1,25 @@
 VRLIBFT= libft/libft.a
 
+VRLIBFT_BONUS= libft/libft.a
+
 SRCS = src/main.c src/parse/cub3D_utils_1.c src/parse/cub3D_utils_2.c src/parse/cub3D_valid_map_params.c\
-		src/parse/cub3D_valid_map_description.c src/map_2D/map_2d.c src/parse/cub3D_valid_map_elemts.c\
-		src/mouvement/mouvement.c src/mouvement/util_mouv.c\
+		src/parse/cub3D_valid_map_description.c src/map_2D/map_2d.c src/parse/cub3D_valid_map_elemts_1.c\
+		src/parse/cub3D_valid_map_elemts_2.c src/mouvement/mouvement.c src/mouvement/util_mouv.c\
 		src/parse/cub3D_valid_colors.c src/parse/cub3D_valid_walls_img.c $(VRLIBFT)\
+
+SRCS_BONUS = src/main_bonus.c src/parse/cub3D_utils_1_bonus.c src/parse/cub3D_utils_2_bonus.c src/parse/cub3D_valid_map_params_bonus.c\
+		src/parse/cub3D_valid_map_description_bonus.c src/parse/cub3D_valid_map_elemts_1_bonus.c src/parse/cub3D_valid_map_elemts_2_bonus.c \
+		src/parse/cub3D_valid_colors_bonus.c src/parse/cub3D_valid_walls_img_bonus.c $(VRLIBFT_BONUS)\
 
 CC = cc
 
-FLAGS = -Wall -Werror -Wextra -fsanitize=address -g
+FLAGS = -Wall -Werror -Wextra
 
 DEBUG = -fsanitize=address -g
 
 NAME = cub3D
+
+BONUS = cub3D_bonus
 
 
 all : $(NAME)
@@ -19,6 +27,11 @@ all : $(NAME)
 $(VRLIBFT):
 	@make -C libft
 	@cp $(VRLIBFT) $(NAME)
+	@make -C libft clean
+
+$(VRLIBFT_BONUS):
+	@make -C libft
+	@cp $(VRLIBFT_BONUS) $(BONUS)
 	@make -C libft clean
 
 INCLUDES =  src/mlx/
@@ -29,8 +42,8 @@ $(NAME):$(VRLIBFT)
 	@$(CC) $(FLAGS) -I $(INCLUDES) $(SRCS) -L $(LINKS) -o $(NAME)
 	@echo "\033[0;32m the library of cub3D is perfectly constructed\033[0;37m"
 
-debug:$(VRLIBFT)
-	@$(CC) $(FLAGS) $(DEBUG) -I $(INCLUDES) $(SRCS) -L $(LINKS) -o $(NAME)
+bonus:$(VRLIBFT_BONUS)
+	@$(CC) $(FLAGS) -I $(INCLUDES) $(SRCS) -L $(LINKS) -o $(BONUS)
 	@echo "\033[0;32m the library of cub3D is perfectly constructed\033[0;37m"
 
 clean:
@@ -39,6 +52,7 @@ clean:
 fclean:
 	@make -C libft fclean
 	@rm -rf $(NAME)
+	@rm -rf $(BONUS)
 	@echo "\033[0;34m the library of cub3D is perfectly deconstructed\033[0;37m"
 
 re: fclean all

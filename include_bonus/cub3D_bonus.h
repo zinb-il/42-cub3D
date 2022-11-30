@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   cub3D_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 19:45:02 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/29 15:48:23 by ziloughm         ###   ########.fr       */
+/*   Created: 2022/11/29 18:57:05 by ziloughm          #+#    #+#             */
+/*   Updated: 2022/11/29 22:08:13 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#	ifndef CUB3D_BONUS_H
+# define CUB3D_BONUS_H
 
-void	ft_putendl_fd(char *s, int fd)
-{
-	int	i;
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <string.h>
+# include <errno.h>
+# include <fcntl.h>
+# include <math.h>
+# include "mlx.h"
+# include "parsing_bonus.h"
+# include "../include/part.h"
+# include "../libft/libft.h"
 
-	i = 0;
-	while (s && s[i])
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
-	write(fd, "\n", 1);
-}
+#	endif

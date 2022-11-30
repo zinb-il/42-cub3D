@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_2d.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 21:33:10 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/11/28 20:12:53 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/11/30 13:56:02 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,11 @@ void	setup_map(t_data *data, int i, int j)
 			(data->game->mlx, data->mlx_win, data->game->w_no, j * SIZE_WIN, i * SIZE_WIN);
 	else if (data->game->map[i][j] == '0')
 		mlx_put_image_to_window
+			(data->game->mlx, data->mlx_win, data->game->w_we, j * SIZE_WIN, i * SIZE_WIN);
+	else if (data->game->map[i][j] == ' ')
+		mlx_put_image_to_window
 			(data->game->mlx, data->mlx_win, data->game->w_so, j * SIZE_WIN, i * SIZE_WIN);
+			
 }
 
 int pth (int x,int y)

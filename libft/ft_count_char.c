@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_count_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 19:45:02 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/29 15:48:23 by ziloughm         ###   ########.fr       */
+/*   Created: 2022/11/29 16:38:59 by ziloughm          #+#    #+#             */
+/*   Updated: 2022/11/29 16:39:09 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+size_t	ft_count_char(char *s, char c)
 {
-	int	i;
+	int		i;
+	size_t	count;
 
+	count = 0;
 	i = 0;
-	while (s && s[i])
+	while (s[i])
 	{
-		write(fd, &s[i], 1);
+		if (s[i] == c)
+			count++;
 		i++;
 	}
-	write(fd, "\n", 1);
+	return (count);
 }
