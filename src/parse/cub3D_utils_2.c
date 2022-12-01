@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D_utils_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:52:08 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/30 19:22:05 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/01 15:56:46 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void	ft_get_pview(t_game **gm, char c)
 	else if (c == 'W')
 		(*gm)->p_view = 0;
 	else if (c == 'N')
-		(*gm)->p_view = PI / 2;
-	else
 		(*gm)->p_view = PI * 3 / 2;
+	else
+		(*gm)->p_view = PI / 2;
 }
 
 void	ft_get_info(t_game **gm)

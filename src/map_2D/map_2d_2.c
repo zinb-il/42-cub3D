@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 18:31:58 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/01 14:56:14 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/01 17:02:25 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,4 +122,5 @@ int	key_hook(int keycode, t_data *data)
 void	mouve_player(t_data *data)
 {
 	mlx_hook(data->mlx_win, 2, 0, key_hook, data);
+	// mlx_hook(data->mlx_win, 6, 0, key_hook, data);
 }
