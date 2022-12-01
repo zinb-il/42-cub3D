@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 23:08:36 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/30 19:16:41 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/01 14:58:25 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,12 @@ int	main(int ac, char **av)
 {
 	t_game		*gm;
 	t_data		*data;
-	t_player	*player;
 
 	gm = first_part_cub3d(ac, av);
-	player = malloc(sizeof(t_player));
-	if (!player)
-		ft_print_errors(strerror(errno));
 	data = (t_data *)malloc(sizeof(t_data));
 	if (!data)
 		ft_print_errors(strerror(errno));
-	init_data(gm, data, player);
+	init_data(gm, data);
 	map_2d(data);
 	mouve_player(data);
 	mlx_loop(data->gm->mlx);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   part.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:38:27 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/11/30 19:00:04 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/01 14:58:09 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,22 @@
 # define NB_LINE 14
 # define NB_COL 34
 # define SIZE_WIN 64
-# define FOV 60
+# define WIDTH_MAP (NB_COL * 64)
+# define HEIGHT_MAP (NB_LINE * 64)
+# define RECTANGLE 60
 # define PI 3.141592
 # define RETATION (PI / 2)
 # define MOVE_SPEED 7
 # define ROTATION_SPEED .1
 
-typedef struct s_player
-{
-	int		width;
-	int		heght;
-	size_t	color;
-}	t_player;
 
 typedef struct s_data
 {
 	struct s_cub3d	*gm;
-	struct s_player	*pl;
 	void			*mlx_win;
-	float			player_x;
 	float			pp_x;
 	float			pp_y;
 	float			retation;
-	float			player_y;
 }	t_data;
 
 void	map_2d(t_data *game);
@@ -57,7 +50,7 @@ void	walk_down(t_data *data);
 void	walk_up(t_data *data);
 void	ret_right(t_data *data);
 void	ret_left(t_data *data);
-void	init_data(t_game *game, t_data *data, t_player *player);
+void	init_data(t_game *game, t_data *data);
 int		check_sides(t_data *data, int px, int py, int x, int y);
 
 #	endif

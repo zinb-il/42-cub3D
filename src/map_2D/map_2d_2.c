@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_2d_2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 18:31:58 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/30 19:55:50 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/01 14:56:14 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,6 @@ void	setup_player(t_data *data)
 
 int	key_hook(int keycode, t_data *data)
 {
-
 	if (keycode == KEY_ESC)
 	{
 		mlx_destroy_window(data->gm->mlx, data->mlx_win);
