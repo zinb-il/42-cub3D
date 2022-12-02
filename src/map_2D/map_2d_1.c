@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_2d_1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 21:33:10 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/02 21:06:49 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/02 22:05:04 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,35 +51,23 @@ int	check_sides(t_data *data, int x, int y)
 	{
 		if (y > (data->pp_y / 64))
 		{
-			if (data->gm->map[x][y - 1] == '1' && data->gm->map[x - 1][y] == '1')
-			{
-				printf("data->gm->map[x][y] 1: %c\n", data->gm->map[x][y]);
+			if (data->gm->map[x][y - 1] && data->gm->map[x - 1][y])
 				return (1);
-			}
 		}
 		else
-			if (data->gm->map[x - 1][y] == '1' && data->gm->map[x][y + 1] == '1')
-			{
-				printf("data->gm->map[x][y] 2: %c\n", data->gm->map[x][y]);
+			if (data->gm->map[x - 1][y] && data->gm->map[x][y + 1])
 				return (1);
-			}
 	}
 	else
 	{
 		if (y > (data->pp_y / 64))
 		{
-			if (data->gm->map[x][y - 1] == '1' && data->gm->map[x + 1][y] == '1')
-			{
-				printf("data->gm->map[x][y] 3: %c\n", data->gm->map[x][y]);
+			if (data->gm->map[x][y - 1] && data->gm->map[x + 1][y])
 				return (1);
-			}
 		}
 		else
-			if (data->gm->map[x + 1][y] == '1' && data->gm->map[x][y + 1] == '1')
-			{
-				printf("data->gm->map[x][y] 4: %c\n", data->gm->map[x + 1][y]);
+			if (data->gm->map[x + 1][y] && data->gm->map[x][y + 1])
 				return (1);
-			}
 	}
 	return (0);
 }
