@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:38:27 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/01 14:58:09 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/02 18:12:13 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,32 +25,41 @@
 # define ROTATION_SPEED .1
 
 
+
+typedef struct s_line
+{
+	float		dx;
+	float		dy;
+	float		step;
+}	t_line;
+
+
 typedef struct s_data
 {
 	struct s_cub3d	*gm;
+	struct s_line	*line;
 	void			*mlx_win;
 	float			pp_x;
 	float			pp_y;
 	float			retation;
+	int				old_x_m;
 }	t_data;
+
 
 void	map_2d(t_data *game);
 void	setup_map(t_data *data, int i, int j);
-int		encode_rgb(int red, int green, int blue);
 void	setup_player(t_data *data);
 void	setup_line(t_data *data);
 void	mouve_player(t_data *data);
-int		check_next_step(t_data *data, int x, int y, int x0, int y0);
-void	draw_line(t_data *data, int x1, int y1, int x2, int y2);
-int		check_point(t_data *data, int x1, int y1, int x2, int y2);
-int		aspects(t_data *data, int px, int py, int x, int y);
-void	walk_right(t_data *data);
-void	walk_left(t_data *data);
-void	walk_down(t_data *data);
-void	walk_up(t_data *data);
+int		check_next_step(t_data *data, int x, int y);
+void	draw_line(t_data *data, int x2, int y2);
 void	ret_right(t_data *data);
 void	ret_left(t_data *data);
 void	init_data(t_game *game, t_data *data);
-int		check_sides(t_data *data, int px, int py, int x, int y);
+int		check_sides(t_data *data, int x, int y);
+int		mouse_hook(int x, int y, t_data *data);
+void	draw_line_utl(t_data *data, int x2, int y2);
+int		key_hook(int keycode, t_data *data);
+void	mouve(t_data *data, int way, int ang);
 
 #	endif

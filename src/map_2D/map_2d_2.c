@@ -6,68 +6,44 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 18:31:58 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/01 17:02:25 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/02 18:11:36 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3D.h"
 
-int	check_sides(t_data *data, int px, int py, int x, int y)
+void	draw_line_utl(t_data *data, int x2, int y2)
 {
-	if (x > px)
-	{
-		if (y > py)
-		{
-			if (data->gm->map[x][y - 1] == '1' && data->gm->map[x - 1][y] == '1')
-				return (1);
-		}
-		else
-			if (data->gm->map[x - 1][y] == '1' && data->gm->map[x][y + 1] == '1')
-				return (1);
-	}
+	data->line->dx = abs(x2 - (int)data->pp_y);
+	data->line->dy = abs(y2 - (int)data->pp_x);
+	if (data->line->dx > data->line->dy)
+		data->line->step = data->line->dx;
 	else
-	{
-		if (y > py)
-		{
-			if (data->gm->map[x][y - 1] == '1' && data->gm->map[x + 1][y] == '1')
-					return (1);
-		}
-		else
-			if (data->gm->map[x + 1][y] == '1' && data->gm->map[x][y + 1] == '1')
-				return (1);
-	}
-	return (0);
+		data->line->step = data->line->dy;
+	data->line->dx /= data->line->step;
+	data->line->dy /= data->line->step;
 }
 
-void	draw_line(t_data *data ,int x1, int y1, int x2, int y2)
+void	draw_line(t_data *data, int x2, int y2)
 {
-	float x,y,dx,dy,step;
-	int i;
+	float	x;
+	float	y;
 
-
-	dx=abs(x2-x1);
-	dy=abs(y2-y1);
-	if(dx>=dy)
-		step=dx;
-	else
-		step=dy;
-	dx=dx/step;
-	dy=dy/step;
-	x=x1;
-	y=y1;
-	i=1;
-	while(i<=step)
+	x = data->pp_y;
+	y = data->pp_x;
+	draw_line_utl(data, x2, y2);
+	while (data->line->step >= 0)
 	{
 		mlx_pixel_put(data->gm->mlx, data->mlx_win, x, y, 0);
-		if (x1 < x2)
-			x += dx;
+		if (data->pp_y < x2)
+			x += data->line->dx;
 		else
-			x -= dx;
-		if (y1 < y2)
-			y += dy;
+			x -= data->line->dx;
+		if (data->pp_x < y2)
+			y += data->line->dy;
 		else
-			y -= dy;
-		i=i+1;
+			y -= data->line->dy;
+		data->line->step--;
 	}
 }
 
@@ -109,18 +85,31 @@ int	key_hook(int keycode, t_data *data)
 	if (keycode == KEY_RIGHT1)
 		ret_right(data);
 	if (keycode == KEY_LEFT)
-		walk_left(data);
+		mouve(data, -1, 1);
 	if (keycode == KEY_RIGHT)
-		walk_right(data);
+		mouve(data, 1, 1);
 	if (keycode == KEY_DOWN)
-		walk_down(data);
+		mouve(data, -1, 0);
 	if (keycode == KEY_UP)
-		walk_up(data);
+		mouve(data, 1, 0);
 	return (0);
 }
 
-void	mouve_player(t_data *data)
+int	mouse_hook(int x, int y, t_data *data)
 {
-	mlx_hook(data->mlx_win, 2, 0, key_hook, data);
-	// mlx_hook(data->mlx_win, 6, 0, key_hook, data);
+	(void)y;
+	if (data->old_x_m == -2)
+		data->old_x_m = x;
+	if (x > data->old_x_m)
+	{
+		data->old_x_m = x;
+		data->retation += 0.05;
+	}
+	else
+	{
+		data->old_x_m = x;
+		data->retation -= 0.05;
+	}
+	map_2d(data);
+	return (0);
 }
