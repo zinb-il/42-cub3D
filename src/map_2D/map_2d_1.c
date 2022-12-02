@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 21:33:10 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/02 18:14:24 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/02 21:06:49 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,6 @@ void	init_data(t_game *game, t_data *data)
 	"CUB3D");
 }
 
-int	encode_rgb(int red, int green, int blue)
-{
-	return (red << 16 | green << 8 | blue);
-}
-
 void	setup_map(t_data *data, int i, int j)
 {
 	if (data->gm->map[i][j] == '1')
@@ -50,11 +45,6 @@ void	setup_map(t_data *data, int i, int j)
 			i * SIZE_WIN);
 }
 
-int	pth(int x, int y)
-{
-	return (sqrt (pow(x, 2) + pow(y, 2)));
-}
-
 int	check_sides(t_data *data, int x, int y)
 {
 	if (x > (data->pp_x / 64))
@@ -62,22 +52,34 @@ int	check_sides(t_data *data, int x, int y)
 		if (y > (data->pp_y / 64))
 		{
 			if (data->gm->map[x][y - 1] == '1' && data->gm->map[x - 1][y] == '1')
+			{
+				printf("data->gm->map[x][y] 1: %c\n", data->gm->map[x][y]);
 				return (1);
+			}
 		}
 		else
 			if (data->gm->map[x - 1][y] == '1' && data->gm->map[x][y + 1] == '1')
+			{
+				printf("data->gm->map[x][y] 2: %c\n", data->gm->map[x][y]);
 				return (1);
+			}
 	}
 	else
 	{
 		if (y > (data->pp_y / 64))
 		{
 			if (data->gm->map[x][y - 1] == '1' && data->gm->map[x + 1][y] == '1')
+			{
+				printf("data->gm->map[x][y] 3: %c\n", data->gm->map[x][y]);
 				return (1);
+			}
 		}
 		else
 			if (data->gm->map[x + 1][y] == '1' && data->gm->map[x][y + 1] == '1')
+			{
+				printf("data->gm->map[x][y] 4: %c\n", data->gm->map[x + 1][y]);
 				return (1);
+			}
 	}
 	return (0);
 }
