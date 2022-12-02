@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   part.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:38:27 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/02 18:12:13 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/02 22:30:39 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,10 @@
 # define NB_LINE 14
 # define NB_COL 34
 # define SIZE_WIN 64
-# define WIDTH_MAP (NB_COL * 64)
-# define HEIGHT_MAP (NB_LINE * 64)
 # define RECTANGLE 60
 # define PI 3.141592
-# define RETATION (PI / 2)
 # define MOVE_SPEED 7
 # define ROTATION_SPEED .1
-
-
 
 typedef struct s_line
 {
@@ -32,7 +27,6 @@ typedef struct s_line
 	float		dy;
 	float		step;
 }	t_line;
-
 
 typedef struct s_data
 {
@@ -44,7 +38,6 @@ typedef struct s_data
 	float			retation;
 	int				old_x_m;
 }	t_data;
-
 
 void	map_2d(t_data *game);
 void	setup_map(t_data *data, int i, int j);
