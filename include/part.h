@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:38:27 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/02 22:30:39 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/03 07:25:30 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,22 @@
 # define PI 3.141592
 # define MOVE_SPEED 7
 # define ROTATION_SPEED .1
+
+typedef struct ray
+{
+	float	ray_angl;
+	float	wallhit_x;
+	float	wallhit_y;
+	float	distance;
+}t_ray;
+
+typedef struct raycat
+{
+	float	fov_angl;
+	int		num_rays;
+	int		wall_strip_width;
+	t_ray	*rays;
+}t_raycast;
 
 typedef struct s_line
 {
@@ -37,15 +53,16 @@ typedef struct s_data
 	float			pp_y;
 	float			retation;
 	int				old_x_m;
+	t_raycast		*raycat;
 }	t_data;
 
-void	map_2d(t_data *game);
+void	map_2d(t_data *data);
 void	setup_map(t_data *data, int i, int j);
 void	setup_player(t_data *data);
 void	setup_line(t_data *data);
 void	mouve_player(t_data *data);
 int		check_next_step(t_data *data, int x, int y);
-void	draw_line(t_data *data, int x2, int y2);
+void	draw_line(t_data *data, int x2, int y2, int color);
 void	ret_right(t_data *data);
 void	ret_left(t_data *data);
 void	init_data(t_game *game, t_data *data);

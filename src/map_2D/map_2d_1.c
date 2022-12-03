@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 21:33:10 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/02 22:05:04 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/03 01:05:11 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	init_data(t_game *game, t_data *data)
 {
-	t_line	*line;
+	t_line		*line;
+	t_raycast	*raycast;
 
 	line = (t_line *)malloc(sizeof(t_line));
 	if (!line)
@@ -27,6 +28,8 @@ void	init_data(t_game *game, t_data *data)
 	data->retation = game->p_view;
 	data->mlx_win = mlx_new_window(data->gm->mlx, game->map_w, game->map_h, \
 	"CUB3D");
+	raycast = init_raycat(data);
+	data->raycat = raycast;
 }
 
 void	setup_map(t_data *data, int i, int j)

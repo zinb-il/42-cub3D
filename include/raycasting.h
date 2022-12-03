@@ -6,13 +6,15 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:48:44 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/02 22:33:30 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/03 01:08:01 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #	ifndef RAYCASTING_H
 # define RAYCASTING_H
 
-# define FOV_ANG (60 * 3.141592 / 180)
+t_raycast	*init_raycat(t_data *data);
+void		cast_allrays(t_data *data);
+void		start_raycast(t_data *data);
 
 #	endif

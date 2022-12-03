@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_2d_2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 18:31:58 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/02 18:11:36 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/03 01:17:58 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	draw_line_utl(t_data *data, int x2, int y2)
 	data->line->dy /= data->line->step;
 }
 
-void	draw_line(t_data *data, int x2, int y2)
+void	draw_line(t_data *data, int x2, int y2, int color)
 {
 	float	x;
 	float	y;
@@ -34,7 +34,7 @@ void	draw_line(t_data *data, int x2, int y2)
 	draw_line_utl(data, x2, y2);
 	while (data->line->step >= 0)
 	{
-		mlx_pixel_put(data->gm->mlx, data->mlx_win, x, y, 0);
+		mlx_pixel_put(data->gm->mlx, data->mlx_win, x, y, color);
 		if (data->pp_y < x2)
 			x += data->line->dx;
 		else
