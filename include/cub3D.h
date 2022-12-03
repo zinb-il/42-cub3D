@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 23:06:09 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/28 21:07:32 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/02 22:27:33 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 # include <errno.h>
 # include <fcntl.h>
 # include <math.h>
+# include "../libft/libft.h"
 # include "mlx.h"
 # include "parsing.h"
 # include "part.h"
 # include "raycasting.h"
-# include "../libft/libft.h"
 
 #	endif
