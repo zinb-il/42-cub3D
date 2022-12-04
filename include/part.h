@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:38:27 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/03 18:09:44 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/03 23:32:29 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,22 @@
 # define PI 3.141592
 # define MOVE_SPEED 7
 # define ROTATION_SPEED .1
+
+typedef struct s_point
+{
+	float	x;
+	float	y;
+}t_point;
+
+typedef struct s_info
+{
+	float	xintercept;
+	float	yintercept;
+	float	xstep;
+	float	ystep;
+	float	xhit;
+	float	yhit;
+}t_info;
 
 typedef struct ray
 {
