@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D_utils_1.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:58:53 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/01 15:54:42 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/06 15:10:42 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	print_dstr(char **str)
 	i = 0;
 	while (str && str[i])
 	{
-		printf("'%s'\n", str[i]);
+		printf("%d     '%s'\n", i, str[i]);
 		i++;
 	}
 }

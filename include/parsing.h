@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:36:15 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/11/30 19:15:26 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/06 12:06:54 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@
 # define COLOR_C "C"
 
 //Define Game Struct
-//Player North PI/2
-//Player South 3*PI/2
+//Player North 3*PI/2
+//Player South PI/2
 //Player West   0
 //Player East   PI
 typedef struct s_cub3d

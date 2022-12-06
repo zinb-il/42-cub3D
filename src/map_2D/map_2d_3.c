@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 18:34:28 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/03 01:22:59 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/05 22:03:03 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,5 @@ void	map_2d(t_data *data)
 void	mouve_player(t_data *data)
 {
 	mlx_hook(data->mlx_win, 2, 0, key_hook, data);
-	mlx_hook(data->mlx_win, 6, 0, mouse_hook, data);
+	//mlx_hook(data->mlx_win, 6, 0, mouse_hook, data);
 }

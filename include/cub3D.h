@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 23:06:09 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/03 01:08:41 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/05 22:47:43 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <errno.h>
 # include <fcntl.h>
 # include <math.h>
+# include <limits.h>
 # include "../libft/libft.h"
 # include "mlx.h"
 # include "parsing.h"

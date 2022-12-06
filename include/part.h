@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:38:27 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/03 23:32:29 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/06 18:08:54 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # define NB_LINE 14
 # define NB_COL 34
 # define SIZE_WIN 64
+# define SCALE 0.1
 # define RECTANGLE 60
 # define PI 3.141592
 # define MOVE_SPEED 7
@@ -35,6 +36,8 @@ typedef struct s_info
 	float	ystep;
 	float	xhit;
 	float	yhit;
+	int		xdecre;
+	int		ydecre;
 }t_info;
 
 typedef struct ray
