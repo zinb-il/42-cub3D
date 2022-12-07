@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 18:31:58 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/03 01:17:58 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/06 21:20:05 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void	draw_line(t_data *data, int x2, int y2, int color)
 	draw_line_utl(data, x2, y2);
 	while (data->line->step >= 0)
 	{
-		mlx_pixel_put(data->gm->mlx, data->mlx_win, x, y, color);
+		mlx_pixel_put(data->gm->mlx, data->mlx_win, \
+		x * SCALE, y * SCALE, color);
 		if (data->pp_y < x2)
 			x += data->line->dx;
 		else
@@ -55,7 +56,7 @@ void	setup_player(t_data *data)
 	int	length;
 
 	width = 5;
-	length = width * 1.5;
+	length = width * 1.5 ;
 	x = width;
 	while (x >= -width)
 	{
@@ -64,8 +65,8 @@ void	setup_player(t_data *data)
 		{
 			if (sqrt(pow(x, 2) + pow(y, 2)) <= width)
 				mlx_pixel_put(data->gm->mlx, data->mlx_win,
-					(y + data->pp_y),
-					(x + data->pp_x),
+					(y + data->pp_y) * SCALE,
+					(x + data->pp_x) * SCALE,
 					0x09FF60);
 			++y;
 		}

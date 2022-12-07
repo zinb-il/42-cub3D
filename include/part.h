@@ -6,21 +6,22 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:38:27 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/06 18:08:54 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/07 16:54:48 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #	ifndef PART_H
 # define PART_H
 
-# define NB_LINE 14
-# define NB_COL 34
 # define SIZE_WIN 64
-# define SCALE 0.1
+# define S_MIN_WIN 10
+# define SCALE 0.5
 # define RECTANGLE 60
 # define PI 3.141592
-# define MOVE_SPEED 7
+# define MOVE_SPEED 100
 # define ROTATION_SPEED .1
+# define MAP_W 1500
+# define MAP_H 900
 
 typedef struct s_point
 {

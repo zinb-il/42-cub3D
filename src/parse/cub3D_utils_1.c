@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:58:53 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/06 15:10:42 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/07 12:19:43 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	print_dstr(char **str)
 	i = 0;
 	while (str && str[i])
 	{
-		printf("%d     '%s'\n", i, str[i]);
+		printf("'%s'\n", str[i]);
 		i++;
 	}
 }

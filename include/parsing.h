@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:36:15 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/06 12:06:54 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/07 14:16:40 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ typedef struct s_cub3d
 	void			*space;
 	void			*wall;
 	void			*empty;
+	void			*img;
 	unsigned long	c_f;
 	unsigned long	c_c;
 	float			p_view;

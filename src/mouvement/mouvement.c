@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouvement.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 00:16:47 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/02 21:45:54 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/07 16:52:18 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ void	mouve(t_data *data, int way, int ang)
 		data->pp_y = y;
 		data->pp_x = x;
 		map_2d(data);
+		map_3d(data);
 	}
 }
