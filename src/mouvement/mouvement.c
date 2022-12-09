@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouvement.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 00:16:47 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/07 16:52:18 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/08 20:46:36 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	mouve(t_data *data, int way, int ang)
 	float	x;
 	float	y;
 
+	
 	if (ang == 1)
 	{
 		x = data->pp_x + (sin(data->retation + 90 * PI / 180) * MOVE_SPEED) \
@@ -46,6 +47,6 @@ void	mouve(t_data *data, int way, int ang)
 		data->pp_y = y;
 		data->pp_x = x;
 		map_2d(data);
-		map_3d(data);
+		// map_3d(data);
 	}
 }

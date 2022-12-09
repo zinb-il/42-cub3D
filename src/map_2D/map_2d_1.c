@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_2d_1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 21:33:10 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/07 15:24:29 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/08 21:22:38 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,32 +33,27 @@ void	init_data(t_game *game, t_data *data)
 
 void	setup_map(t_data *data, int i, int j)
 {
-	int	i1;
-	int	j1;
-
-	i1 = (int)(i * SIZE_WIN * SCALE);
-	j1 = (int)(j * SIZE_WIN * SCALE);
 	if (data->gm->map[i][j] == '1')
 	{
 		mlx_put_image_to_window
 			(data->gm->mlx, data->mlx_win, data->gm->wall, \
-			j1, i1);
+			j * SIZE_WIN, i * SIZE_WIN);
 	}
 	else if (data->gm->map[i][j] == '0')
 		mlx_put_image_to_window
 			(data->gm->mlx, data->mlx_win, data->gm->space, \
-			j1, i1);
+			j * SIZE_WIN, i * SIZE_WIN);
 	else
 		mlx_put_image_to_window
 			(data->gm->mlx, data->mlx_win, data->gm->empty, \
-			j1, i1);
+			j * SIZE_WIN, i * SIZE_WIN);
 }
 
 int	check_sides(t_data *data, int x, int y)
 {
-	if (x > (data->pp_x / 64))
+	if (x > (data->pp_x / SIZE_WIN))
 	{
-		if (y > (data->pp_y / 64))
+		if (y > (data->pp_y / SIZE_WIN))
 		{
 			if (data->gm->map[x][y - 1] && data->gm->map[x - 1][y])
 				return (1);
@@ -69,7 +64,7 @@ int	check_sides(t_data *data, int x, int y)
 	}
 	else
 	{
-		if (y > (data->pp_y / 64))
+		if (y > (data->pp_y / SIZE_WIN))
 		{
 			if (data->gm->map[x][y - 1] && data->gm->map[x + 1][y])
 				return (1);

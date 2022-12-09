@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 23:06:09 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/06 18:18:48 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/08 20:52:52 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include "parsing.h"
 # include "part.h"
 # include "raycasting.h"
+# include "mini_map.h"
 # include "map_3D.h"
 
 #	endif

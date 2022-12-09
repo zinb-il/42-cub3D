@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_2d_3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 18:34:28 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/07 15:45:44 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/09 04:42:04 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,16 @@ void	map_2d(t_data *data)
 		j = 0;
 		while (data->gm->map[i][j])
 		{
-			//setup_map(data, i, j);
+			setup_map(data, i, j);
 			j++;
 		}
 		i++;
 	}
-	//setup_player(data);
-	start_raycast(data);
-	//draw_line(data, data->pp_y + cos(data->retation) * 40, \
-	//data->pp_x + sin(data->retation) * 40, 0);
+	// mini_map(data);
+	setup_player(data);
+	// start_raycast(data);
+	draw_line(data, data->pp_y + cos(data->retation) * 40, \
+	data->pp_x + sin(data->retation) * 40, 9126929);
 }
 
 void	mouve_player(t_data *data)
