@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 21:33:10 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/08 21:22:38 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/09 18:12:28 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	init_data(t_game *game, t_data *data)
 	data->pp_y = game->p_width + (SIZE_WIN / 2);
 	data->old_x_m = -2;
 	data->pp_x = game->p_height + (SIZE_WIN / 2);
+	data->p_p_mini = ((NB_WIN / 2) * S_MIN_WIN) + S_MIN_WIN / 2;
 	data->retation = game->p_view;
 	data->mlx_win = mlx_new_window(data->gm->mlx, MAP_W, MAP_H, "CUB3D");
 	raycast = init_raycat(data);

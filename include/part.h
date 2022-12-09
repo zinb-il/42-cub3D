@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:38:27 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/08 21:05:27 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/09 17:16:04 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,9 @@ typedef struct s_data
 	void			*mlx_win;
 	float			pp_x;
 	float			pp_y;
+	int				c_x;
+	int				c_y;
+	int 			p_p_mini;
 	float			retation;
 	int				old_x_m;
 	t_raycast		*raycat;
