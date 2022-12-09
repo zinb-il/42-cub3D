@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 20:52:16 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/09 02:40:06 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/09 15:34:09 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 void	setup_map(t_data *data, int i, int j);
 void	draw_win(t_data *data, int i, int j, int clr);
-void	s_m_map(t_data *data, int i, int j, int k, int l);
+void	s_m_win(t_data *data, int i, int j, int k, int l);
 void	mini_map(t_data *data);
 void	draw_win_null(t_data *data, int i, int j);
 void	setup_player_min(t_data *data);

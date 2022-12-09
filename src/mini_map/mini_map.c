@@ -6,23 +6,24 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 20:49:41 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/09 04:35:09 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/09 15:49:03 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3D.h"
 
-void	s_m_map(t_data *data, int i, int j, int k, int l)
+void	s_m_win(t_data *data, int i, int j, int k, int l)
 {
 	int	y;
 	int	x;
 
 	y = (data->pp_x / 64) - j;
 	x = (data->pp_y / 64) - i;
-	if ((y < 0 || y > data->gm->nb_row) || (x < 0 || x > data->gm->nb_col))
+	printf("nb row %d\n", data->gm->nb_row);
+	if ((y < 0 || y > data->gm->nb_row - 1) || (x < 0 || x > data->gm->nb_col))
 	{
 		printf("px %f, py %f\n", data->pp_x, data->pp_y);
-		printf("py %d, px %d\n", y, x);
+		printf("y %d, x %d\n", y, x);
 		printf("i %d, j %d\n", i, j);
 		printf("k %d, l %d\n", k, l);
 		printf("SGV\n");
@@ -31,6 +32,7 @@ void	s_m_map(t_data *data, int i, int j, int k, int l)
 	}
 	else
 	{
+		printf("after\n");
 		if (data->gm->map[y][x] == '1')
 			draw_win(data, k, l, 16113151);
 		else if (data->gm->map[y][x] == '0')
@@ -156,7 +158,7 @@ void	mini_map(t_data *data)
 		x = 5;
 		while (j < NB_WIN)
 		{
-			s_m_map(data, x, y, i, j);
+			s_m_win(data, x, y, i, j);
 			x--;
 			j++;
 		}

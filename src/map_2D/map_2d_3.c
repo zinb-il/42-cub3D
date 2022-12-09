@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 18:34:28 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/09 04:42:04 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/09 15:14:26 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	map_2d(t_data *data)
 		}
 		i++;
 	}
-	// mini_map(data);
+	mini_map(data);
 	setup_player(data);
 	// start_raycast(data);
 	draw_line(data, data->pp_y + cos(data->retation) * 40, \
