@@ -4,7 +4,7 @@ SRCS = src/main.c src/parse/cub3D_utils_1.c src/parse/cub3D_utils_2.c src/parse/
        src/map_2D/map_2d_1.c src/map_2D/map_2d_2.c src/map_2D/map_2d_3.c src/parse/cub3D_valid_map_elemts_1.c\
 	   src/parse/cub3D_valid_map_elemts_2.c src/mouvement/mouvement.c src/mouvement/util_mouv.c src/parse/cub3D_valid_colors.c src/parse/cub3D_valid_walls_img.c \
 	   src/raycasting/raycasting_1.c src/raycasting/raycasting_2.c src/raycasting/raycasting_3.c src/map_3D/map_3d_1.c \
-	   src/mini_map/mini_map.c $(VRLIBFT)\
+	   src/mini_map/mini_map.c src/mini_map/setup_min.c $(VRLIBFT)\
 
 SRCS_BONUS = src/main_bonus.c src/parse/cub3D_utils_1_bonus.c src/parse/cub3D_utils_2_bonus.c src/parse/cub3D_valid_map_params_bonus.c\
 		src/parse/cub3D_valid_map_description_bonus.c src/parse/cub3D_valid_map_elemts_1_bonus.c src/parse/cub3D_valid_map_elemts_2_bonus.c \

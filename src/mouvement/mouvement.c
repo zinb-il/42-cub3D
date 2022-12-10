@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 00:16:47 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/08 20:46:36 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/10 04:32:27 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,7 @@ void	mouve(t_data *data, int way, int ang)
 		x = data->pp_x + ((sin(data->retation) * MOVE_SPEED) * way);
 		y = data->pp_y + ((cos(data->retation) * MOVE_SPEED) * way);
 	}
-	if (check_next_step(data, x, y) == 0)
-	{
-		data->pp_y = y;
-		data->pp_x = x;
-		map_2d(data);
-		// map_3d(data);
-	}
+	collisions_wall(data, x, y);
+	map_2d(data);
+	// map_3d(data);
 }

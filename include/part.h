@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:38:27 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/09 17:16:04 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/10 01:53:27 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ void	setup_map(t_data *data, int i, int j);
 void	setup_player(t_data *data);
 void	setup_line(t_data *data);
 void	mouve_player(t_data *data);
-int		check_next_step(t_data *data, int x, int y);
 void	draw_line(t_data *data, int x2, int y2, int color);
 void	ret_right(t_data *data);
 void	ret_left(t_data *data);
@@ -94,5 +93,6 @@ void	draw_line_utl(t_data *data, int x2, int y2);
 int		key_hook(int keycode, t_data *data);
 void	mouve(t_data *data, int way, int ang);
 void	draw_win(t_data *data, int i, int j, int clr);
+void	collisions_wall(t_data *data, int x, int y);
 
 #	endif

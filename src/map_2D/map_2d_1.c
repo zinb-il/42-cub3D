@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 21:33:10 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/09 18:12:28 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/10 04:30:51 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,29 +50,38 @@ void	setup_map(t_data *data, int i, int j)
 			j * SIZE_WIN, i * SIZE_WIN);
 }
 
+int	check_sides_utl(t_data *data, int x, int y)
+{
+	if (y > (data->pp_y / SIZE_WIN))
+	{
+		if (data->gm->map[x][y - 1] == '1' && data->gm->map[x + 1][y] == '1')
+			return (1);
+	}
+	else
+		if (data->gm->map[x + 1][y] == '1' && data->gm->map[x][y + 1] == '1')
+			return (1);
+	return (0);
+}
+
 int	check_sides(t_data *data, int x, int y)
 {
 	if (x > (data->pp_x / SIZE_WIN))
 	{
 		if (y > (data->pp_y / SIZE_WIN))
 		{
-			if (data->gm->map[x][y - 1] && data->gm->map[x - 1][y])
+			if (data->gm->map[x][y - 1] == '1' && data->gm->map[x - 1][y] \
+			== '1')
 				return (1);
 		}
 		else
-			if (data->gm->map[x - 1][y] && data->gm->map[x][y + 1])
+			if (data->gm->map[x - 1][y] == '1' && data->gm->map[x][y + 1]\
+			 == '1')
 				return (1);
 	}
 	else
 	{
-		if (y > (data->pp_y / SIZE_WIN))
-		{
-			if (data->gm->map[x][y - 1] && data->gm->map[x + 1][y])
-				return (1);
-		}
-		else
-			if (data->gm->map[x + 1][y] && data->gm->map[x][y + 1])
-				return (1);
+		if (check_sides_utl(data, x, y) == 1)
+			return (1);
 	}
 	return (0);
 }
