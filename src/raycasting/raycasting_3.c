@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 23:40:19 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/06 15:57:14 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/10 21:50:14 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	ft_wall_grid(t_data *data, t_info in)
 		return (1);
 	i = floor(in.xhit / SIZE_WIN);
 	j = floor(in.yhit / SIZE_WIN);
-	return (data->gm->map[j][i] != '0');
+	return (data->gm->map[j][i] != '0' && !ft_isalpha(data->gm->map[j][i]));
 }
 
 float	ft_calc_distance(t_data *data, t_point point)

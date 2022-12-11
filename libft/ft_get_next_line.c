@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 17:50:28 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/29 15:51:52 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/11 23:40:19 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,27 +35,23 @@ static void	add_buff(char c, char **buff)
 
 char	*get_next_line(int fd)
 {
-	int		i;
 	int		rd;
 	char	*buff;
 	char	c;
 
-	i = 0;
 	buff = ft_calloc(2, sizeof(char));
 	rd = read(fd, &c, 1);
 	while (rd > 0)
 	{
+		add_buff(c, &buff);
 		if (c == '\n')
 			break ;
-		i++;
-		add_buff(c, &buff);
 		rd = read(fd, &c, 1);
 	}
-	if ((!buff[i] && !rd) || rd == -1)
+	if (buff[0] == 0 || rd == -1)
 	{
 		free(buff);
 		return (0);
 	}
-	buff[i] = '\0';
 	return (buff);
 }

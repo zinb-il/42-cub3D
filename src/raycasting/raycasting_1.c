@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 22:28:36 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/07 16:52:26 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/11 22:48:36 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_raycast	*init_raycat(t_data *data)
 	if (!raycast)
 		ft_print_errors(strerror(errno));
 	raycast->fov_angl = RECTANGLE * (PI / 180);
-	raycast->wall_strip_width = 10;
+	raycast->wall_strip_width = 20;
 	raycast->num_rays = data->gm->map_w / raycast->wall_strip_width;
 	raycast->rays = (t_ray *)malloc(sizeof(t_ray) * raycast->num_rays);
 	if (!raycast->rays)

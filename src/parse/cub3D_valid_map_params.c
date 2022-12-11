@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:54:24 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/30 19:14:36 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/11 23:48:50 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,19 @@ void	ft_check_walls_files_colors_map(char *line, int i, t_game **game)
 		ft_check_map(line, game);
 }
 
+void	ft_get_line(char **line)
+{
+	char	*line1;
+	int		i;
+
+	i = ft_strlen((*line));
+	if ((*line)[i - 1] != '\n')
+		return ;
+	line1 = (*line);
+	(*line) = ft_substr((*line), 0, ft_strlen((*line)) - 1);
+	free(line1);
+}
+
 void	ft_valid_map_params(char *file_name, t_game **game)
 {
 	char	*line;
@@ -48,6 +61,7 @@ void	ft_valid_map_params(char *file_name, t_game **game)
 		if (ft_strlen(line) && line[0] != '\n')
 		{
 			i++;
+			ft_get_line(&line);
 			ft_check_walls_files_colors_map(line, i, game);
 		}
 		if (ft_strlen(line) == 1 && i > 6)

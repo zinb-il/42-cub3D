@@ -1,33 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3D.h                                            :+:      :+:    :+:   */
+/*   util.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 23:06:09 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/11 22:42:22 by ziloughm         ###   ########.fr       */
+/*   Created: 2022/12/11 22:41:20 by ziloughm          #+#    #+#             */
+/*   Updated: 2022/12/11 22:47:11 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#	ifndef CUB3D_H
-# define CUB3D_H
+#	ifndef UTIL_H
+# define UTIL_H
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <string.h>
-# include <errno.h>
-# include <fcntl.h>
-# include <math.h>
-# include <limits.h>
-# include "../libft/libft.h"
-# include "mlx.h"
-# include "parsing.h"
-# include "part.h"
-# include "raycasting.h"
-# include "mini_map.h"
-# include "map_3D.h"
-# include "util.h"
+void	print_ray(t_ray ray);
+void	print_rays(t_data *data);
 
 #	endif

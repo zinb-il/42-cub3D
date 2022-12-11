@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 18:39:45 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/07 16:53:48 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/11 21:16:14 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void	ft_ray_cast(t_data *data, float ray_angl, int i)
 {
 	ft_short_distance(ft_horizontal_intersection(data, ray_angl), \
 	ft_vertical_intersection(data, ray_angl), data, i);
-	//draw_line(data, data->pp_y + cos(ray_angl) * \
-	//data->raycat->rays[i].distance, \
-	//data->pp_x + sin(ray_angl) * data->raycat->rays[i].distance, 16335418);
+	draw_line(data, data->pp_y + cos(ray_angl) * \
+	data->raycat->rays[i].distance, \
+	data->pp_x + sin(ray_angl) * data->raycat->rays[i].distance, 16335418);
 }

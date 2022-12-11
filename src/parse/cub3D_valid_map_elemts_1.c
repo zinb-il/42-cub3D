@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 17:14:41 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/29 17:00:05 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/11 23:01:23 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,13 @@ void	ft_last_first_row(char	**map, int r, int l)
 	i = 0;
 	while (i < l)
 	{
+		printf("map[0][%d] %c map[%d][%d] %c\n", i, map[0][i], r, i, map[r][i]);
 		if ((map[0][i] != '1' && map[0][i] != ' ') \
 		|| (map[r][i] != '1' && map[r][i] != ' '))
+		{
+			printf("1\n");
 			ft_print_errors(ERROR_INVALID_WALL);
+		}
 		i++;
 	}
 }
@@ -51,7 +55,10 @@ void	ft_check_row(char	*map, int l)
 {
 	if ((map[l] != '1' && map[l] != ' ') \
 		|| (map[0] != '1' && map[0] != ' '))
+	{
+		printf("2\n");
 		ft_print_errors(ERROR_INVALID_WALL);
+	}
 }
 
 void	ft_valid_map_wall(char **map, int r, int l)
