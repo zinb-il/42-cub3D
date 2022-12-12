@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 18:39:45 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/11 21:16:14 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/12 18:30:51 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ t_point	ft_distance_coordinat(t_data *data, t_info in)
 {
 	t_point	point;
 
+	point.x = data->pp_y;
+	point.y = data->pp_x;
 	in.xhit += in.xdecre;
 	in.yhit += in.ydecre;
-	point.x = 0;
-	point.y = 0;
 	while (!ft_end_win(data, in.xhit, in.yhit))
 	{
 		if (ft_wall_grid(data, in))
@@ -107,9 +107,10 @@ t_point	ft_vertical_intersection(t_data *data, float ray_angl)
 
 void	ft_ray_cast(t_data *data, float ray_angl, int i)
 {
-	ft_short_distance(ft_horizontal_intersection(data, ray_angl), \
-	ft_vertical_intersection(data, ray_angl), data, i);
-	draw_line(data, data->pp_y + cos(ray_angl) * \
-	data->raycat->rays[i].distance, \
-	data->pp_x + sin(ray_angl) * data->raycat->rays[i].distance, 16335418);
+	if (ray_angl != 0)
+		ft_short_distance(ft_horizontal_intersection(data, ray_angl), \
+		ft_vertical_intersection(data, ray_angl), data, i);
+	//draw_line(data, data->pp_y + cos(ray_angl) * \
+	//data->raycat->rays[i].distance, \
+	//data->pp_x + sin(ray_angl) * data->raycat->rays[i].distance, 16335418);
 }

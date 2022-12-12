@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_2d_2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 18:31:58 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/09 18:11:41 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/12 17:59:48 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,9 @@ int	key_hook(int keycode, t_data *data)
 		exit (0);
 	}
 	if (keycode == KEY_LEFT1)
-		ret_left(data);
+		ret_left_right(data, -ROTATION_SPEED);
 	if (keycode == KEY_RIGHT1)
-		ret_right(data);
+		ret_left_right(data, ROTATION_SPEED);
 	if (keycode == KEY_LEFT)
 		mouve(data, -1, 1);
 	if (keycode == KEY_RIGHT)

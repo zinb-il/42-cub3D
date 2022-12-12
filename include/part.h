@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:38:27 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/11 23:10:29 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/12 18:01:53 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ typedef struct s_data
 	float			pp_y;
 	int				c_x;
 	int				c_y;
-	int 			p_p_mini;
+	int				p_p_mini;
 	float			retation;
 	int				old_x_m;
 	t_raycast		*raycat;
@@ -84,8 +84,7 @@ void	setup_player(t_data *data);
 void	setup_line(t_data *data);
 void	mouve_player(t_data *data);
 void	draw_line(t_data *data, int x2, int y2, int color);
-void	ret_right(t_data *data);
-void	ret_left(t_data *data);
+void	ret_left_right(t_data *data, float speed);
 void	init_data(t_game *game, t_data *data);
 int		check_sides(t_data *data, int x, int y);
 int		mouse_hook(int x, int y, t_data *data);

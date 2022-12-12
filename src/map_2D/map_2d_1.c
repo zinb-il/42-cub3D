@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_2d_1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 21:33:10 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/10 04:30:51 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/12 12:57:50 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ int	check_sides(t_data *data, int x, int y)
 				return (1);
 		}
 		else
-			if (data->gm->map[x - 1][y] == '1' && data->gm->map[x][y + 1]\
-			 == '1')
+			if (data->gm->map[x - 1][y] == '1' && \
+			data->gm->map[x][y + 1] == '1')
 				return (1);
 	}
 	else

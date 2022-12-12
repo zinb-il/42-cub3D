@@ -6,22 +6,17 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 00:16:47 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/11 21:09:39 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/12 18:11:14 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3D.h"
 
-void	ret_left(t_data *data)
+void	ret_left_right(t_data *data, float speed)
 {
-	data->retation -= ROTATION_SPEED;
+	data->retation += speed;
 	map_2d(data);
-}
-
-void	ret_right(t_data *data)
-{
-	data->retation += ROTATION_SPEED;
-	map_2d(data);
+	//map_3d(data);
 }
 
 void	mouve(t_data *data, int way, int ang)
@@ -43,5 +38,5 @@ void	mouve(t_data *data, int way, int ang)
 	}
 	collisions_wall(data, x, y);
 	map_2d(data);
-	// map_3d(data);
+	//map_3d(data);
 }

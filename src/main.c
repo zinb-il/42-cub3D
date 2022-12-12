@@ -23,8 +23,8 @@ int	main(int ac, char **av)
 		ft_print_errors(strerror(errno));
 	init_data(gm, data);
 	map_2d(data);
-	print_rays(data);
-	//map_3d(data);
+	//print_rays(data);
+	map_3d(data);
 	mouve_player(data);
 	mlx_loop(data->gm->mlx);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:52:08 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/07 14:17:39 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/12 15:51:54 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ void	ft_get_img_2d(t_game **game)
 void	ft_get_pview(t_game **gm, char c)
 {
 	if (c == 'E')
-		(*gm)->p_view = PI;
-	else if (c == 'W')
 		(*gm)->p_view = 0;
+	else if (c == 'W')
+		(*gm)->p_view = PI;
 	else if (c == 'N')
 		(*gm)->p_view = PI * 3 / 2;
 	else
