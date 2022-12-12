@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 20:49:41 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/09 18:21:31 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/12 01:39:18 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	s_m_win(t_data *data, int k, int l)
 	y = (data->pp_x / 64) - data->c_y;
 	x = (data->pp_y / 64) - data->c_x;
 	if ((y < 0 || y > data->gm->nb_row - 1) || (x < 0 || x > data->gm->nb_col))
-		draw_win_null(data, k, l);
+		draw_win(data, k, l, 16113151);
 	else
 	{
 		if (data->gm->map[y][x] == '1')
@@ -32,27 +32,20 @@ void	s_m_win(t_data *data, int k, int l)
 	}
 }
 
-void	draw_win_null(t_data *data, int i, int j)
+int	check_des(t_data *data , int x, int y)
 {
-	int	x;
-	int	y;
+	int	step;
+	int dx;
+	int	dy;
 
-	y = (i * S_MIN_WIN);
-	while (y < ((i * S_MIN_WIN) + S_MIN_WIN))
-	{
-		x = (j * S_MIN_WIN);
-		while (x < ((j * S_MIN_WIN) + S_MIN_WIN))
-		{
-			if ((x % 2) == 0)
-				mlx_pixel_put(data->gm->mlx, data->mlx_win, \
-					x, y, 15655113);
-			else
-				mlx_pixel_put(data->gm->mlx, data->mlx_win, \
-					x, y, 8759482);
-			x++;
-		}
-		y++;
-	}
+	dx = abs(x - data->p_p_mini);
+	dy = abs(y - data->p_p_mini);
+	step = dx;
+	if (dy > dx)
+		step = dy;
+	if (step > 100)
+		return (1);
+	return (0);
 }
 
 void	draw_win(t_data *data, int i, int j, int clr)
@@ -66,8 +59,9 @@ void	draw_win(t_data *data, int i, int j, int clr)
 		x = (j * S_MIN_WIN);
 		while (x < ((j * S_MIN_WIN) + S_MIN_WIN))
 		{
-			mlx_pixel_put(data->gm->mlx, data->mlx_win, \
-				x, y, clr);
+			if (check_des(data, x, y) == 0)
+				mlx_pixel_put(data->gm->mlx, data->mlx_win, \
+					x, y, clr);
 			x++;
 		}
 		y++;

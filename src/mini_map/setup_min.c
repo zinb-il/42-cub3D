@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 18:20:39 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/09 18:21:25 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/12 00:48:03 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	setup_player_min(t_data *data)
 	int	length;
 
 	width = 5;
-	length = width * 1.5 ;
+	length = width * 1.5;
 	x = width;
 	while (x >= -width)
 	{
