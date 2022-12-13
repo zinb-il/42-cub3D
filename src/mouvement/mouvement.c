@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 00:16:47 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/12 18:11:14 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/13 17:38:45 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ret_left_right(t_data *data, float speed)
 {
 	data->retation += speed;
 	map_2d(data);
-	//map_3d(data);
+	map_3d(data);
 }
 
 void	mouve(t_data *data, int way, int ang)
@@ -38,5 +38,5 @@ void	mouve(t_data *data, int way, int ang)
 	}
 	collisions_wall(data, x, y);
 	map_2d(data);
-	//map_3d(data);
+	map_3d(data);
 }

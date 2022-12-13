@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 23:11:00 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/28 17:53:18 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/13 17:38:29 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	ft_valid_colors(char **colors, char **params, t_game **game)
 	while (colors[i])
 	{
 		c = ft_get_color(colors[i]);
-		if (c == -1)
+		if (c < -1 || c > 255)
 		{
 			free_dstr(params);
 			free_dstr(colors);
