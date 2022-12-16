@@ -3,32 +3,54 @@
 /*                                                        :::      ::::::::   */
 /*   map_2d_1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 21:33:10 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/13 21:06:50 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/16 20:31:42 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3D.h"
 
+void	int_mouve(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (i < 3)
+	{
+		data->keys[i][0] = -1;
+		data->keys[i][1] = -1;
+		i++;
+	}
+	
+}
+
 void	init_data(t_game *game, t_data *data)
 {
 	t_line		*line;
 	t_raycast	*raycast;
+	t_img		*img;
 
 	line = (t_line *)malloc(sizeof(t_line));
 	if (!line)
 		ft_print_errors(strerror(errno));
+	img = (t_img *)malloc(sizeof(t_img));
+	if (!img)
+		ft_print_errors(strerror(errno));
+	int_mouve(data);
 	data->gm = game;
 	data->line = line;
+	data->img = img;
 	data->pp_y = game->p_width + (SIZE_WIN / 2);
 	data->old_x_m = -2;
 	data->pp_x = game->p_height + (SIZE_WIN / 2);
 	data->p_p_mini = ((NB_WIN / 2) * S_MIN_WIN) + S_MIN_WIN / 2;
 	data->retation = game->p_view;
-	data->st_x = (MAP_W - data->gm->map_w) / 2;
-	data->st_y = (MAP_H - data->gm->map_h) / 2;
+	// data->st_x = abs(MAP_W - data->gm->map_w) / 2;
+	// data->st_y = abs(MAP_H - data->gm->map_h) / 2;
+	data->st_x = 0;
+	data->st_y = 0;
 	data->mlx_win = mlx_new_window(data->gm->mlx, MAP_W, MAP_H, "CUB3D");
 	raycast = init_raycat(data);
 	data->raycat = raycast;

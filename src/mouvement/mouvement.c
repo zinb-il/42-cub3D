@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouvement.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 00:16:47 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/13 17:38:45 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/16 17:32:15 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	ret_left_right(t_data *data, float speed)
 {
 	data->retation += speed;
-	map_2d(data);
-	map_3d(data);
+	// map_2d(data);
+	// map_3d(data);
 }
 
 void	mouve(t_data *data, int way, int ang)
@@ -37,6 +37,6 @@ void	mouve(t_data *data, int way, int ang)
 		y = data->pp_y + ((cos(data->retation) * MOVE_SPEED) * way);
 	}
 	collisions_wall(data, x, y);
-	map_2d(data);
-	map_3d(data);
+	// map_2d(data);
+	// map_3d(data);
 }

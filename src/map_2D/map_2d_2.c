@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_2d_2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 18:31:58 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/12 17:59:48 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/16 20:15:23 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,25 +74,41 @@ void	setup_player(t_data *data)
 	}
 }
 
-int	key_hook(int keycode, t_data *data)
+int	key_hookdown(int keycode, t_data *data)
 {
 	if (keycode == KEY_ESC)
 	{
 		mlx_destroy_window(data->gm->mlx, data->mlx_win);
 		exit (0);
 	}
-	if (keycode == KEY_LEFT1)
-		ret_left_right(data, -ROTATION_SPEED);
+	if (keycode == KEY_LEFT1) 
+		data->keys[0][0] = 1;
 	if (keycode == KEY_RIGHT1)
-		ret_left_right(data, ROTATION_SPEED);
+		data->keys[0][1] = 1;
 	if (keycode == KEY_LEFT)
-		mouve(data, -1, 1);
+		data->keys[1][0] = 1;
 	if (keycode == KEY_RIGHT)
-		mouve(data, 1, 1);
+		data->keys[1][1] = 1;
 	if (keycode == KEY_DOWN)
-		mouve(data, -1, 0);
+		data->keys[2][0] = 1;
 	if (keycode == KEY_UP)
-		mouve(data, 1, 0);
+		data->keys[2][1] = 1;
+	return (0);
+}
+int	key_hookup(int keycode, t_data *data)
+{
+	if (keycode == KEY_LEFT1)
+		data->keys[0][0] = -1;
+	if (keycode == KEY_RIGHT1)
+		data->keys[0][1] = -1;
+	if (keycode == KEY_LEFT)
+		data->keys[1][0] = -1;
+	if (keycode == KEY_RIGHT)
+		data->keys[1][1] = -1;
+	if (keycode == KEY_DOWN)
+		data->keys[2][0] = -1;
+	if (keycode == KEY_UP)
+		data->keys[2][1] = -1;
 	return (0);
 }
 
@@ -111,6 +127,5 @@ int	mouse_hook(int x, int y, t_data *data)
 		data->old_x_m = x;
 		data->retation -= 0.05;
 	}
-	map_2d(data);
 	return (0);
 }
