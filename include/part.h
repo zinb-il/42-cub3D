@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:38:27 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/19 17:31:06 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/19 18:10:24 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # define ROTATION_SPEED .1
 # define MAP_W 1500
 # define MAP_H 720
-#define TEXTURE_WIDTH 64
-#define TEXTURE_HEIGHT 64
+# define TEXTURE_WIDTH 64
+# define TEXTURE_HEIGHT 64
 
 typedef struct s_point
 {
@@ -48,7 +48,7 @@ typedef struct ray
 	float	wallhit_x;
 	float	wallhit_y;
 	float	distance;
-	int		was_H_V;
+	int		was_h_v;
 	int		wl_h;
 	int		wl_t;
 	int		wl_b;
@@ -71,7 +71,8 @@ typedef struct s_line
 	float		step;
 }	t_line;
 
-typedef struct	s_img {
+typedef struct s_img
+{
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
@@ -102,13 +103,10 @@ typedef struct s_data
 	t_raycast		*raycat;
 }	t_data;
 
-void	map_2d(t_data *data);
 void	setup_map(t_data *data, int i, int j);
 void	setup_player(t_data *data);
-void	setup_line(t_data *data);
 void	mouve_player(t_data *data);
 void	draw_line(t_data *data, int x2, int y2, int color);
-void	ret_left_right(t_data *data, float speed);
 void	init_data(t_game *game, t_data *data);
 int		check_sides(t_data *data, int x, int y);
 int		mouse_hook(int x, int y, t_data *data);

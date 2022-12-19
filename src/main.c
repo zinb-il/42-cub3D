@@ -1,4 +1,4 @@
-;/* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 23:08:36 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/01 14:58:25 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/19 17:45:54 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,26 +43,23 @@ int	game(t_data *data)
 
 void	init_img(t_data *data)
 {
-	int	x;
-	int	y;
-
 	data->img->img = mlx_new_image(data->gm->mlx, MAP_W, MAP_H);
 	data->img->addr = mlx_get_data_addr(data->img->img, \
 		&data->img->bits_per_pixel, &data->img->line_length, \
 		&data->img->endian);
-	data->north.img = mlx_xpm_file_to_image(data->gm->mlx, "img_cub/wall_2.xpm", &x, &y);
+	data->north.img = data->gm->w_no;
 	data->north.addr = mlx_get_data_addr(data->north.img, \
 		&data->north.bits_per_pixel, &data->north.line_length, \
 		&data->north.endian);
-	data->west.img = mlx_xpm_file_to_image(data->gm->mlx, "img_cub/wall_1.xpm", &x, &y);
+	data->west.img = data->gm->w_we;
 	data->west.addr = mlx_get_data_addr(data->west.img, \
 		&data->west.bits_per_pixel, &data->west.line_length, \
 		&data->west.endian);
-	data->east.img = mlx_xpm_file_to_image(data->gm->mlx, "img_cub/wall_4.xpm", &x, &y);
+	data->east.img = data->gm->w_ea;
 	data->east.addr = mlx_get_data_addr(data->east.img, \
 		&data->east.bits_per_pixel, &data->east.line_length, \
 		&data->east.endian);
-	data->south.img = mlx_xpm_file_to_image(data->gm->mlx, "img_cub/wall_3.xpm", &x, &y);
+	data->south.img = data->gm->w_so;
 	data->south.addr = mlx_get_data_addr(data->south.img, \
 		&data->south.bits_per_pixel, &data->south.line_length, \
 		&data->south.endian);

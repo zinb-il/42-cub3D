@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:18:53 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/19 16:41:09 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/19 17:47:27 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,60 +40,6 @@ void	draw_ceilling(t_data *data, int in)
 		j + data->st_y, 13166335);
 		j++;
 	}
-}
-
-int	way(t_data *data, int nb, int t_setX, int t_setY)
-{
-	if (data->raycat->rays[nb].was_H_V == 1)
-	{
-		if ((data->pp_y - data->raycat->rays[nb].wallhit_x) < 0)
-			return (*(int*)(data->east.addr + t_setY * data->east.line_length + t_setX * 4));
-		else
-			return (*(int*)(data->west.addr + t_setY * data->west.line_length + t_setX * 4));
-	}
-	else
-	{
-		if ((data->pp_x - data->raycat->rays[nb].wallhit_y) < 0)
-			return (*(int*)(data->north.addr + t_setY * data->north.line_length + t_setX * 4));
-		else
-			return (*(int*)(data->south.addr + t_setY * data->south.line_length + t_setX * 4));
-	}
-}
-
-void	draw_wall(t_data *data, int in, int wallstrip_h)
-{
-	int				j;
-	int				t_setX;
-	int				t_setY;
-	int				dis_top;
-	int				way_d;
-
-	t_setX = (int)data->raycat->rays[in].wallhit_y % SIZE_WIN;
-	if (data->raycat->rays[in].was_H_V == 0)
-		t_setX = (int)data->raycat->rays[in].wallhit_x % SIZE_WIN;
-	j = data->raycat->rays[in].wl_y;
-	while (j < data->raycat->rays[in].wl_y + data->raycat->rays[in].wl_h)
-	{
-		dis_top = j + (wallstrip_h / 2) - (data->gm->map_h / 2);
-		t_setY = dis_top * ((float)SIZE_WIN / wallstrip_h);
-		way_d = way(data, in , t_setX, t_setY);
-		my_mlx_pixel_put(data, in, j, way_d);
-		j++;
-	}
-}
-
-void	get_walls_dimension(t_data *data, float wallstrip_h, int i)
-{
-	data->raycat->rays[i].wl_t = (data->gm->map_h / 2) - (wallstrip_h / 2);
-	data->raycat->rays[i].wl_b = (data->gm->map_h / 2) + (wallstrip_h / 2);
-	if (data->raycat->rays[i].wl_t < 0)
-		data->raycat->rays[i].wl_t = 0;
-	if (data->raycat->rays[i].wl_b > data->gm->map_h)
-		data->raycat->rays[i].wl_b = data->gm->map_h;
-	data->raycat->rays[i].wl_h = data->raycat->rays[i].wl_b - \
-	data->raycat->rays[i].wl_t;
-	data->raycat->rays[i].wl_x = data->raycat->wall_strip_width * i;
-	data->raycat->rays[i].wl_y = data->raycat->rays[i].wl_t;
 }
 
 void	map_3d(t_data *data)

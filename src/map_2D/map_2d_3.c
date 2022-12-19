@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 18:34:28 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/18 20:31:31 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/19 18:04:36 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,30 +18,35 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 	if (!(x >= 0 && x < MAP_W && y >= 0 && y < MAP_H))
 		return ;
-	dst = data->img->addr + (y * data->img->line_length + x * (data->img->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
+	dst = data->img->addr + (y * data->img->line_length + x * \
+		(data->img->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
 }
 
-void	map_2d(t_data *data)
+void	setup_player(t_data *data)
 {
-	int	i;
-	int	j;
+	int	x;
+	int	y;
+	int	width;
+	int	length;
 
-	i = 0;
-	while (data->gm->map[i])
+	width = 5;
+	length = width * 1.5 ;
+	x = width;
+	while (x >= -width)
 	{
-		j = 0;
-		while (data->gm->map[i][j])
+		y = -length;
+		while (y <= length)
 		{
-			// setup_map(data, i, j);
-			j++;
+			if (sqrt(pow(x, 2) + pow(y, 2)) <= width)
+				mlx_pixel_put(data->gm->mlx, data->mlx_win,
+					(y + data->pp_y) * SCALE,
+					(x + data->pp_x) * SCALE,
+					16101555);
+			++y;
 		}
-		i++;
+		x -= 2;
 	}
-	// setup_player(data);
-	// start_raycast(data);
-	// draw_line(data, data->pp_y + cos(data->retation) * 40, \
-	// data->pp_x + sin(data->retation) * 40, 9126929);
 }
 
 void	mouve_player(t_data *data)

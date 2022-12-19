@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 21:33:10 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/16 20:31:42 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/19 18:01:29 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,12 @@ void	int_mouve(t_data *data)
 		data->keys[i][1] = -1;
 		i++;
 	}
-	
 }
 
 void	init_data(t_game *game, t_data *data)
 {
-	t_line		*line;
 	t_raycast	*raycast;
+	t_line		*line;
 	t_img		*img;
 
 	line = (t_line *)malloc(sizeof(t_line));
@@ -47,8 +46,6 @@ void	init_data(t_game *game, t_data *data)
 	data->pp_x = game->p_height + (SIZE_WIN / 2);
 	data->p_p_mini = ((NB_WIN / 2) * S_MIN_WIN) + S_MIN_WIN / 2;
 	data->retation = game->p_view;
-	// data->st_x = abs(MAP_W - data->gm->map_w) / 2;
-	// data->st_y = abs(MAP_H - data->gm->map_h) / 2;
 	data->st_x = 0;
 	data->st_y = 0;
 	data->mlx_win = mlx_new_window(data->gm->mlx, MAP_W, MAP_H, "CUB3D");

@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 20:49:41 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/13 04:04:47 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/19 18:05:19 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,15 @@ void	s_m_win(t_data *data, int k, int l)
 	}
 }
 
-int	check_des(t_data *data , int x, int y)
+int	check_des(t_data *data, int x, int y)
 {
 	int	step;
-	int dx;
+	int	dx;
 	int	dy;
 
 	dx = abs(data->p_p_mini - x);
 	dy = abs(data->p_p_mini) - y;
-	step = sqrt(dx * dx + dy *dy);
+	step = sqrt(dx * dx + dy * dy);
 	if (step > 130)
 		return (1);
 	return (0);
