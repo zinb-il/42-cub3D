@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:36:15 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/16 20:44:00 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/19 17:33:10 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,6 @@ void	ft_valid_map_elem(t_game **game);
 
 //Function for get info
 void	ft_get_info(t_game **game);
-void	ft_get_img_2d(t_game **game);
 
 t_game	*first_part_cub3d(int ac, char **av);
 

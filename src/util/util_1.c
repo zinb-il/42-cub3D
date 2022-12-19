@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 22:38:41 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/15 21:31:05 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/19 11:20:44 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	print_rays(t_data *data)
 	i = 0;
 	while (i < data->raycat->num_rays)
 	{
-		// print_ray(data->raycat->rays[i]);
+		print_ray(data->raycat->rays[i]);
 		i++;
 	}
 }

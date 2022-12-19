@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 18:31:58 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/16 20:15:23 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/19 17:31:46 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	key_hookdown(int keycode, t_data *data)
 		mlx_destroy_window(data->gm->mlx, data->mlx_win);
 		exit (0);
 	}
-	if (keycode == KEY_LEFT1) 
+	if (keycode == KEY_LEFT1)
 		data->keys[0][0] = 1;
 	if (keycode == KEY_RIGHT1)
 		data->keys[0][1] = 1;

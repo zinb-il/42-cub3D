@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:38:27 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/16 20:32:04 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/19 17:31:06 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@
 # define SCALE 1
 # define RECTANGLE 60
 # define PI 3.141592
-# define MOVE_SPEED 13
+# define MOVE_SPEED 10
 # define ROTATION_SPEED .1
 # define MAP_W 1500
 # define MAP_H 720
+#define TEXTURE_WIDTH 64
+#define TEXTURE_HEIGHT 64
 
 typedef struct s_point
 {
@@ -46,6 +48,7 @@ typedef struct ray
 	float	wallhit_x;
 	float	wallhit_y;
 	float	distance;
+	int		was_H_V;
 	int		wl_h;
 	int		wl_t;
 	int		wl_b;
@@ -81,6 +84,10 @@ typedef struct s_data
 	struct s_cub3d	*gm;
 	struct s_line	*line;
 	struct s_img	*img;
+	struct s_img	north;
+	struct s_img	west;
+	struct s_img	east;
+	struct s_img	south;
 	void			*mlx_win;
 	float			pp_x;
 	float			pp_y;

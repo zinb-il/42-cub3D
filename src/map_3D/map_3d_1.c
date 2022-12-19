@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:18:53 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/16 20:23:46 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/19 16:41:09 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,74 +14,71 @@
 
 void	draw_floor(t_data *data, int in)
 {
-	int	i;
 	int	j;
 
 	if (data->raycat->rays[in].wl_t <= 0)
 		return ;
-	i = data->raycat->rays[in].wl_x;
-	while (i < (data->raycat->rays[in].wl_x + data->raycat->wall_strip_width))
+	j = data->raycat->rays[in].wl_b;
+	while (j < data->gm->map_h)
 	{
-		j = data->raycat->rays[in].wl_b;
-		while (j < data->gm->map_h)
-		{
-			my_mlx_pixel_put(data, i + data->st_x, \
-			j + data->st_y, 13229012);
-			j++;
-		}
-		i++;
+		my_mlx_pixel_put(data, in + data->st_x, \
+		j + data->st_y, 16772045);
+		j++;
 	}
 }
 
 void	draw_ceilling(t_data *data, int in)
 {
-	int	i;
 	int	j;
 
 	if (data->raycat->rays[in].wl_t <= 0)
 		return ;
-	i = data->raycat->rays[in].wl_x;
-	while (i < (data->raycat->rays[in].wl_x + data->raycat->wall_strip_width))
+	j = 0;
+	while (j < data->raycat->rays[in].wl_t)
 	{
-		j = 0;
-		while (j < data->raycat->rays[in].wl_t)
-		{
-			my_mlx_pixel_put(data, i + data->st_x, \
-			j + data->st_y, 13229012);
-			j++;
-		}
-		i++;
+		my_mlx_pixel_put(data, in + data->st_x, \
+		j + data->st_y, 13166335);
+		j++;
 	}
 }
 
-void	draw_wall(t_data *data, int in)
+int	way(t_data *data, int nb, int t_setX, int t_setY)
 {
-	int				i;
-	int				j;
-	unsigned long	col;
-	(void)in;
-
-	i = data->raycat->rays[in].wl_x;
-	col = 16777215;
-	// if (data->raycat->rays[in].ray_angl >= (5 * PI / 4) \
-	// 	&& data->raycat->rays[in].ray_angl <= (7 * PI / 4))
-	// 	col = 0;
-	// else if (data->raycat->rays[in].ray_angl >= (PI / 4) \
-	// 	&& data->raycat->rays[in].ray_angl <= (3 * PI / 4))
-	// 	col = 13229012;
-	// else if (data->raycat->rays[in].ray_angl > (7 * PI / 4) \
-	// 	|| data->raycat->rays[in].ray_angl < (PI / 4))
-	// 	col = 11691563;
-	while (i < (data->raycat->rays[in].wl_x + data->raycat->wall_strip_width))
+	if (data->raycat->rays[nb].was_H_V == 1)
 	{
-		j = data->raycat->rays[in].wl_y;
-		while (j < data->raycat->rays[in].wl_y + data->raycat->rays[in].wl_h)
-		{
-			my_mlx_pixel_put(data, i + data->st_x, \
-			j + data->st_y, 11691563);
-			j++;
-		}
-		i++;
+		if ((data->pp_y - data->raycat->rays[nb].wallhit_x) < 0)
+			return (*(int*)(data->east.addr + t_setY * data->east.line_length + t_setX * 4));
+		else
+			return (*(int*)(data->west.addr + t_setY * data->west.line_length + t_setX * 4));
+	}
+	else
+	{
+		if ((data->pp_x - data->raycat->rays[nb].wallhit_y) < 0)
+			return (*(int*)(data->north.addr + t_setY * data->north.line_length + t_setX * 4));
+		else
+			return (*(int*)(data->south.addr + t_setY * data->south.line_length + t_setX * 4));
+	}
+}
+
+void	draw_wall(t_data *data, int in, int wallstrip_h)
+{
+	int				j;
+	int				t_setX;
+	int				t_setY;
+	int				dis_top;
+	int				way_d;
+
+	t_setX = (int)data->raycat->rays[in].wallhit_y % SIZE_WIN;
+	if (data->raycat->rays[in].was_H_V == 0)
+		t_setX = (int)data->raycat->rays[in].wallhit_x % SIZE_WIN;
+	j = data->raycat->rays[in].wl_y;
+	while (j < data->raycat->rays[in].wl_y + data->raycat->rays[in].wl_h)
+	{
+		dis_top = j + (wallstrip_h / 2) - (data->gm->map_h / 2);
+		t_setY = dis_top * ((float)SIZE_WIN / wallstrip_h);
+		way_d = way(data, in , t_setX, t_setY);
+		my_mlx_pixel_put(data, in, j, way_d);
+		j++;
 	}
 }
 
@@ -114,7 +111,7 @@ void	map_3d(t_data *data)
 		cos(data->raycat->rays[i].ray_angl - data->retation);
 		wallstrip_h = (SIZE_WIN / distance) * distance_pro;
 		get_walls_dimension(data, wallstrip_h, i);
-		draw_wall(data, i);
+		draw_wall(data, i, (int)wallstrip_h);
 		draw_ceilling(data, i);
 		draw_floor(data, i);
 		i++;
