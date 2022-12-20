@@ -1,7 +1,7 @@
-NO ./img_cub/black.xpm
-SO ./img_cub/white.xpm
-WE ./img_cub/yellow.xpm
-EA ./img_cub/blue.xpm
+NO ./img_cub/wall_1.xpm
+SO ./img_cub/wall_2.xpm
+WE ./img_cub/wall_3.xpm
+EA ./img_cub/wall_4.xpm
 
 F 194,178,128
 C 193,255,255

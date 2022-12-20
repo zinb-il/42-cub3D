@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:38:27 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/19 18:10:24 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/20 14:52:14 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # define SIZE_WIN 64
 # define SCALE 1
-# define RECTANGLE 60
+# define RECTANGLE 80
 # define PI 3.141592
 # define MOVE_SPEED 10
 # define ROTATION_SPEED .1
@@ -103,19 +103,20 @@ typedef struct s_data
 	t_raycast		*raycat;
 }	t_data;
 
+int		check_sides(t_data *data, int x, int y);
+int		mouse_hook(int x, int y, t_data *data);
+int		key_hookup(int keycode, t_data *data);
+int		key_hookdown(int keycode, t_data *data);
 void	setup_map(t_data *data, int i, int j);
 void	setup_player(t_data *data);
 void	mouve_player(t_data *data);
 void	draw_line(t_data *data, int x2, int y2, int color);
 void	init_data(t_game *game, t_data *data);
-int		check_sides(t_data *data, int x, int y);
-int		mouse_hook(int x, int y, t_data *data);
 void	draw_line_utl(t_data *data, int x2, int y2);
-int		key_hookup(int keycode, t_data *data);
-int		key_hookdown(int keycode, t_data *data);
 void	mouve(t_data *data, int way, int ang);
 void	draw_win(t_data *data, int i, int j, int clr);
 void	collisions_wall(t_data *data, int x, int y);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+void	map_position(t_data *data);
 
 #	endif

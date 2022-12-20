@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 17:46:48 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/19 17:59:21 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/20 16:23:21 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	draw_wall(t_data *data, int in, int wallstrip_h)
 		dis_top = j + (wallstrip_h / 2) - (data->gm->map_h / 2);
 		t_sety = dis_top * ((float)SIZE_WIN / wallstrip_h);
 		way_d = way(data, in, t_setx, t_sety);
-		my_mlx_pixel_put(data, in, j, way_d);
+		my_mlx_pixel_put(data, in + data->st_x, j + data->st_y, way_d);
 		j++;
 	}
 }

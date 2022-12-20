@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 23:40:19 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/19 15:26:35 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/20 16:16:19 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ int	ft_ray_facing(float ray_ang, char *face)
 		return (-10);
 	if (!ft_strcmp(face, "up_do"))
 	{
-		if (ray_ang > 0 && ray_ang < PI)
+		if (ray_ang >= 0 && ray_ang <= PI)
 			return (SIZE_WIN);
 		return (0);
 	}
 	if (!ft_strcmp(face, "le_ri"))
 	{
-		if (ray_ang < (PI / 2) || ray_ang > (PI * 3 / 2))
+		if (ray_ang <= (PI / 2) || ray_ang > (PI * 3 / 2))
 			return (1);
 		return (0);
 	}
