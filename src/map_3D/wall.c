@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wall.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 17:46:48 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/22 14:33:54 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/22 19:47:18 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ void	draw_wall(t_data *data, int in, int wallstrip_h)
 
 int	way(t_data *data, int nb, int t_setx, int t_sety)
 {
-	if (data->raycat->rays[nb].was_h_v == 0)
+	if (!data->raycat->rays[nb].was_h_v)
 	{
-		if ((data->pp_x - data->raycat->rays[nb].wallhit_y) < 0)
+		if ((data->pp_x - data->raycat->rays[nb].wallhit_y) > 0)
 			return (*(int *)(data->north.addr + t_sety * \
 				data->north.line_length + t_setx * 4));
 		else

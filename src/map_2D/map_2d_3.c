@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_2d_3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 18:34:28 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/20 15:11:02 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/22 19:50:24 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,6 @@ void	mouve_player(t_data *data)
 {
 	mlx_hook(data->mlx_win, 2, 0, key_hookdown, data);
 	mlx_hook(data->mlx_win, 3, 0, key_hookup, data);
+	mlx_hook(data->mlx_win, 17, 0, ft_destroy_window, data);
 	mlx_hook(data->mlx_win, 6, 0, mouse_hook, data);
 }

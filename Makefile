@@ -12,7 +12,7 @@ SRCS_BONUS = src/main_bonus.c src/parse/cub3D_utils_1_bonus.c src/parse/cub3D_ut
 
 CC = cc
 
-FLAGS = -Wall -Werror -Wextra  #-fsanitize=address -g
+FLAGS = -Wall -Werror -Wextra  -fsanitize=address -g
 
 DEBUG = -fsanitize=address -g
 
@@ -33,9 +33,9 @@ $(VRLIBFT_BONUS):
 	@cp $(VRLIBFT) $(BONUS)
 	@make -C libft clean
 
-INCLUDES =  src/mlx/
+INCLUDES =  mlx/
 
-LINKS =  src/mlx/ -lmlx -framework OpenGL -framework AppKit
+LINKS =  mlx/ -lmlx -framework OpenGL -framework AppKit
 
 $(NAME):$(VRLIBFT) $(SRCS)
 	@$(CC) $(FLAGS) -I $(INCLUDES) $(SRCS) -L $(LINKS) -o $(NAME)

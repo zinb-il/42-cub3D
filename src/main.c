@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 23:08:36 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/21 19:11:37 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/22 18:02:17 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ int	game(t_data *data)
 		else if (data->keys[2][1] == 1)
 			mouve(data, 1, 0);
 	}
-	start_raycast(data);
 	mouve_player(data);
+	start_raycast(data);
 	map_3d(data);
 	return (0);
 }

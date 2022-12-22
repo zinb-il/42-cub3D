@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting_1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 22:28:36 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/20 20:05:05 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/22 15:37:37 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,4 @@ void	cast_allrays(t_data *data)
 void	start_raycast(t_data *data)
 {
 	cast_allrays(data);
-	
 }

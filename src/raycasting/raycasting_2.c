@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting_2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 18:39:45 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/21 08:58:58 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/22 19:47:28 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,18 @@ t_point	ft_distance_coordinat(t_data *data, t_info in)
 
 	point.x = data->pp_y;
 	point.y = data->pp_x;
-	in.xhit += in.xdecre;
-	in.yhit += in.ydecre;
 	while (!ft_end_win(data, in.xhit, in.yhit))
 	{
+		in.xhit += in.xdecre;
+		in.yhit += in.ydecre;
 		if (ft_wall_grid(data, in))
 		{
-			point.x = in.xhit;
-			point.y = in.yhit;
+			point.x = in.xhit - in.xdecre;
+			point.y = in.yhit - in.ydecre;
 			return (point);
 		}
+		in.xhit -= in.xdecre;
+		in.yhit -= in.ydecre;
 		in.xhit += in.xstep;
 		in.yhit += in.ystep;
 	}
@@ -109,7 +111,6 @@ t_point	ft_vertical_intersection(t_data *data, float ray_angl)
 
 void	ft_ray_cast(t_data *data, float ray_angl, int i)
 {
-	if (ray_angl != 0)
-		ft_short_distance(ft_horizontal_intersection(data, ray_angl), \
-		ft_vertical_intersection(data, ray_angl), data, i);
+	ft_short_distance(ft_horizontal_intersection(data, ray_angl), \
+	ft_vertical_intersection(data, ray_angl), data, i);
 }

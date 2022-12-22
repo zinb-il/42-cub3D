@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   util_1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 22:38:41 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/19 11:20:44 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/22 17:06:01 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,10 @@ void	print_rays(t_data *data)
 		print_ray(data->raycat->rays[i]);
 		i++;
 	}
+}
+
+int	ft_destroy_window(t_data *data)
+{
+	mlx_destroy_window(data->gm->mlx, data->mlx_win);
+	exit(0);
 }

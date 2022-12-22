@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_2d_2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 18:31:58 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/19 18:03:07 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/22 17:06:31 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,8 @@ void	draw_line(t_data *data, int x2, int y2, int color)
 
 int	key_hookdown(int keycode, t_data *data)
 {
-	if (keycode == KEY_ESC)
-	{
-		mlx_destroy_window(data->gm->mlx, data->mlx_win);
-		exit (0);
-	}
+	if (keycode == KEY_ESC || keycode == KEY_ESC1)
+		ft_destroy_window(data);
 	if (keycode == KEY_LEFT1)
 		data->keys[0][0] = 1;
 	if (keycode == KEY_RIGHT1)

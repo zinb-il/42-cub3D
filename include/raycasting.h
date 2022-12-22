@@ -3,15 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:48:44 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/19 18:19:32 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/22 19:00:35 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #	ifndef RAYCASTING_H
 # define RAYCASTING_H
+# define NORTH 4.71
+# define SOUTH 1.57
+# define WEST PI
+# define EAST 0
 
 t_raycast	*init_raycat(t_data *data);
 float		ft_calc_distance(t_data *data, t_point point);
