@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 17:46:48 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/20 16:23:21 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/21 08:30:16 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,7 @@ void	draw_wall(t_data *data, int in, int wallstrip_h)
 
 int	way(t_data *data, int nb, int t_setx, int t_sety)
 {
-	if (data->raycat->rays[nb].was_h_v == 1)
-	{
-		if ((data->pp_y - data->raycat->rays[nb].wallhit_x) < 0)
-			return (*(int *)(data->east.addr + t_sety * data->east.line_length \
-				+ t_setx * 4));
-		else
-			return (*(int *)(data->west.addr + t_sety * data->west.line_length \
-				+ t_setx * 4));
-	}
-	else
+	if (data->raycat->rays[nb].was_h_v == 0)
 	{
 		if ((data->pp_x - data->raycat->rays[nb].wallhit_y) < 0)
 			return (*(int *)(data->north.addr + t_sety * \
@@ -67,5 +58,14 @@ int	way(t_data *data, int nb, int t_setx, int t_sety)
 		else
 			return (*(int *)(data->south.addr + t_sety * \
 				data->south.line_length + t_setx * 4));
+	}
+	else
+	{
+		if ((data->pp_y - data->raycat->rays[nb].wallhit_x) < 0)
+			return (*(int *)(data->east.addr + t_sety * data->east.line_length \
+				+ t_setx * 4));
+		else
+			return (*(int *)(data->west.addr + t_sety * data->west.line_length \
+				+ t_setx * 4));
 	}
 }

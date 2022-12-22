@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:18:53 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/19 17:47:27 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/22 14:07:23 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	draw_floor(t_data *data, int in)
 	while (j < data->gm->map_h)
 	{
 		my_mlx_pixel_put(data, in + data->st_x, \
-		j + data->st_y, 16772045);
+		j + data->st_y, data->gm->c_f);
 		j++;
 	}
 }
@@ -37,7 +37,7 @@ void	draw_ceilling(t_data *data, int in)
 	while (j < data->raycat->rays[in].wl_t)
 	{
 		my_mlx_pixel_put(data, in + data->st_x, \
-		j + data->st_y, 13166335);
+		j + data->st_y, data->gm->c_c);
 		j++;
 	}
 }
