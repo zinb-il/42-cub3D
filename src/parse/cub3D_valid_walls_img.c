@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D_valid_walls_img.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 23:28:36 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/18 22:57:49 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/22 00:52:24 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_check_walls_files(char **params, t_game **game)
 	if (!img)
 	{
 		free_dstr(params);
-		ft_print_errors("strerror(errno)");
+		ft_print_errors(strerror(errno));
 	}
 	if (!ft_strcmp(W_NO, params[0]))
 		(*game)->w_no = img;

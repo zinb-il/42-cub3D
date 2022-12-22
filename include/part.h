@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   part.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:38:27 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/20 14:52:14 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/22 00:12:08 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # define SIZE_WIN 64
 # define SCALE 1
-# define RECTANGLE 80
+# define RECTANGLE 60
 # define PI 3.141592
 # define MOVE_SPEED 10
 # define ROTATION_SPEED .1
