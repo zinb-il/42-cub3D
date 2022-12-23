@@ -6,7 +6,7 @@
 /*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 23:40:19 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/21 09:10:52 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/22 22:56:13 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_ray_facing(float ray_ang, char *face)
 	}
 	if (!ft_strcmp(face, "le_ri"))
 	{
-		if (ray_ang < (PI / 2) || ray_ang > (PI * 3 / 2))
+		if (ray_ang <= (PI / 2) || ray_ang >= (PI * 3 / 2))
 			return (1);
 		return (0);
 	}
@@ -33,8 +33,8 @@ int	ft_ray_facing(float ray_ang, char *face)
 
 int	ft_end_win(t_data *data, float x, float y)
 {
-	if (x >= 0 && x <= data->gm->map_w && \
-	y >= 0 && y <= data->gm->map_h)
+	if (x > 0 && x <= data->gm->map_w && \
+	y > 0 && y <= data->gm->map_h)
 		return (0);
 	return (1);
 }
@@ -44,11 +44,14 @@ int	ft_wall_grid(t_data *data, t_info in)
 	int	i;
 	int	j;
 
-	if (in.xhit < 0 || in.xhit > data->gm->map_w || \
-	in.yhit < 0 || in.yhit > data->gm->map_h)
+	if (in.xhit < 0 || in.xhit >= data->gm->map_w || \
+	in.yhit < 0 || in.yhit >= data->gm->map_h)
 		return (1);
 	i = floor(in.xhit / SIZE_WIN);
 	j = floor(in.yhit / SIZE_WIN);
+	if (i < 0 || i >= data->gm->nb_col || \
+		j < 0 || j >= data->gm->nb_row)
+		return (1);
 	return (data->gm->map[j][i] != '0' && !ft_isalpha(data->gm->map[j][i]));
 }
 

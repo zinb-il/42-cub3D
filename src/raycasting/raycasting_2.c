@@ -6,13 +6,13 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 18:39:45 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/22 19:47:28 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/23 17:19:34 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3D.h"
 
-t_point	ft_distance_coordinat(t_data *data, t_info in)
+t_point	ft_distance_coordinat(t_data *data, t_info in, int i, int true_if_hor)
 {
 	t_point	point;
 
@@ -26,6 +26,10 @@ t_point	ft_distance_coordinat(t_data *data, t_info in)
 		{
 			point.x = in.xhit - in.xdecre;
 			point.y = in.yhit - in.ydecre;
+			if (true_if_hor)
+				data->raycat->rays[i].was_h = 1;
+			else
+				data->raycat->rays[i].was_v = 1;
 			return (point);
 		}
 		in.xhit -= in.xdecre;
@@ -42,10 +46,10 @@ void	ft_short_distance(t_point point_h, t_point point_v, t_data *data, int i)
 	float	dis_v;
 
 	dis_h = ft_calc_distance(data, point_h);
-	if (!dis_h)
+	if (!data->raycat->rays[i].was_h)
 		dis_h = INT_MAX;
 	dis_v = ft_calc_distance(data, point_v);
-	if (!dis_v)
+	if (!data->raycat->rays[i].was_v)
 		dis_v = INT_MAX;
 	data->raycat->rays[i].wallhit_x = point_v.x;
 	data->raycat->rays[i].wallhit_y = point_v.y;
@@ -60,7 +64,7 @@ void	ft_short_distance(t_point point_h, t_point point_v, t_data *data, int i)
 	}
 }
 
-t_point	ft_horizontal_intersection(t_data *data, float ray_angl)
+t_point	ft_horizontal_intersection(t_data *data, float ray_angl, int i)
 {
 	t_info	in;
 
@@ -81,10 +85,10 @@ t_point	ft_horizontal_intersection(t_data *data, float ray_angl)
 	in.xdecre = 0;
 	if (!ft_ray_facing(ray_angl, "up_do"))
 		in.ydecre--;
-	return (ft_distance_coordinat(data, in));
+	return (ft_distance_coordinat(data, in, i, 1));
 }
 
-t_point	ft_vertical_intersection(t_data *data, float ray_angl)
+t_point	ft_vertical_intersection(t_data *data, float ray_angl, int i)
 {
 	t_info	in;
 
@@ -106,11 +110,13 @@ t_point	ft_vertical_intersection(t_data *data, float ray_angl)
 	in.xdecre = 0;
 	if (!ft_ray_facing(ray_angl, "le_ri"))
 		in.xdecre--;
-	return (ft_distance_coordinat(data, in));
+	return (ft_distance_coordinat(data, in, i, 0));
 }
 
 void	ft_ray_cast(t_data *data, float ray_angl, int i)
 {
-	ft_short_distance(ft_horizontal_intersection(data, ray_angl), \
-	ft_vertical_intersection(data, ray_angl), data, i);
+	data->raycat->rays[i].was_h = 0;
+	data->raycat->rays[i].was_v = 0;
+	ft_short_distance(ft_horizontal_intersection(data, ray_angl, i), \
+	ft_vertical_intersection(data, ray_angl, i), data, i);
 }

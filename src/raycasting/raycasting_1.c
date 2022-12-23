@@ -6,13 +6,13 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 22:28:36 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/22 15:37:37 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/23 17:17:58 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3D.h"
 
-t_raycast	*init_raycat(t_data *data)
+t_raycast	*init_raycat(void)
 {
 	t_raycast	*raycast;
 
@@ -21,7 +21,7 @@ t_raycast	*init_raycat(t_data *data)
 		ft_print_errors(strerror(errno));
 	raycast->fov_angl = RECTANGLE * (PI / 180);
 	raycast->wall_strip_width = 1;
-	raycast->num_rays = data->gm->map_w / raycast->wall_strip_width;
+	raycast->num_rays = MAP_W;
 	raycast->rays = (t_ray *)malloc(sizeof(t_ray) * raycast->num_rays);
 	if (!raycast->rays)
 		ft_print_errors(strerror(errno));

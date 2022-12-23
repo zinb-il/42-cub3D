@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_3d_1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:18:53 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/22 14:34:00 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/23 17:17:06 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ void	draw_floor(t_data *data, int in)
 	if (data->raycat->rays[in].wl_t <= 0)
 		return ;
 	j = data->raycat->rays[in].wl_b;
-	while (j < data->gm->map_h)
+	while (j < MAP_H)
 	{
-		my_mlx_pixel_put(data, in + data->st_x, \
-		j + data->st_y, data->gm->c_f);
+		my_mlx_pixel_put(data, in, j, data->gm->c_f);
 		j++;
 	}
 }
@@ -36,8 +35,7 @@ void	draw_ceilling(t_data *data, int in)
 	j = 0;
 	while (j < data->raycat->rays[in].wl_t)
 	{
-		my_mlx_pixel_put(data, in + data->st_x, \
-		j + data->st_y, data->gm->c_c);
+		my_mlx_pixel_put(data, in, j, data->gm->c_c);
 		j++;
 	}
 }
@@ -50,8 +48,8 @@ void	map_3d(t_data *data)
 	float	distance;
 
 	i = 0;
-	distance_pro = (data->gm->map_w / 2) / tan(data->raycat->fov_angl / 2);
-	while (i < data->raycat->num_rays)
+	distance_pro = (MAP_W / 2) / tan(data->raycat->fov_angl / 2);
+	while (i < MAP_W)
 	{
 		distance = data->raycat->rays[i].distance * \
 		cos(data->raycat->rays[i].ray_angl - data->retation);

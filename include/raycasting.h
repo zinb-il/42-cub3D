@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:48:44 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/22 19:00:35 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/23 17:18:10 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # define WEST PI
 # define EAST 0
 
-t_raycast	*init_raycat(t_data *data);
+t_raycast	*init_raycat(void);
 float		ft_calc_distance(t_data *data, t_point point);
 void		ft_ray_cast(t_data *data, float ray_angl, int i);
 void		cast_allrays(t_data *data);

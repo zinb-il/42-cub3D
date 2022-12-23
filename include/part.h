@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:38:27 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/22 16:48:34 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/23 17:17:34 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ typedef struct ray
 	float	wallhit_x;
 	float	wallhit_y;
 	float	distance;
+	int		was_h;
+	int		was_v;
 	int		was_h_v;
 	int		wl_h;
 	int		wl_t;
@@ -97,8 +99,6 @@ typedef struct s_data
 	int				p_p_mini;
 	float			retation;
 	int				old_x_m;
-	int				st_x;
-	int				st_y;
 	int				keys[3][2];
 	t_raycast		*raycat;
 }	t_data;

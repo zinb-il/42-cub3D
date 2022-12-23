@@ -6,21 +6,11 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 18:34:28 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/22 19:50:24 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/23 17:20:19 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3D.h"
-
-void	map_position(t_data *data)
-{
-	data->st_x = 0;
-	data->st_y = 0;
-	if (data->gm->nb_col * 64 < MAP_W)
-		data->st_x = (MAP_W - data->gm->map_w) / 2;
-	if (data->gm->nb_row * 64 < MAP_H)
-		data->st_y = (MAP_H - data->gm->map_h) / 2;
-}
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
