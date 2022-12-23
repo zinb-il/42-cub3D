@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D_utils_1.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:58:53 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/19 18:05:48 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/23 22:29:07 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ft_print_game(t_game *gm)
 	printf("F %lu %lx\n", gm->c_f, gm->c_f);
 	printf("Player x %d player y %d\n", gm->p_x, gm->p_y);
 	printf("Player xw %d player yw %d\n", gm->p_width, gm->p_height);
-	printf("Player view %f\n", gm->p_view);
+	printf("Player view %f deg %f \n", gm->p_view, gm->p_view * 180 / PI);
 	printf("map width %d  map height %d\n", gm->map_w, gm->map_h);
 	printf("map cols %d  map rows %d\n", gm->nb_col, gm->nb_row);
 	print_dstr(gm->map);

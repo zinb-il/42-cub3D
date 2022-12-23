@@ -3,8 +3,8 @@ SO ./img_cub/wall_s.xpm
 WE ./img_cub/wall_w.xpm
 EA ./img_cub/wall_e.xpm
 
- F 220,100,255
-C 225,30,111
+ F 220,100,1111
+C 225,30,1111
 
 
 

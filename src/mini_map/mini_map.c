@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mini_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 20:49:41 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/20 20:01:16 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/23 22:03:09 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@ void	s_m_win(t_data *data, int k, int l)
 		draw_win(data, k, l, 16113151);
 	else
 	{
-		if (data->gm->map[y][x] == '1')
-			draw_win(data, k, l, 16113151);
-		else if (data->gm->map[y][x] == '0')
+		if (data->gm->map[y][x] == '0' || ft_isalpha(data->gm->map[y][x]))
 			draw_win(data, k, l, 16777177);
 		else
 			draw_win(data, k, l, 14742783);

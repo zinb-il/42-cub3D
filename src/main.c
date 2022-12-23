@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 23:08:36 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/22 22:10:41 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/23 23:47:27 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,10 @@ int	main(int ac, char **av)
 	data = (t_data *)malloc(sizeof(t_data));
 	if (!data)
 		ft_print_errors(strerror(errno));
-	init_data(gm, data);
-	init_img(data);
-	mlx_loop_hook(data->gm->mlx, game, data);
-	mlx_loop(data->gm->mlx);
+	//init_data(gm, data);
+	//init_img(data);
+	//mlx_loop_hook(data->gm->mlx, game, data);
+	//mlx_loop(data->gm->mlx);
+	ft_print_game(gm);
 	return (0);
 }

@@ -1,0 +1,11 @@
+NO ./img_cub/wall_1.xpm
+SO ./img_cub/wall_2.xpm
+WE ./img_cub/wall_3.xpm
+EA ./img_cub/wall_3.xpm
+
+F 0,178,128     
+C 193,245,255
+
+111
+1S1
+111

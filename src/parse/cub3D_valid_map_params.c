@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:54:24 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/23 20:52:42 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/23 23:58:35 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,22 @@ void	ft_check_empty(t_game *gm)
 		ft_print_errors(ERROR_EMPTY_MAP);
 }
 
+int	ft_spaces(char *str)
+{
+	size_t	c;
+
+	c = ft_count_char(str, ' ');
+	c += ft_count_char(str, '\n');
+	if (c == ft_strlen(str))
+		return (1);
+	return (0);
+}
+
 void	ft_check_walls_files_colors_map(char *line, int i, t_game **game)
 {
-	if (i <= 6 && i >= 1)
+	if (i <= 6 && i >= 1 && !ft_spaces(line))
 		ft_check_walls_files_colors(line, game);
-	else
+	if (i > 6)
 		ft_check_map(line, game);
 }
 
@@ -64,7 +75,7 @@ void	ft_valid_map_params(char *file_name, t_game **game)
 			ft_get_line(&line);
 			ft_check_walls_files_colors_map(line, i, game);
 		}
-		if (ft_strlen(line) == 1 && i > 6)
+		if (ft_strlen(line) == 1 && i > 6 && line[0] == '\n')
 			ft_print_errors(ERROR_INVALID_MAP);
 		free(line);
 		line = get_next_line(fd);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D_valid_map_description.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 21:46:05 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/18 22:58:59 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/23 23:26:27 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void	ft_check_walls_files_colors(char *line, t_game **game)
 	char	**params;
 
 	params = ft_split(line, ' ');
-	if (ft_dstrlen(params) != 2)
+	/*if (ft_dstrlen(params) != 2)
 	{
 		free_dstr(params);
 		ft_print_errors(ERROR_INVALID_PARAMS);
-	}
+	}*/
 	if (!ft_strcmp(W_NO, params[0]) || !ft_strcmp(W_SO, params[0]) || \
 		!ft_strcmp(W_WE, params[0]) || !ft_strcmp(W_EA, params[0]))
 		ft_check_walls_files(params, game);
