@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D_utils_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:52:08 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/19 17:33:16 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/23 20:11:06 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,5 @@ t_game	*first_part_cub3d(int ac, char **av)
 	ft_valid_map_params(av[1], &gm);
 	ft_valid_map_elem(&gm);
 	ft_get_info(&gm);
-	ft_print_game(gm);
 	return (gm);
 }

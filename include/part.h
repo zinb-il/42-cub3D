@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   part.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:38:27 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/23 17:17:34 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/23 21:48:53 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # define MOVE_SPEED 10
 # define ROTATION_SPEED .1
 # define MAP_W 1500
+# define DIS 10
 # define MAP_H 720
 # define TEXTURE_WIDTH 64
 # define TEXTURE_HEIGHT 64
@@ -94,6 +95,8 @@ typedef struct s_data
 	void			*mlx_win;
 	float			pp_x;
 	float			pp_y;
+	float			n_p_x;
+	float			n_p_y;
 	int				c_x;
 	int				c_y;
 	int				p_p_mini;

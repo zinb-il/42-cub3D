@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 23:11:00 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/13 17:38:29 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/23 20:57:18 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,15 @@ void	ft_convert_rgb_to_hexa(int	*colors, char **params, t_game **game)
 
 void	ft_valid_colors(char **colors, char **params, t_game **game)
 {
-	int	i;
-	int	c;
-	int	clrs[3];
+	int			i;
+	long int	c;
+	int			clrs[3];
 
 	i = 0;
 	while (colors[i])
 	{
 		c = ft_get_color(colors[i]);
-		if (c < -1 || c > 255)
+		if (c <= -1 || c > 255)
 		{
 			free_dstr(params);
 			free_dstr(colors);

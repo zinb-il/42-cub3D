@@ -1,10 +1,10 @@
-NO ./img_cub/wall_1.xpm
-SO ./img_cub/wall_2.xpm
-WE ./img_cub/wall_3.xpm
-EA ./img_cub/wall_4.xpm 
+NO ./img_cub/wall_n.xpm
+SO ./img_cub/wall_s.xpm
+WE ./img_cub/wall_w.xpm
+EA ./img_cub/wall_e.xpm
 
-F 220,100,255
-C 225,30,255
+ F 220,100,255
+C 225,30,111
 
 
 
