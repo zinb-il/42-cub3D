@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wall.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 17:46:48 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/23 17:19:51 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/26 17:14:07 by iouazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,19 +55,20 @@ char	*way(t_data *data, int nb, int t_setx, int t_sety)
 	if (data->raycat->rays[nb].was_h_v == 0)
 	{
 		if ((data->pp_x - data->raycat->rays[nb].wallhit_y) < 0)
+			return (data->south.addr + t_sety * \
+				data->south.line_length + t_setx * 4);
+		else
+			return (data->north.addr + t_sety * \
+				data->north.line_length + t_setx * 4);
+
+	}
+	else
+	{
+		if ((data->pp_y - data->raycat->rays[nb].wallhit_x) < 0)
 			return (data->east.addr + t_sety * data->east.line_length \
 				+ t_setx * 4);
 		else
 			return (data->west.addr + t_sety * data->west.line_length \
 				+ t_setx * 4);
-	}
-	else
-	{
-		if ((data->pp_y - data->raycat->rays[nb].wallhit_x) < 0)
-			return (data->north.addr + t_sety * \
-				data->north.line_length + t_setx * 4);
-		else
-			return (data->south.addr + t_sety * \
-				data->south.line_length + t_setx * 4);
 	}
 }
