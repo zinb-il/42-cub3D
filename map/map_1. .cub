@@ -1,12 +1,10 @@
-NO ./img_cub/wall_n.xpm
-SO ./img_cub/wall_s.xpm
-WE ./img_cub/wall_w.xpm
-EA ./img_cub/wall_e.xpm
+NO ./img_cub/wall__n.xpm
+SO ./img_cub/wall__s.xpm
+WE ./img_cub/wall__w.xpm
+EA ./img_cub/wall__e.xpm
 
- F 220,100,1111
+F 220,100,1111
 C 225,30,1111
-
-
 
      1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   111111111111
     101 101 101 101 101 101 101 101 101 101 101 101 101 101 101 101 101 101 101 101 101 1000000000000111111111

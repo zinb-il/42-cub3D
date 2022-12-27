@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:58:53 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/23 22:29:07 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/24 18:25:10 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	ft_init_game(t_game **game)
 	(*game)->mlx = mlx_init();
 	(*game)->c_c = -1;
 	(*game)->c_f = -1;
+	(*game)->col_c = -1;
+	(*game)->col_f = -1;
 }
 
 void	print_dstr(char **str)

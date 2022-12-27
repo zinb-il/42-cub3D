@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wall.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iouazzan <iouazzan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 17:46:48 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/26 17:14:07 by iouazzan         ###   ########.fr       */
+/*   Updated: 2022/12/27 12:44:12 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ char	*way(t_data *data, int nb, int t_setx, int t_sety)
 		else
 			return (data->north.addr + t_sety * \
 				data->north.line_length + t_setx * 4);
-
 	}
 	else
 	{

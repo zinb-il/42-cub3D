@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 23:11:00 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/23 23:20:53 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/24 18:26:05 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,15 @@ void	ft_convert_rgb_to_hexa(int	*colors, char **params, t_game **game)
 
 	hexa = colors[0] << 16 | colors[1] << 8 | colors[2] << 0;
 	if (!ft_strcmp(COLOR_F, params[0]))
+	{
 		(*game)->c_f = hexa;
+		(*game)->col_f = 1;
+	}
 	else
+	{
 		(*game)->c_c = hexa;
+		(*game)->col_c = 1;
+	}
 }
 
 void	ft_valid_colors(char **colors, char **params, t_game **game)
@@ -68,29 +74,13 @@ void	ft_valid_colors(char **colors, char **params, t_game **game)
 	ft_convert_rgb_to_hexa(clrs, params, game);
 }
 
-int	ft_check_comma(char *str)
-{
-	int	i;
-	int	c;
-
-	i = 0;
-	c = 0;
-	while (str[i])
-	{
-		if (str[i] == ',')
-			c++;
-		i++;
-	}
-	return (c);
-}
-
 void	ft_check_colors(char **params, t_game **game)
 {
 	char	**colors;
 
 	(void)game;
 	colors = ft_split(params[1], ',');
-	if (ft_dstrlen(colors) != 3 || ft_check_comma(params[1]) != 2)
+	if (ft_dstrlen(colors) != 3 || ft_count_char(params[1], ',') != 2)
 	{
 		free_dstr(params);
 		free_dstr(colors);

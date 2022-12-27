@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:54:24 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/23 23:58:35 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/24 18:26:26 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_check_empty(t_game *gm)
 	!gm->map && gm->c_c < 0 && gm->c_f < 0)
 		ft_print_errors(ERROR_EMPTY_FILE);
 	if (!gm->w_no || !gm->w_so || !gm->w_ea || !gm->w_we || \
-	gm->c_c < 0 || gm->c_f < 0)
+	gm->col_c < 0 || gm->col_f < 0)
 		ft_print_errors(ERROR_INCMP_PARAM);
 	if (!gm->map)
 		ft_print_errors(ERROR_EMPTY_MAP);

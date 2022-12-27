@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:36:15 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/23 20:57:05 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/24 18:24:01 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@
 # define ERROR_INVALID_WALL1 "les murs de votre carte ne sont pas fermés"
 # define ERROR_INVALID_PARAMS "la description de votre carte est invalide"
 # define ERROR_INVALID_PCOLORS "la description des couleurs est invalide"
-# define ERROR_INCMP_PARAM "la description de votre carte est complète"
+# define ERROR_INCMP_PARAM "la description de votre carte est incomplète"
 # define ERROR_EMPTY_MAP "votre map est vide"
-# define ERROR_PLAYER_MAP "la map doit contenir au maximum un joueur\n"
+# define ERROR_PLAYER_MAP "la map doit contenir au maximum un joueur"
 
 //Key Code
 # define KEY_ESC 53
@@ -85,6 +85,8 @@ typedef struct s_cub3d
 	void			*img;
 	unsigned long	c_f;
 	unsigned long	c_c;
+	int				col_c;
+	int				col_f;
 	float			p_view;
 	int				p_x;
 	int				p_y;
