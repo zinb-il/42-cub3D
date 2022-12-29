@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3D_valid_map_params.c                           :+:      :+:    :+:   */
+/*   cub3D_valid_map_params_bonus.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:54:24 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/27 17:44:25 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/27 18:25:39 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/cub3D.h"
+#include "../../include_bonus/cub3D_bonus.h"
 
 void	ft_check_empty(t_game *gm)
 {
 	if (!gm->w_no && !gm->w_so && !gm->w_ea && !gm->w_we && \
-	!gm->map && gm->col_f < 0 && gm->col_c < 0)
+	!gm->map && gm->col_c < 0 && gm->col_f < 0)
 		ft_print_errors(ERROR_EMPTY_FILE);
 	if (!gm->w_no || !gm->w_so || !gm->w_ea || !gm->w_we || \
 	gm->col_c < 0 || gm->col_f < 0)

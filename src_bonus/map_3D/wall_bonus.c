@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   wall.c                                             :+:      :+:    :+:   */
+/*   wall_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 17:46:48 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/27 16:53:08 by ziloughm         ###   ########.fr       */
+/*   Updated: 2022/12/27 18:02:52 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/cub3D.h"
+#include "../../include_bonus/cub3D_bonus.h"
 
 void	get_walls_dimension(t_data *data, float wallstrip_h, int i)
 {
