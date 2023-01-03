@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 20:49:41 by iouazzan          #+#    #+#             */
-/*   Updated: 2023/01/03 21:38:43 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/03 21:45:33 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,10 @@ void	s_m_win(t_data *data, int k, int l)
 			draw_win(data, k, l, 16777177);
 		else if (data->gm->map[y][x] == '2')
 		{
-			draw_win(data, k, l, 16101555);
+			draw_win(data, k, l, 7639199);
+			printf("s %d vi %d\n", s, data->sprites[s].visible);
 			if (data->sprites[s].visible)
-				draw_win(data, k, l, 16101560);
+				draw_win(data, k, l, 16101555);
 			s++;
 		}
 		else if (data->gm->map[y][x] == '3')
