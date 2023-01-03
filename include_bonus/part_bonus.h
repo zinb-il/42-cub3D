@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:38:27 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/27 19:26:35 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/03 19:32:30 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,23 @@ typedef struct s_img
 	int		endian;
 }	t_img;
 
+typedef struct s_sprite
+{
+	int		x;
+	int		y;
+	int		visible;
+	float	distance;
+	float	angl;
+}t_sprite;
+
+typedef struct s_door
+{
+	int		x;
+	int		y;
+	int		visible;
+	float	distance;
+}t_door;
+
 typedef struct s_data
 {
 	struct s_cub3d	*gm;
@@ -92,6 +109,8 @@ typedef struct s_data
 	struct s_img	west;
 	struct s_img	east;
 	struct s_img	south;
+	struct s_img	sprite;
+	struct s_img	door;
 	void			*mlx_win;
 	float			pp_x;
 	float			pp_y;
@@ -103,7 +122,11 @@ typedef struct s_data
 	float			retation;
 	int				old_x_m;
 	int				keys[3][2];
+	int				num_spri;
+	int				num_door;
 	t_raycast		*raycat;
+	t_sprite		*sprites;
+	t_door			*doors;
 }	t_data;
 
 int		check_sides(t_data *data, int x, int y);

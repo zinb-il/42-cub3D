@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 20:49:41 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/27 20:23:15 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/03 21:38:43 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@ void	s_m_win(t_data *data, int k, int l)
 {
 	int	y;
 	int	x;
+	int	s;
 
 	y = (data->pp_x / 64) - data->c_y;
 	x = (data->pp_y / 64) - data->c_x;
+	s = 0;
 	if ((y < 0 || y > data->gm->nb_row - 1) || (x < 0 || x > data->gm->nb_col))
 		draw_win(data, k, l, 16113151);
 	else
@@ -26,7 +28,12 @@ void	s_m_win(t_data *data, int k, int l)
 		if (data->gm->map[y][x] == '0' || ft_isalpha(data->gm->map[y][x]))
 			draw_win(data, k, l, 16777177);
 		else if (data->gm->map[y][x] == '2')
+		{
 			draw_win(data, k, l, 16101555);
+			if (data->sprites[s].visible)
+				draw_win(data, k, l, 16101560);
+			s++;
+		}
 		else if (data->gm->map[y][x] == '3')
 			draw_win(data, k, l, 9126929);
 		else

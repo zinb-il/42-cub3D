@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:18:53 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/27 18:02:52 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/03 21:09:11 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void	map_3d(t_data *data)
 		draw_floor(data, i);
 		i++;
 	}
+	get_visible_sprites(data);
 	mlx_put_image_to_window(data->gm->mlx, data->mlx_win, data->img->img, 0, 0);
 	mini_map(data);
 }

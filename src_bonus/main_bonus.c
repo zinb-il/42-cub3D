@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 23:08:36 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/24 18:33:40 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/03 21:35:47 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3D.h"
+#include "../include_bonus/cub3D_bonus.h"
 
 int	game(t_data *data)
 {
@@ -76,7 +76,10 @@ int	main(int ac, char **av)
 		ft_print_errors(strerror(errno));
 	init_data(gm, data);
 	init_img(data);
+	init_sprites(data);
+	print_sprite(data);
 	mlx_loop_hook(data->gm->mlx, game, data);
 	mlx_loop(data->gm->mlx);
+	//ft_print_game(gm);
 	return (0);
 }

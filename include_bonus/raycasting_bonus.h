@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycasting.h                                       :+:      :+:    :+:   */
+/*   raycasting_bonus.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:48:44 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/23 17:18:10 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/03 18:03:43 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#	ifndef RAYCASTING_H
-# define RAYCASTING_H
+#	ifndef RAYCASTING_BONUS_H
+# define RAYCASTING_BONUS_H
 # define NORTH 4.71
 # define SOUTH 1.57
 # define WEST PI

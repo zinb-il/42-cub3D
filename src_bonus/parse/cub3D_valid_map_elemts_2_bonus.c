@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 16:35:41 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/27 19:21:29 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/03 19:16:42 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	check_doors(char **map, int i, int j)
 
 	lr = map[i - 1][j] + map[i + 1][j] - 96;
 	ud = map[i][j - 1] + map[i][j + 1] - 96;
-	printf("%d %d\n", lr, ud);
 	if (lr != 2 && ud != 2)
 		ft_print_errors(ERROR_DOORS);
 }
