@@ -6,41 +6,11 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 20:49:41 by iouazzan          #+#    #+#             */
-/*   Updated: 2023/01/03 21:52:37 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/04 14:33:23 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include_bonus/cub3D_bonus.h"
-
-void	s_m_win(t_data *data, int k, int l)
-{
-	int	y;
-	int	x;
-	int	s;
-
-	y = (data->pp_x / 64) - data->c_y;
-	x = (data->pp_y / 64) - data->c_x;
-	s = 0;
-	if ((y < 0 || y > data->gm->nb_row - 1) || (x < 0 || x > data->gm->nb_col))
-		draw_win(data, k, l, 16113151);
-	else
-	{
-		if (data->gm->map[y][x] == '0' || ft_isalpha(data->gm->map[y][x]))
-			draw_win(data, k, l, 16777177);
-		else if (data->gm->map[y][x] == '2')
-		{
-			draw_win(data, k, l, 7639199);
-			printf("s %d vi %d\n", s, data->sprites[s].visible);
-			if (data->sprites[s].visible)
-				draw_win(data, k, l, 16101555);
-			s++;
-		}
-		else if (data->gm->map[y][x] == '3')
-			draw_win(data, k, l, 9126929);
-		else
-			draw_win(data, k, l, 14742783);
-	}
-}
 
 int	check_des(t_data *data, int x, int y)
 {
@@ -73,6 +43,50 @@ void	draw_win(t_data *data, int i, int j, int clr)
 			x++;
 		}
 		y++;
+	}
+}
+
+void	draw_sprite(t_data *data, int k, int l)
+{
+	int			y;
+	int			x;
+	static int	s;
+
+	y = (data->pp_x / 64) - data->c_y;
+	x = (data->pp_y / 64) - data->c_x;
+	(void)k;
+	(void)l;
+	if (!s || s >= data->num_spri)
+		s = 0;
+	//setup_sprite_min(data, data->sprites[s].visible, \
+	//data->sprites[s].y, data->sprites[s].x);
+	//printf("s %d v %d\n", s, data->sprites[s].visible);
+	if (data->sprites[s].visible)
+		draw_win(data, k, l, 16101555);
+	else
+		draw_win(data, k, l, 7639199);
+	s++;
+}
+
+void	s_m_win(t_data *data, int k, int l)
+{
+	int	y;
+	int	x;
+
+	y = (data->pp_x / 64) - data->c_y;
+	x = (data->pp_y / 64) - data->c_x;
+	if ((y < 0 || y > data->gm->nb_row - 1) || (x < 0 || x > data->gm->nb_col))
+		draw_win(data, k, l, 16113151);
+	else
+	{
+		if (data->gm->map[y][x] == '0' || ft_isalpha(data->gm->map[y][x]))
+			draw_win(data, k, l, 16777177);
+		else if (data->gm->map[y][x] == '2')
+			draw_sprite(data, k, l);
+		else if (data->gm->map[y][x] == '3')
+			draw_win(data, k, l, 9126929);
+		else
+			draw_win(data, k, l, 14742783);
 	}
 }
 

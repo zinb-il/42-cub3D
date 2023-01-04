@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 23:08:36 by ziloughm          #+#    #+#             */
-/*   Updated: 2023/01/03 21:54:42 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/04 15:33:04 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,8 @@ int	main(int ac, char **av)
 	start_raycast(data);
 	map_3d(data);
 	print_sprite(data);
-	// mlx_loop_hook(data->gm->mlx, game, data);
+	// ft_print_game(gm);
+	//mlx_loop_hook(data->gm->mlx, game, data);
 	mlx_loop(data->gm->mlx);
-	//ft_print_game(gm);
 	return (0);
 }

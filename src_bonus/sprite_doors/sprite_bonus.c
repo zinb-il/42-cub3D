@@ -6,17 +6,51 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:36:53 by ziloughm          #+#    #+#             */
-/*   Updated: 2023/01/03 21:41:10 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/04 20:59:59 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include_bonus/cub3D_bonus.h"
 
-void	get_elem_xy(t_sprite *sprite, int i, int j, int index)
+void	get_sprite_dimension(t_data *data, int i)
 {
-	sprite[index].x = j * SIZE_WIN / 2;
-	sprite[index].y = i * SIZE_WIN / 2;
-	sprite[index].visible = 0;
+	float	distance;
+	float	pos_x;
+	float	ang;
+
+	distance = data->sprites[i].distance;
+	data->sprites[i].h = (SIZE_WIN / distance) * data->distance_pro;
+	data->sprites[i].top_y = (MAP_H / 2) - (data->sprites[i].h / 2);
+	data->sprites[i].bottom_y = (MAP_H / 2) + (data->sprites[i].h / 2);
+	if (data->sprites[i].top_y < 0)
+		data->sprites[i].top_y = 0;
+	if (data->sprites[i].bottom_y > MAP_H)
+		data->sprites[i].bottom_y = MAP_H;
+	ang = atan2(data->sprites[i].y - data->pp_x, \
+	data->sprites[i].x - data->pp_y) - normalize_angle(data->retation);
+	pos_x = tan(data->sprites[i].angl) * data->distance_pro;
+	printf("%d : psx %f \n", i, pos_x);
+	data->sprites[i].left_x = (MAP_W / 2) + pos_x;
+	data->sprites[i].right_x = data->sprites[i].left_x + pos_x;
+}
+
+void	draw_sprites(t_data *data, int in)
+{
+	int	j;
+	int	i;
+
+	get_sprite_dimension(data, in);
+	i = data->sprites[in].left_x;
+	while (i < data->sprites[in].right_x)
+	{
+		j = data->sprites[in].top_y;
+		while (j < data->sprites[in].bottom_y)
+		{
+			my_mlx_pixel_put(data, i, j, 0);
+			j++;
+		}
+		i++;
+	}
 }
 
 void	init_sprites(t_data *data)
@@ -56,16 +90,18 @@ void	get_visible_sprites(t_data *data)
 	i = 0;
 	while (i < data->num_spri)
 	{
-		ang = data->retation - atan2(data->sprites[i].x - data->pp_y, \
-		data->sprites[i].y - data->pp_x);
-		if (ang > PI)
-			ang -= PI * 2;
-		if (ang < -PI)
-			ang += PI * 2;
-		ang = fabs(ang);
+		ang = normalize_angle(data->retation) - atan2(data->sprites[i].y - \
+		data->pp_x, data->sprites[i].x - data->pp_y);
+		//printf("angl %f fov/2 %f\n", ang, data->raycat->fov_angl / 2);
+		ang = ft_nomlize_arctan(ang);
 		data->sprites[i].visible = 0;
 		if (ang < data->raycat->fov_angl / 2)
+		{
+			data->sprites[i].angl = ang;
 			data->sprites[i].visible = 1;
+			ft_distance_s(data, i);
+			draw_sprites(data, i);
+		}
 		i++;
 	}
 }

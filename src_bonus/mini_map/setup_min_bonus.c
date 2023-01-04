@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 18:20:39 by iouazzan          #+#    #+#             */
-/*   Updated: 2023/01/03 21:41:18 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/04 14:28:06 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,35 @@ void	setup_player_min(t_data *data)
 			if (sqrt(pow(x, 2) + pow(y, 2)) <= width)
 				mlx_pixel_put(data->gm->mlx, data->mlx_win,
 					y + data->p_p_mini, x + data->p_p_mini, 16101555);
+			++y;
+		}
+		x -= 2;
+	}
+}
+
+void	setup_sprite_min(t_data *data, int s, int i, int j)
+{
+	int	x;
+	int	y;
+	int	width;
+	int	length;
+
+	width = 5;
+	length = width * 1.5;
+	x = width;
+	while (x >= -width)
+	{
+		y = -length;
+		while (y <= length)
+		{
+			if (sqrt(pow(x, 2) + pow(y, 2)) <= width)
+			{
+				mlx_pixel_put(data->gm->mlx, data->mlx_win, \
+				y + data->p_p_mini + j, x + data->p_p_mini + i, 7639199);
+				if (s)
+					mlx_pixel_put(data->gm->mlx, data->mlx_win, \
+					y + data->p_p_mini + j, x + data->p_p_mini + i, 16101555);
+			}
 			++y;
 		}
 		x -= 2;

@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:18:53 by ziloughm          #+#    #+#             */
-/*   Updated: 2023/01/03 21:54:05 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/04 16:24:38 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,16 @@ void	draw_ceilling(t_data *data, int in)
 void	map_3d(t_data *data)
 {
 	int		i;
-	float	distance_pro;
 	float	wallstrip_h;
 	float	distance;
 
 	i = 0;
-	distance_pro = (MAP_W / 2) / tan(data->raycat->fov_angl / 2);
+	data->distance_pro = (MAP_W / 2) / tan(data->raycat->fov_angl / 2);
 	while (i < MAP_W)
 	{
 		distance = data->raycat->rays[i].distance * \
 		cos(data->raycat->rays[i].ray_angl - data->retation);
-		wallstrip_h = (SIZE_WIN / distance) * distance_pro;
+		wallstrip_h = (SIZE_WIN / distance) * data->distance_pro;
 		get_walls_dimension(data, wallstrip_h, i);
 		draw_wall(data, i, (int)wallstrip_h);
 		draw_ceilling(data, i);

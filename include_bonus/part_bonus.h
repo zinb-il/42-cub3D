@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:38:27 by iouazzan          #+#    #+#             */
-/*   Updated: 2023/01/03 19:32:30 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/04 17:55:04 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,11 @@ typedef struct s_sprite
 	int		y;
 	int		visible;
 	float	distance;
+	float	top_y;
+	float	bottom_y;
+	float	left_x;
+	float	right_x;
+	float	h;
 	float	angl;
 }t_sprite;
 
@@ -116,6 +121,7 @@ typedef struct s_data
 	float			pp_y;
 	float			n_p_x;
 	float			n_p_y;
+	float			distance_pro;
 	int				c_x;
 	int				c_y;
 	int				p_p_mini;

@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:48:44 by ziloughm          #+#    #+#             */
-/*   Updated: 2023/01/03 18:03:43 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/04 14:47:15 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 t_raycast	*init_raycat(void);
 float		ft_calc_distance(t_data *data, t_point point);
+float		normalize_angle(float angle);
 void		ft_ray_cast(t_data *data, float ray_angl, int i);
 void		cast_allrays(t_data *data);
 void		start_raycast(t_data *data);

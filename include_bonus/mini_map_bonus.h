@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 20:52:16 by iouazzan          #+#    #+#             */
-/*   Updated: 2023/01/03 21:41:55 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/04 14:29:21 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	draw_win(t_data *data, int i, int j, int clr);
 void	s_m_win(t_data *data, int k, int l);
 void	mini_map(t_data *data);
 void	setup_player_min(t_data *data);
+void	setup_sprite_min(t_data *data, int s, int i, int j);
 void	draw_line_utl_m(t_data *data, int x2, int y2);
 void	draw_line_m(t_data *data, int x2, int y2, int color);
 
