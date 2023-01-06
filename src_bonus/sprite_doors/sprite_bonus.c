@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:36:53 by ziloughm          #+#    #+#             */
-/*   Updated: 2023/01/05 19:58:27 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/06 17:04:14 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	get_sprite_dimension(t_data *data, int i)
 	float	pos_x;
 	float	ang;
 
-	data->sprites[i].h = (SIZE_WIN / data->sprites[i].distance) \
-	* data->distance_pro;
+	data->sprites[i].h = (SIZE_WIN / (data->sprites[i].distance * \
+	cos(data->sprites[i].angl))) * data->distance_pro;
 	data->sprites[i].top_y = (MAP_H / 2) - (data->sprites[i].h / 2);
 	data->sprites[i].bottom_y = (MAP_H / 2) + (data->sprites[i].h / 2);
 	if (data->sprites[i].top_y < 0)
@@ -28,9 +28,9 @@ void	get_sprite_dimension(t_data *data, int i)
 	ang = atan2f(data->sprites[i].y - data->pp_x, \
 	data->sprites[i].x - data->pp_y) - normalize_angle(data->retation);
 	pos_x = tan(ang) * data->distance_pro;
-	data->sprites[i].left_x = (MAP_W / 2) + pos_x - (SIZE_WIN / 2);
-	// printf("%d : ang %f tan %f ", i, ang, tan(ang));
-	// printf("psx %f dis_pro %f map2 %d\n", pos_x, data->distance_pro, MAP_W / 2);
+	data->sprites[i].left_x = (MAP_W / 2) + pos_x - (data->sprites[i].h / 2);
+	//printf("%d : ang %f tan %f ", i, ang, tan(ang));
+	//printf("psx %f dis_pro %f map2 %d\n", pos_x, data->distance_pro, MAP_W / 2);
 	data->sprites[i].right_x = data->sprites[i].left_x + data->sprites[i].h;
 }
 
