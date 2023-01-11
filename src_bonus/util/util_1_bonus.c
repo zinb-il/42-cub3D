@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 22:38:41 by ziloughm          #+#    #+#             */
-/*   Updated: 2023/01/04 18:02:43 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/11 15:00:05 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,10 @@ void	print_sprite(t_data *data)
 		printf("Sprite %d: x %d y %d vis %d ang %f dist %f ", i, \
 		data->sprites[i].x, data->sprites[i].y, data->sprites[i].visible, \
 		data->sprites[i].angl, data->sprites[i].distance);
-		printf("left %f right %f top %f bottom %f\n", \
+		printf("left %f right %f top %f bottom %f height %f\n", \
 		data->sprites[i].left_x, data->sprites[i].right_x, \
-		data->sprites[i].top_y, data->sprites[i].bottom_y);
+		data->sprites[i].top_y, data->sprites[i].bottom_y, \
+		data->sprites[i].h);
 		i++;
 	}
 }

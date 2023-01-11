@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:36:53 by ziloughm          #+#    #+#             */
-/*   Updated: 2023/01/06 17:04:14 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/11 16:04:59 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,32 @@ void	draw_sprites(t_data *data, int in)
 {
 	int	j;
 	int	i;
+	int	x;
+	int	y;
 
 	get_sprite_dimension(data, in);
 	i = data->sprites[in].left_x;
+	x = 0;
 	while (i < data->sprites[in].right_x)
 	{
 		j = data->sprites[in].top_y;
 		while (j < data->sprites[in].bottom_y)
 		{
 			if (i > 0 && i < MAP_W && j > 0 && j < MAP_H)
-				my_mlx_pixel_put(data, i, j, 0);
+			{
+				x = i % SIZE_WIN;
+				y = (j + (data->sprites[in].h / 2) - (MAP_H / 2)) * ((float)SIZE_WIN / data->sprites[in].h);
+				//my_mlx_pixel_put(data, i, j, 0);
+				printf("img : %d\n", (int)(data->sprite.addr + y * data->sprite.line_length + x));
+				my_mlx_pixel_put(data, i, j, *(unsigned int *)(data->sprite.addr + y * \
+				data->sprite.line_length + x * 4));
+			}
 			j++;
+			y++;
 		}
 		i++;
 	}
+	printf("w %f h %f\n", i - data->sprites[in].left_x, j - data->sprites[in].top_y);
 }
 
 void	init_sprites(t_data *data)
