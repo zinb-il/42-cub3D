@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:38:27 by iouazzan          #+#    #+#             */
-/*   Updated: 2023/01/06 15:58:40 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/14 21:37:57 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,8 @@ typedef struct s_data
 	struct s_img	west;
 	struct s_img	east;
 	struct s_img	south;
-	struct s_img	sprite;
+	struct s_img	sprite1;
+	struct s_img	sprite2;
 	struct s_img	door;
 	void			*mlx_win;
 	float			pp_x;
@@ -131,6 +132,7 @@ typedef struct s_data
 	int				keys[3][2];
 	int				num_spri;
 	int				num_door;
+	int				anim;
 	t_raycast		*raycat;
 	t_sprite		*sprites;
 	t_door			*doors;

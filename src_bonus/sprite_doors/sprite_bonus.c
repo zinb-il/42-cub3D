@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:36:53 by ziloughm          #+#    #+#             */
-/*   Updated: 2023/01/13 03:00:52 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/14 21:46:21 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,42 +29,53 @@ void	get_sprite_dimension(t_data *data, int i)
 	data->sprites[i].x - data->pp_y) - normalize_angle(data->retation);
 	pos_x = tan(ang) * data->distance_pro;
 	data->sprites[i].left_x = (MAP_W / 2) + pos_x - (data->sprites[i].h / 2);
-	//printf("%d : ang %f tan %f ", i, ang, tan(ang));
-	//printf("psx %f dis_pro %f map2 %d\n", pos_x, data->distance_pro, MAP_W / 2);
 	data->sprites[i].right_x = data->sprites[i].left_x + data->sprites[i].h;
+}
+
+void	util_draw(t_data *data, int in, int i, int j)
+{
+	int	x;
+	int	y;
+
+	x = (i - data->sprites[in].left_x) * \
+	((float)SIZE_WIN / data->sprites[in].h);
+	y = (j + (data->sprites[in].h / 2) - (MAP_H / 2)) * \
+	((float)SIZE_WIN / data->sprites[in].h);
+	if (!(data->anim % 3))
+		if (*(unsigned int *)(data->sprite2.addr + y * \
+		data->sprite2.line_length + x * 4))
+			my_mlx_pixel_put(data, i, j, *(unsigned int *)(data->sprite2.addr + \
+			y * data->sprite2.line_length + x * 4));
+	if ((data->anim % 3))
+		if (*(unsigned int *)(data->sprite1.addr + y * \
+		data->sprite1.line_length + x * 4))
+			my_mlx_pixel_put(data, i, j, *(unsigned int *)(data->sprite1.addr + \
+			y * data->sprite1.line_length + x * 4));
 }
 
 void	draw_sprites(t_data *data, int in)
 {
-	int	j;
-	int	i;
-	int	x;
-	int	y;
+	int			j;
+	int			i;
+	static int	img;
 
-	get_sprite_dimension(data, in);
+	if (!img || img > 15)
+		img = 1;
+	else
+		++img;
+	data->anim = img;
 	i = (int)data->sprites[in].left_x;
-	x = 0;
 	while (i < (int)data->sprites[in].right_x)
 	{
 		j = (int)data->sprites[in].top_y;
-		x = (i - data->sprites[in].left_x) * ((float)SIZE_WIN / data->sprites[in].h);
 		while (j < (int)data->sprites[in].bottom_y)
 		{
 			if (i > 0 && i < MAP_W && j > 0 && j < MAP_H)
-			{
-				//x = i % SIZE_WIN;
-				y = (j + (data->sprites[in].h / 2) - (MAP_H / 2)) * ((float)SIZE_WIN / data->sprites[in].h);
-				//my_mlx_pixel_put(data, i, j, 0);
-				//printf("i %d j %d img : %d\n", i, j, (int)(data->sprite.addr + y * data->sprite.line_length + x * 4));
-				if ((int)(data->sprite.addr + y * data->sprite.line_length + x * 4))
-					my_mlx_pixel_put(data, i, j, *(unsigned int *)(data->sprite.addr + y * \
-					data->sprite.line_length + x * 4));
-			}
+				util_draw(data, in, i, j);
 			j++;
 		}
 		i++;
 	}
-	printf("w %f h %f\n", i - data->sprites[in].left_x, j - data->sprites[in].top_y);
 }
 
 void	init_sprites(t_data *data)
@@ -113,6 +124,7 @@ void	get_visible_sprites(t_data *data)
 			data->sprites[i].angl = ang;
 			data->sprites[i].visible = 1;
 			ft_distance_s(data, i);
+			get_sprite_dimension(data, i);
 			draw_sprites(data, i);
 		}
 		i++;

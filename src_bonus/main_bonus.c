@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 23:08:36 by ziloughm          #+#    #+#             */
-/*   Updated: 2023/01/11 13:59:00 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/14 21:14:52 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,24 +46,23 @@ void	init_img_sprite_door(t_data *data)
 	int		w;
 	int		y;
 	void	*img;
-	void	*img1;
 
 	w = 0;
 	y = 0;
-	img = mlx_xpm_file_to_image(data->gm->mlx, SPRITE, &w, &y);
+	img = mlx_xpm_file_to_image(data->gm->mlx, SPRITE1, &w, &y);
 	if (!img)
 		ft_print_errors(strerror(errno));
-	data->sprite.img = img;
-	data->sprite.addr = mlx_get_data_addr(data->sprite.img, \
-		&data->sprite.bits_per_pixel, &data->sprite.line_length, \
-		&data->sprite.endian);
-	img1 = mlx_xpm_file_to_image(data->gm->mlx, DOOR1, &w, &y);
-	if (!img1)
+	data->sprite1.img = img;
+	data->sprite1.addr = mlx_get_data_addr(data->sprite1.img, \
+		&data->sprite1.bits_per_pixel, &data->sprite1.line_length, \
+		&data->sprite1.endian);
+	img = mlx_xpm_file_to_image(data->gm->mlx, SPRITE2, &w, &y);
+	if (!img)
 		ft_print_errors(strerror(errno));
-	data->door.img = img1;
-	data->door.addr = mlx_get_data_addr(data->door.img, \
-		&data->door.bits_per_pixel, &data->door.line_length, \
-		&data->door.endian);
+	data->sprite2.img = img;
+	data->sprite2.addr = mlx_get_data_addr(data->sprite2.img, \
+		&data->sprite2.bits_per_pixel, &data->sprite2.line_length, \
+		&data->sprite2.endian);
 }
 
 void	init_img(t_data *data)
@@ -103,12 +102,12 @@ int	main(int ac, char **av)
 	init_data(gm, data);
 	init_img(data);
 	init_sprites(data);
-	mouve_player(data);
-	start_raycast(data);
-	map_3d(data);
+	// mouve_player(data);
+	// start_raycast(data);
+	// map_3d(data);
 	//ft_print_game(gm);
-	print_sprite(data);
-	//mlx_loop_hook(data->gm->mlx, game, data);
+	//print_sprite(data);
+	mlx_loop_hook(data->gm->mlx, game, data);
 	mlx_loop(data->gm->mlx);
 	return (0);
 }
