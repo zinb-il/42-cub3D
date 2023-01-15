@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:36:53 by ziloughm          #+#    #+#             */
-/*   Updated: 2023/01/14 21:46:21 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/15 22:09:10 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@ void	util_draw(t_data *data, int in, int i, int j)
 	int	x;
 	int	y;
 
+	if (data->sprites[in].distance > data->raycat->rays[i].distance)
+	{
+		printf("i %d spri %f wall %f\n", i, data->sprites[in].distance, data->raycat->rays[i].distance);
+		return ;
+	}
 	x = (i - data->sprites[in].left_x) * \
 	((float)SIZE_WIN / data->sprites[in].h);
 	y = (j + (data->sprites[in].h / 2) - (MAP_H / 2)) * \
@@ -125,8 +130,9 @@ void	get_visible_sprites(t_data *data)
 			data->sprites[i].visible = 1;
 			ft_distance_s(data, i);
 			get_sprite_dimension(data, i);
-			draw_sprites(data, i);
 		}
 		i++;
 	}
+	sort_sprites(data);
+	render_sprites(data);
 }
