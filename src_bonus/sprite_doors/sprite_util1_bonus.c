@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 16:25:36 by ziloughm          #+#    #+#             */
-/*   Updated: 2023/01/15 21:42:14 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/16 14:57:44 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,14 @@ void	get_elem_xy(t_sprite *sprite, int i, int j, int index)
 void	ft_distance_s(t_data *data, int i)
 {
 	t_point	point;
+	t_point	point1;
 
 	point.x = data->sprites[i].x;
 	point.y = data->sprites[i].y;
+	point1.x = data->sprites[i].x + (SIZE_WIN / 2);
+	point1.y = data->sprites[i].y + (SIZE_WIN / 2);
 	data->sprites[i].distance = ft_calc_distance(data, point);
+	data->sprites[i].d_center = ft_calc_distance(data, point1);
 }
 
 float	ft_nomlize_arctan(float ang)

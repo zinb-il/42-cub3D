@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:38:27 by iouazzan          #+#    #+#             */
-/*   Updated: 2023/01/14 21:37:57 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/16 14:54:41 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 # define SIZE_WIN 64
 # define SCALE 1
-# define EPSILON 0.2617
+//# define EPSILON 0.2617
+# define EPSILON 0.2
 # define RECTANGLE 60
 # define PI 3.14159265359
 # define MOVE_SPEED 10
@@ -90,6 +91,7 @@ typedef struct s_sprite
 	int		y;
 	int		visible;
 	float	distance;
+	float	d_center;
 	float	top_y;
 	float	bottom_y;
 	float	left_x;

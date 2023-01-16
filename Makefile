@@ -15,7 +15,7 @@ SRCS_BONUS = src_bonus/main_bonus.c src_bonus/parse/cub3D_utils_1_bonus.c src_bo
 
 CC = cc
 
-FLAGS = -Wall -Werror -Wextra  -fsanitize=address -g
+FLAGS = -Wall -Werror -Wextra  #-fsanitize=address -g
 
 DEBUG = -fsanitize=address -g
 
