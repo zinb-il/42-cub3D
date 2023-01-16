@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:36:53 by ziloughm          #+#    #+#             */
-/*   Updated: 2023/01/16 15:22:30 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/16 22:20:11 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,28 +34,26 @@ void	get_sprite_dimension(t_data *data, int i)
 
 void	util_draw(t_data *data, int in, int i, int j)
 {
-	int		x;
-	int		y;
-	t_point	p1;
+	unsigned int	color;
 
-	p1.x = (float)i;
-	p1.y = (float)j;
-	if (data->sprites[in].d_center > data->raycat->rays[i].distance)
+	if (data->sprites[in].distance > data->raycat->rays[i].distance)
 		return ;
-	x = (i - data->sprites[in].left_x) * \
+	data->sprites[in].off_y = (j + (data->sprites[in].h / 2) - (MAP_H / 2)) * \
 	((float)SIZE_WIN / data->sprites[in].h);
-	y = (j + (data->sprites[in].h / 2) - (MAP_H / 2)) * \
-	((float)SIZE_WIN / data->sprites[in].h);
+	if (data->sprites[in].off_x < 0)
+		data->sprites[in].off_x = 0;
+	if (data->sprites[in].off_y < 0)
+		data->sprites[in].off_y = 0;
 	if (!(data->anim % 3))
-		if (*(unsigned int *)(data->sprite2.addr + y * \
-		data->sprite2.line_length + x * 4))
-			my_mlx_pixel_put(data, i, j, *(unsigned int *)(data->sprite2.addr + \
-			y * data->sprite2.line_length + x * 4));
+		color = *(unsigned int *)(data->sprite2.addr + \
+		(int)data->sprites[in].off_y * data->sprite2.line_length + \
+		(int)data->sprites[in].off_x * 4);
 	if ((data->anim % 3))
-		if (*(unsigned int *)(data->sprite1.addr + y * \
-		data->sprite1.line_length + x * 4))
-			my_mlx_pixel_put(data, i, j, *(unsigned int *)(data->sprite1.addr + \
-			y * data->sprite1.line_length + x * 4));
+		color = *(unsigned int *)(data->sprite1.addr + \
+		(int)data->sprites[in].off_y * data->sprite1.line_length \
+		+ (int)data->sprites[in].off_x * 4);
+	if (color)
+		my_mlx_pixel_put(data, i, j, color);
 }
 
 void	draw_sprites(t_data *data, int in)
@@ -73,6 +71,8 @@ void	draw_sprites(t_data *data, int in)
 	while (i < (int)data->sprites[in].right_x)
 	{
 		j = (int)data->sprites[in].top_y;
+		data->sprites[in].off_x = (i - data->sprites[in].left_x) * \
+		((float)SIZE_WIN / data->sprites[in].h);
 		while (j < (int)data->sprites[in].bottom_y)
 		{
 			if (i > 0 && i < MAP_W && j > 0 && j < MAP_H)

@@ -6,15 +6,15 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 16:53:50 by ziloughm          #+#    #+#             */
-/*   Updated: 2023/01/15 21:37:56 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/16 21:17:59 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #	ifndef SPRITE_BONUS_H
 # define SPRITE_BONUS_H
 
-# define SPRITE1 "./img_cub/sprite_12.xpm"
-# define SPRITE2 "./img_cub/sprite_13.xpm"
+# define SPRITE1 "./img_cub/sprite12.xpm"
+# define SPRITE2 "./img_cub/sprite13.xpm"
 # define DOOR1 "./img_cub/door_1.xpm"
 # define DOOR2  "./img_cub/door_2.xpm"
 # define DOOR3 "./img_cub/door_3.xpm"

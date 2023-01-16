@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:38:27 by iouazzan          #+#    #+#             */
-/*   Updated: 2023/01/16 14:54:41 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/16 23:14:04 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ typedef struct ray
 	int		wl_b;
 	int		wl_x;
 	int		wl_y;
+	int		hi_type;
 }t_ray;
 
 typedef struct raycat
@@ -91,13 +92,14 @@ typedef struct s_sprite
 	int		y;
 	int		visible;
 	float	distance;
-	float	d_center;
 	float	top_y;
 	float	bottom_y;
 	float	left_x;
 	float	right_x;
 	float	h;
 	float	angl;
+	float	off_x;
+	float	off_y;
 }t_sprite;
 
 typedef struct s_door
@@ -119,7 +121,7 @@ typedef struct s_data
 	struct s_img	south;
 	struct s_img	sprite1;
 	struct s_img	sprite2;
-	struct s_img	door;
+	struct s_img	door1;
 	void			*mlx_win;
 	float			pp_x;
 	float			pp_y;

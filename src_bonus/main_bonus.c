@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 23:08:36 by ziloughm          #+#    #+#             */
-/*   Updated: 2023/01/16 15:13:17 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/16 23:26:57 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	game(t_data *data)
 	return (0);
 }
 
-void	init_img_sprite_door(t_data *data)
+void	init_img_sprite(t_data *data)
 {
 	int		w;
 	int		y;
@@ -65,9 +65,27 @@ void	init_img_sprite_door(t_data *data)
 		&data->sprite2.endian);
 }
 
+void	init_img_door(t_data *data)
+{
+	int		w;
+	int		y;
+	void	*img;
+
+	w = 0;
+	y = 0;
+	img = mlx_xpm_file_to_image(data->gm->mlx, DOOR1, &w, &y);
+	if (!img)
+		ft_print_errors(strerror(errno));
+	data->door1.img = img;
+	data->door1.addr = mlx_get_data_addr(data->door1.img, \
+		&data->door1.bits_per_pixel, &data->door1.line_length, \
+		&data->door1.endian);
+}
+
 void	init_img(t_data *data)
 {
-	init_img_sprite_door(data);
+	init_img_sprite(data);
+	init_img_door(data);
 	data->img->img = mlx_new_image(data->gm->mlx, MAP_W, MAP_H);
 	data->img->addr = mlx_get_data_addr(data->img->img, \
 		&data->img->bits_per_pixel, &data->img->line_length, \
@@ -102,9 +120,9 @@ int	main(int ac, char **av)
 	init_data(gm, data);
 	init_img(data);
 	init_sprites(data);
-	//mouve_player(data);
-	//start_raycast(data);
-	//map_3d(data);
+	// mouve_player(data);
+	// start_raycast(data);
+	// map_3d(data);
 	//ft_print_game(gm);
 	//print_sprite(data);
 	mlx_loop_hook(data->gm->mlx, game, data);

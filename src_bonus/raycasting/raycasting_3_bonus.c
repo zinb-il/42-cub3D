@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 23:40:19 by ziloughm          #+#    #+#             */
-/*   Updated: 2023/01/05 18:20:05 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/16 23:02:07 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,17 @@ int	ft_end_win(t_data *data, float x, float y)
 	return (1);
 }
 
+int	ft_hit_type(char c)
+{
+	if (c == '1')
+		return (1);
+	else if (c == '3')
+		return (3);
+	else if (c == '4')
+		return (4);
+	return (0);
+}
+
 int	ft_wall_grid(t_data *data, t_info in)
 {
 	int	i;
@@ -52,7 +63,7 @@ int	ft_wall_grid(t_data *data, t_info in)
 	if (i < 0 || i >= data->gm->nb_col || \
 		j < 0 || j >= data->gm->nb_row)
 		return (1);
-	return (data->gm->map[j][i] == '1');
+	return (ft_hit_type(data->gm->map[j][i]));
 }
 
 float	ft_calc_distance(t_data *data, t_point point)
