@@ -2,8 +2,9 @@ NO ./img_cub/north.xpm
 SO ./img_cub/south.xpm
 WE ./img_cub/west.xpm
 EA ./img_cub/east.xpm
-F 0,80,255
-C 225,30,255
+
+F 116,144,159
+C 202,220,232
 
 
 

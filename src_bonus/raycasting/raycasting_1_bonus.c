@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 22:28:36 by ziloughm          #+#    #+#             */
-/*   Updated: 2023/01/05 18:23:50 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/17 18:26:37 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	cast_allrays(t_data *data)
 	ray_ang = data->retation - (data->raycat->fov_angl / 2);
 	while (i < data->raycat->num_rays)
 	{
+		data->raycat->rays[i].door[0] = -1;
+		data->raycat->rays[i].door[1] = -1;
 		data->raycat->rays[i].ray_angl = normalize_angle(ray_ang);
 		ft_ray_cast(data, data->raycat->rays[i].ray_angl, i);
 		ray_ang += data->raycat->fov_angl / data->raycat->num_rays;

@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 18:31:58 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/27 18:02:52 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/17 14:02:45 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void	draw_line(t_data *data, int x2, int y2, int color)
 
 int	key_hookdown(int keycode, t_data *data)
 {
+	if (keycode == KEY_OPNCL)
+		ft_close_open_doors(data);
 	if (keycode == KEY_ESC || keycode == KEY_ESC1)
 		ft_destroy_window(data);
 	if (keycode == KEY_LEFT1)

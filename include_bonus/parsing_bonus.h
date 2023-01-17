@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:36:15 by iouazzan          #+#    #+#             */
-/*   Updated: 2022/12/27 19:26:26 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/17 14:35:29 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # define S_WIN 64
 
 //Map valid elements
-# define MAP_ELMN "0123ESWN "
+# define MAP_ELMN "01234ESWN "
 
 //Map Extension
 # define EXTEN_MAP ".cub"
@@ -56,6 +56,7 @@
 # define KEY_LEFT1 123
 # define KEY_RIGHT 2
 # define KEY_RIGHT1 124
+# define KEY_OPNCL 49
 
 //Map Params
 # define W_NO "NO"

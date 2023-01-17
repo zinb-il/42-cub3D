@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 22:38:41 by ziloughm          #+#    #+#             */
-/*   Updated: 2023/01/11 15:00:05 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/17 12:11:38 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	print_ray(t_ray ray)
 {
-	printf("distance %f hitX %f hitY %f angl %f\n", ray.distance, ray.wallhit_x, \
-	ray.wallhit_y, ray.ray_angl);
+	printf("distance %f hitX %f hitY %f angl %f hitType %d\n", ray.distance, \
+	ray.wallhit_x, ray.wallhit_y, ray.ray_angl, ray.hi_type);
 }
 
 void	print_rays(t_data *data)

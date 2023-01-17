@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 18:39:45 by ziloughm          #+#    #+#             */
-/*   Updated: 2023/01/16 23:03:28 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/17 14:35:09 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ t_point	ft_distance_coordinat(t_data *data, t_info in, int i, int true_if_hor)
 	{
 		in.xhit += in.xdecre;
 		in.yhit += in.ydecre;
-		data->raycat->rays[i].hi_type = ft_wall_grid(data, in);
-		if (data->raycat->rays[i].hi_type)
+		data->raycat->rays[i].hi_type = ft_wall_grid(data, in, i);
+		if (data->raycat->rays[i].hi_type && data->raycat->rays[i].hi_type != 4)
 		{
 			point.x = in.xhit - in.xdecre;
 			point.y = in.yhit - in.ydecre;

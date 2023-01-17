@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:18:53 by ziloughm          #+#    #+#             */
-/*   Updated: 2023/01/04 16:24:38 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/17 17:52:14 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	map_3d(t_data *data)
 	float	distance;
 
 	i = 0;
-	data->distance_pro = (MAP_W / 2) / tan(data->raycat->fov_angl / 2);
 	while (i < MAP_W)
 	{
 		distance = data->raycat->rays[i].distance * \

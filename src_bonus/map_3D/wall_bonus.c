@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 17:46:48 by iouazzan          #+#    #+#             */
-/*   Updated: 2023/01/16 23:26:49 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/17 18:13:24 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,18 @@ void	draw_wall(t_data *data, int in, int wallstrip_h)
 	}
 }
 
+char	*sprite_door_t(t_data *data, int nb, int t_setx, int t_sety)
+{
+	if (data->gm->map[data->raycat->rays[nb].door[0]] \
+		[data->raycat->rays[nb].door[1]] == '3')
+		return (data->door1.addr + t_sety * data->door1.line_length \
+			+ t_setx * 4);
+	return (0);
+}
+
 char	*way(t_data *data, int nb, int t_setx, int t_sety)
 {
-	if (data->raycat->rays[nb].hi_type == 3)
+	if (data->raycat->rays[nb].hi_type == 3 && data->raycat->rays[nb].was_h_v)
 		return (data->door1.addr + t_sety * data->door1.line_length \
 			+ t_setx * 4);
 	if (data->raycat->rays[nb].was_h_v == 0)

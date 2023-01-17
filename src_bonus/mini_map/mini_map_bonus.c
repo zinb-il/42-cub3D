@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 20:49:41 by iouazzan          #+#    #+#             */
-/*   Updated: 2023/01/04 14:33:23 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/17 18:12:28 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,6 @@ void	draw_sprite(t_data *data, int k, int l)
 	(void)l;
 	if (!s || s >= data->num_spri)
 		s = 0;
-	//setup_sprite_min(data, data->sprites[s].visible, \
-	//data->sprites[s].y, data->sprites[s].x);
-	//printf("s %d v %d\n", s, data->sprites[s].visible);
 	if (data->sprites[s].visible)
 		draw_win(data, k, l, 16101555);
 	else
@@ -85,6 +82,8 @@ void	s_m_win(t_data *data, int k, int l)
 			draw_sprite(data, k, l);
 		else if (data->gm->map[y][x] == '3')
 			draw_win(data, k, l, 9126929);
+		else if (data->gm->map[y][x] == '4')
+			draw_win(data, k, l, 16745766);
 		else
 			draw_win(data, k, l, 14742783);
 	}

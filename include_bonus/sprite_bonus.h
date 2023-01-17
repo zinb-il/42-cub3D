@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 16:53:50 by ziloughm          #+#    #+#             */
-/*   Updated: 2023/01/16 21:17:59 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/17 17:19:36 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # define SPRITE1 "./img_cub/sprite12.xpm"
 # define SPRITE2 "./img_cub/sprite13.xpm"
 # define DOOR1 "./img_cub/door_1.xpm"
-# define DOOR2  "./img_cub/door_2.xpm"
-# define DOOR3 "./img_cub/door_3.xpm"
+# define DOOR2  "./img_cub/door_3.xpm"
+# define DOOR3  "./img_cub/door_2.xpm"
 
 float	ft_nomlize_arctan(float ang);
 void	sort_sprites(t_data *data);
@@ -28,5 +28,6 @@ void	draw_sprites(t_data *data, int in);
 void	ft_distance_s(t_data *data, int i);
 void	init_sprites(t_data *data);
 void	get_visible_sprites(t_data *data);
+void	ft_close_open_doors(t_data *data);
 
 #	endif

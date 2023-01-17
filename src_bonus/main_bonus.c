@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 23:08:36 by ziloughm          #+#    #+#             */
-/*   Updated: 2023/01/16 23:26:57 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/17 18:27:53 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,13 @@ void	init_img_door(t_data *data)
 	data->door1.addr = mlx_get_data_addr(data->door1.img, \
 		&data->door1.bits_per_pixel, &data->door1.line_length, \
 		&data->door1.endian);
+	img = mlx_xpm_file_to_image(data->gm->mlx, DOOR3, &w, &y);
+	if (!img)
+		ft_print_errors(strerror(errno));
+	data->door2.img = img;
+	data->door2.addr = mlx_get_data_addr(data->door2.img, \
+		&data->door2.bits_per_pixel, &data->door2.line_length, \
+		&data->door2.endian);
 }
 
 void	init_img(t_data *data)
@@ -120,11 +127,6 @@ int	main(int ac, char **av)
 	init_data(gm, data);
 	init_img(data);
 	init_sprites(data);
-	// mouve_player(data);
-	// start_raycast(data);
-	// map_3d(data);
-	//ft_print_game(gm);
-	//print_sprite(data);
 	mlx_loop_hook(data->gm->mlx, game, data);
 	mlx_loop(data->gm->mlx);
 	return (0);
