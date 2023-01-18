@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 14:03:44 by ziloughm          #+#    #+#             */
-/*   Updated: 2023/01/17 17:51:33 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/18 17:53:29 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	ft_close_open_doors(t_data *data)
 {
 	int		i;
 
+	ft_print_game(data->gm);
 	i = 0;
 	while (i < data->raycat->num_rays)
 	{
@@ -45,4 +46,5 @@ void	ft_close_open_doors(t_data *data)
 	mouve_player(data);
 	start_raycast(data);
 	map_3d(data);
+	ft_print_game(data->gm);
 }

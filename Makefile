@@ -9,9 +9,9 @@ SRCS = src/main.c src/parse/cub3D_utils_1.c src/parse/cub3D_utils_2.c src/parse/
 SRCS_BONUS = src_bonus/main_bonus.c src_bonus/parse/cub3D_utils_1_bonus.c src_bonus/parse/cub3D_utils_2_bonus.c src_bonus/parse/cub3D_valid_map_params_bonus.c src_bonus/parse/cub3D_valid_map_description_bonus.c \
        src_bonus/map_2D/map_2d_1_bonus.c src_bonus/map_2D/map_2d_2_bonus.c src_bonus/map_2D/map_2d_3_bonus.c src_bonus/parse/cub3D_valid_map_elemts_1_bonus.c\
 	   src_bonus/parse/cub3D_valid_map_elemts_2_bonus.c src_bonus/mouvement/mouvement_bonus.c src_bonus/mouvement/util_mouv_bonus.c src_bonus/parse/cub3D_valid_colors_bonus.c src_bonus/parse/cub3D_valid_walls_img_bonus.c \
-	   src_bonus/raycasting/raycasting_1_bonus.c src_bonus/raycasting/raycasting_2_bonus.c src_bonus/raycasting/raycasting_3_bonus.c src_bonus/map_3D/map_3d_1_bonus.c \
-	   src_bonus/mini_map/mini_map_bonus.c src_bonus/mini_map/setup_min_bonus.c src_bonus/util/util_1_bonus.c src_bonus/map_3D/wall_bonus.c \
-	   src_bonus/sprite_doors/* $(VRLIBFT)\
+	   src_bonus/raycasting/raycasting_1_bonus.c src_bonus/raycasting/raycasting_2_bonus.c src_bonus/raycasting/raycasting_3_bonus.c src_bonus/raycasting/raycasting_4_bonus.c \
+	   src_bonus/map_3D/map_3d_1_bonus.c src_bonus/mini_map/mini_map_bonus.c src_bonus/mini_map/setup_min_bonus.c src_bonus/util/util_1_bonus.c src_bonus/map_3D/wall_bonus.c \
+	   src_bonus/sprite_doors/doors_open_close.c  src_bonus/sprite_doors/sprite_bonus.c src_bonus/sprite_doors/sprite_util1_bonus.c $(VRLIBFT)\
 
 CC = cc
 

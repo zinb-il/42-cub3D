@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 18:39:45 by ziloughm          #+#    #+#             */
-/*   Updated: 2023/01/17 14:35:09 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/18 18:03:36 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,7 @@ t_point	ft_distance_coordinat(t_data *data, t_info in, int i, int true_if_hor)
 		in.yhit += in.ydecre;
 		data->raycat->rays[i].hi_type = ft_wall_grid(data, in, i);
 		if (data->raycat->rays[i].hi_type && data->raycat->rays[i].hi_type != 4)
-		{
-			point.x = in.xhit - in.xdecre;
-			point.y = in.yhit - in.ydecre;
-			if (true_if_hor)
-				data->raycat->rays[i].was_h = 1;
-			else
-				data->raycat->rays[i].was_v = 1;
-			return (point);
-		}
+			return (ft_distance_coordinat2(data, in, i, true_if_hor));
 		in.xhit -= in.xdecre;
 		in.yhit -= in.ydecre;
 		in.xhit += in.xstep;
@@ -56,12 +48,14 @@ void	ft_short_distance(t_point point_h, t_point point_v, t_data *data, int i)
 	data->raycat->rays[i].wallhit_y = point_v.y;
 	data->raycat->rays[i].distance = dis_v;
 	data->raycat->rays[i].was_h_v = 1;
+	data->raycat->rays[i].hi_type = point_v.hit;
 	if (dis_h < dis_v)
 	{
 		data->raycat->rays[i].wallhit_x = point_h.x;
 		data->raycat->rays[i].wallhit_y = point_h.y;
 		data->raycat->rays[i].distance = dis_h;
 		data->raycat->rays[i].was_h_v = 0;
+		data->raycat->rays[i].hi_type = point_h.hit;
 	}
 }
 
@@ -118,6 +112,10 @@ void	ft_ray_cast(t_data *data, float ray_angl, int i)
 {
 	data->raycat->rays[i].was_h = 0;
 	data->raycat->rays[i].was_v = 0;
+	data->raycat->rays[i].door[0] = -1;
+	data->raycat->rays[i].door[1] = -1;
+	data->raycat->rays[i].hi_type = -1;
+	data->raycat->rays[i].hit_door = 0;
 	ft_short_distance(ft_horizontal_intersection(data, ray_angl, i), \
 	ft_vertical_intersection(data, ray_angl, i), data, i);
 }

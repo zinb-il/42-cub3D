@@ -1,0 +1,12 @@
+NO ./img_cub/north.xpm
+SO ./img_cub/south.xpm
+WE ./img_cub/west.xpm
+EA ./img_cub/east.xpm
+
+F 116,144,159
+C 202,220,232
+
+111
+131
+1N1
+111

@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 17:46:48 by iouazzan          #+#    #+#             */
-/*   Updated: 2023/01/17 18:13:24 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/18 17:22:17 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ char	*sprite_door_t(t_data *data, int nb, int t_setx, int t_sety)
 
 char	*way(t_data *data, int nb, int t_setx, int t_sety)
 {
-	if (data->raycat->rays[nb].hi_type == 3 && data->raycat->rays[nb].was_h_v)
+	if (data->raycat->rays[nb].hi_type == 3)
 		return (data->door1.addr + t_sety * data->door1.line_length \
-			+ t_setx * 4);
+		+ t_setx * 4);
 	if (data->raycat->rays[nb].was_h_v == 0)
 	{
 		if ((data->pp_x - data->raycat->rays[nb].wallhit_y) < 0)

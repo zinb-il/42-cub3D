@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 23:40:19 by ziloughm          #+#    #+#             */
-/*   Updated: 2023/01/17 15:03:45 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/18 18:03:42 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_end_win(t_data *data, float x, float y)
 
 int	ft_hit_type(int i, int j, int index, t_data *data)
 {
-	if (data->gm->map[j][i] >= '3')
+	if (data->gm->map[j][i] == '3' || data->gm->map[j][i] == '4')
 	{
 		data->raycat->rays[index].door[0] = j;
 		data->raycat->rays[index].door[1] = i;
@@ -52,7 +52,8 @@ int	ft_hit_type(int i, int j, int index, t_data *data)
 		return (3);
 	else if (data->gm->map[j][i] == '4')
 		return (4);
-	return (0);
+	else
+		return (0);
 }
 
 int	ft_wall_grid(t_data *data, t_info in, int index)
