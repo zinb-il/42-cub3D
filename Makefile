@@ -29,21 +29,24 @@ INCLUDES =  mlx/
 
 LINKS =  mlx/ -lmlx -framework OpenGL -framework AppKit
 
-$(VRLIBFT):
-	@make -C libft
-	@cp $(VRLIBFT) $(NAME)
+# $(VRLIBFT):
+# 	@make re -C libft
+# 	@cp $(VRLIBFT) $(NAME)
+# 	@make -C libft clean
+
+$(NAME):
+	@make re -C libft
+	@cp libft/libft.a $(NAME)
 	@make -C libft clean
-
-$(NAME):$(VRLIBFT) $(SRCS)
 	@$(CC) $(FLAGS) -I $(INCLUDES) $(SRCS) -L $(LINKS) -o $(NAME)
-	@echo "\033[0;32m the library of cub3D is perfectly constructed\033[0;37m"
+	echo "\033[0;32m the library of cub3D is perfectly constructed\033[0;37m"
 
-$(BONUS): $(SRCS_BONUS)
-	@make -C libft
+$(BONUS):
+	@make re -C libft/
 	@cp libft/libft.a $(BONUS)
 	@make -C libft clean
 	@$(CC) $(FLAGS) -I $(INCLUDES) $(SRCS_BONUS) -L $(LINKS) -o $(BONUS)
-	@echo "\033[0;32m the library of cub3D_Bonus is perfectly constructed\033[0;37m"
+	echo "\033[0;32m the library of cub3D_Bonus is perfectly constructed\033[0;37m"
 
 all : $(NAME)
 

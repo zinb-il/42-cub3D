@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 21:46:18 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/11/29 15:48:23 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/19 20:09:20 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,32 +32,4 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	str[i] = '\0';
 	return (str);
-}
-
-char	*ft_substr2(char const *s, unsigned int start, size_t len)
-{
-	size_t	i;
-	size_t	j;
-	char	*p;
-
-	if (!s)
-		return (NULL);
-	if (len > ft_strlen(s))
-		len = ft_strlen(s);
-	p = (char *)malloc(sizeof(*s) * (len + 1));
-	if (!p)
-		return (NULL);
-	i = 0;
-	j = 0;
-	while (s[i])
-	{
-		if (i >= start && j < len)
-		{
-			p[j] = s[i];
-			j++;
-		}
-		i++;
-	}
-	p[j] = 0;
-	return (p);
 }
