@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:38:27 by iouazzan          #+#    #+#             */
-/*   Updated: 2023/01/18 21:44:31 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/19 16:25:58 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,6 @@ typedef struct ray
 	int		wl_x;
 	int		wl_y;
 	int		hi_type;
-	int		hit_door;
-	t_point	p_door;
 	int		door[2];
 }t_ray;
 

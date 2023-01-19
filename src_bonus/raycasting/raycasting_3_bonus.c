@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 23:40:19 by ziloughm          #+#    #+#             */
-/*   Updated: 2023/01/18 21:30:59 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/19 15:48:51 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,13 @@ int	ft_end_win(t_data *data, float x, float y)
 
 int	ft_hit_type(int i, int j, int index, t_data *data)
 {
-	/*if (data->gm->map[j][i] == '3' || data->gm->map[j][i] == '4')
+	if ((data->gm->map[j][i] == '4' || data->gm->map[j][i] == '3') \
+	&& (data->raycat->rays[index].door[0] == -1 \
+	|| data->raycat->rays[index].door[1] == -1))
 	{
 		data->raycat->rays[index].door[0] = j;
 		data->raycat->rays[index].door[1] = i;
-	}*/
+	}
 	(void)index;
 	if (data->gm->map[j][i] == '1')
 		return (1);
@@ -65,8 +67,8 @@ int	ft_wall_grid(t_data *data, t_info in, int index)
 	if (in.xhit < 0 || in.xhit >= data->gm->map_w || \
 	in.yhit < 0 || in.yhit >= data->gm->map_h)
 		return (1);
-	i = floor(in.xhit / SIZE_WIN);
-	j = floor(in.yhit / SIZE_WIN);
+	i = (int)floor(in.xhit / SIZE_WIN);
+	j = (int)floor(in.yhit / SIZE_WIN);
 	if (i < 0 || i >= data->gm->nb_col || \
 		j < 0 || j >= data->gm->nb_row)
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 21:46:05 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/24 16:07:26 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/19 17:45:37 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 void	ft_check_walls_files_colors(char *line, t_game **game)
 {
 	char	**params;
+	size_t	l;
 
+	l = ft_strlen(line) - 1;
 	params = ft_split(line, ' ');
 	if (ft_dstrlen(params) != 2 || !ft_isalnum(line[0]) \
-	|| !ft_isalnum(line[ft_strlen(line) - 1]))
+	|| !ft_isalnum(line[l]))
 	{
 		free_dstr(params);
 		ft_print_errors(ERROR_INVALID_PARAMS);

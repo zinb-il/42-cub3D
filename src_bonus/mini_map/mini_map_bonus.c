@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 20:49:41 by iouazzan          #+#    #+#             */
-/*   Updated: 2023/01/17 18:12:28 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/19 17:48:21 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	s_m_win(t_data *data, int k, int l)
 		if (data->gm->map[y][x] == '0' || ft_isalpha(data->gm->map[y][x]))
 			draw_win(data, k, l, 16777177);
 		else if (data->gm->map[y][x] == '2')
-			draw_sprite(data, k, l);
+			draw_win(data, k, l, 16101555);
 		else if (data->gm->map[y][x] == '3')
 			draw_win(data, k, l, 9126929);
 		else if (data->gm->map[y][x] == '4')

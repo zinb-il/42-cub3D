@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:48:44 by ziloughm          #+#    #+#             */
-/*   Updated: 2023/01/18 17:16:35 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/19 17:58:00 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,5 @@ t_point		ft_distance_coordinat2(t_data *data, t_info in, int i, \
 int true_if_hor);
 void		ft_diffrent_hit(t_point point_h, t_point point_v, \
 t_data *data, int i);
+
 #	endif

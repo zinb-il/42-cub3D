@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:54:24 by ziloughm          #+#    #+#             */
-/*   Updated: 2023/01/18 21:30:04 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/19 12:17:09 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,6 @@ int	ft_spaces(char *str)
 
 void	ft_check_walls_files_colors_map(char *line, int i, t_game **game)
 {
-	size_t	l;
-
-	l = ft_strlen(line) - 1;
-	if (line[0] == ' ' || (line[l] && line[l] == ' '))
-		ft_print_errors(ERROR_INVALID_MAP);
 	if (i <= 6 && i >= 1 && !ft_spaces(line))
 		ft_check_walls_files_colors(line, game);
 	if (i > 6)

@@ -6,7 +6,7 @@
 #    By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/21 03:34:46 by iouazzan          #+#    #+#              #
-#    Updated: 2023/01/16 18:24:53 by ziloughm         ###   ########.fr        #
+#    Updated: 2023/01/19 16:33:22 by ziloughm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,9 @@ NAME = libft.a
 DEBUG = -fsanitize=address -g
 
 O_MANDATORY = $(MANDATORY:.c=.o)
+
+.c.o:
+	@$(CC) $(FLAGS)  $< -o $(<:.c=.o)
 
 
 all: $(NAME)

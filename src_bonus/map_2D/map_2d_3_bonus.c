@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 18:34:28 by ziloughm          #+#    #+#             */
-/*   Updated: 2023/01/17 17:52:03 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/19 12:36:32 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,5 @@ void	mouve_player(t_data *data)
 	mlx_hook(data->mlx_win, 2, 0, key_hookdown, data);
 	mlx_hook(data->mlx_win, 3, 0, key_hookup, data);
 	mlx_hook(data->mlx_win, 17, 0, ft_destroy_window, data);
-	mlx_hook(data->mlx_win, 6, 0, mouse_hook, data);
+	//mlx_hook(data->mlx_win, 6, 0, mouse_hook, data);
 }

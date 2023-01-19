@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 18:39:45 by ziloughm          #+#    #+#             */
-/*   Updated: 2023/01/18 18:03:36 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/19 16:26:00 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,6 @@ void	ft_ray_cast(t_data *data, float ray_angl, int i)
 	data->raycat->rays[i].door[0] = -1;
 	data->raycat->rays[i].door[1] = -1;
 	data->raycat->rays[i].hi_type = -1;
-	data->raycat->rays[i].hit_door = 0;
 	ft_short_distance(ft_horizontal_intersection(data, ray_angl, i), \
 	ft_vertical_intersection(data, ray_angl, i), data, i);
 }
