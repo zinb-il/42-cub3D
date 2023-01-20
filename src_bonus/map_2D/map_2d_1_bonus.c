@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 21:33:10 by iouazzan          #+#    #+#             */
-/*   Updated: 2023/01/17 17:31:46 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/20 17:24:40 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	init_data(t_game *game, t_data *data)
 	data->mlx_win = mlx_new_window(data->gm->mlx, MAP_W, MAP_H, "CUB3D");
 	raycast = init_raycat();
 	data->raycat = raycast;
+	data->num_spri = 0;
 	data->distance_pro = (MAP_W / 2) / tan(data->raycat->fov_angl / 2);
 }
 

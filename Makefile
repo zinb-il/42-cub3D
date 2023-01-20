@@ -17,7 +17,7 @@ CC = cc
 
 #FLAGS = -Wall -Werror -Wextra  -fsanitize=address -g
 
-FLAGS = -Wall -Werror -Wextra  -fsanitize=address
+FLAGS = -Wall -Werror -Wextra
 
 DEBUG = -fsanitize=address -g
 

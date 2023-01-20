@@ -6,7 +6,7 @@
 /*   By: ziloughm <ziloughm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:58:53 by ziloughm          #+#    #+#             */
-/*   Updated: 2022/12/27 18:02:52 by ziloughm         ###   ########.fr       */
+/*   Updated: 2023/01/20 15:19:43 by ziloughm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_print_errors(char *msg)
 {
 	if (msg)
 		printf("ERROR\n: %s\n", msg);
-	exit (EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 }
 
 void	ft_init_game(t_game **game)
